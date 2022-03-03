@@ -1,9 +1,9 @@
 import React from "react";
-import Dashboard from "./Dashboard";
+import StudentDashboard from "./Components/StudentDashboard";
 import { ApiClient } from "./apiClient";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Login from "./Login";
+import Login from "./Components/Login";
 import "./App.css";
 
 
@@ -26,7 +26,7 @@ function App() {
   return (
     <>
       {token ? (
-        <Dashboard client={client} />
+        <StudentDashboard client={client} />
       ) : (
         <div className="login-parent">
           <div className="login-form">

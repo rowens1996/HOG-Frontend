@@ -47,6 +47,13 @@ export class ApiClient {
     });
   }
 
+  register(username,password){
+    return this.apiCall("post",`${url}register`,{
+      userName: username,
+      password: password
+    })
+  }
+
 
   addNewUser(username, password) {
     return this.authenticatedCall("post", `${url}register`, { username, password});
@@ -58,17 +65,22 @@ export class ApiClient {
 //   }
 // //////
 
-  getProfileById(userId) {
-    return this.authenticatedCall("get", `${url}search/id/${userId}`);
+getProfile() {
+  return this.authenticatedCall("get", url);
+}
+
+  getProfileById(id) {
+    return this.authenticatedCall("get", `${url}search/id/${id}`);
   }
 
   getProfileByName(name) {
     return this.authenticatedCall("get", `${url}search/name/${name}`);
   }
 
-  addProfile(userId, fname, lname, age, bio, linkedin, github, cv) {
+  addProfile( fname, lname, age, bio, linkedin, github, cv) {
+    console.log("adding profile")
     return this.authenticatedCall("post", `${url}profile`, {
-      userId,
+      
       fname,
       lname,
       age,
@@ -79,12 +91,12 @@ export class ApiClient {
     });
   }
 
-  removeProfile(userId) {
-    return this.authenticatedCall("delete", `${url}event/${userId}`);
+  removeProfile(id) {
+    return this.authenticatedCall("delete", `${url}event/${id}`);
   }
 
-  updateProfile(userId, fname, lname, age, bio, linkedin, github, cv) {
-    return this.authenticatedCall("put", `${url}event/${userId}`, {
+  updateProfile( id, fname, lname, age, bio, linkedin, github, cv) {
+    return this.authenticatedCall("put", `${url}event/${id}`, {
       fname: fname,
       lname: lname,
       age: age,
