@@ -24,6 +24,7 @@ function StudentAdd(props) {
         e.target.cv.value
       );
     } else {
+      console.log(e.target.fname.value);
       result = props.client.addProfile(
         e.target.fname.value,
         e.target.lname.value,
@@ -37,11 +38,11 @@ function StudentAdd(props) {
     result
       .then(() => {
         cDisabled(false);
-        document.getElementById("addForm").reset();
+        e.target.reset();
         props.refreshList();
       })
       .catch(() => {
-        alert("an error occured, please try again");
+        alert("an unexpected error occured");
         cDisabled(false);
       });
   };
@@ -67,84 +68,85 @@ function StudentAdd(props) {
   };
 
   return (
-    <div className="newtitle">
-      {props.currentProfile ? "Update" : "Add"}
-      <br />
+    <Form onSubmit={(e) => submitHandler(e)} id="addForm">
+          <Container id="formContainer">
+            <Form.Group controlId="eventName">
+              <Form.Label>First Name </Form.Label>
+              <Form.Control
+                type="text"
+                defaultValue={props.currentProfile?.fname}
+                name="fname"
+                disabled={disabled}
+              />
+            </Form.Group>
 
-      <form
-        onSubmit={(e) => submitHandler(e)}
-        id="addForm"
-        className="addtitles"
-      >
-        <input
-          type="text"
-          defaultValue={props.currentProfile?.fname}
-          name="fName"
-          disabled={disabled}
-          id="addinput"
-          placeholder="first name"
-        />
+            <Form.Group controlId="eventLocation">
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                type="text"
+                defaultValue={props.currentProfile?.lname}
+                name="lname"
+                disabled={disabled}
+              />
+            </Form.Group>
 
-        <input
-          type="text"
-          defaultValue={props.currentProfile?.lname}
-          name="lName"
-          disabled={disabled}
-          id="addinput"
-          placeholder="last name"
-        />
+            <Form.Group controlId="eventDate">
+              <Form.Label>Date</Form.Label>
+              <Form.Control
+                type="date"
+                defaultValue={props.currentProfile?.date}
+                name="date"
+                disabled={disabled}
+              />
+            </Form.Group>
 
-        <input
-          type="date"
-          defaultValue={props.currentProfile?.dob}
-          name="dateofbirth"
-          disabled={disabled}
-          id="addinput"
-          placeholder="date"
-        />
+            <Form.Group controlId="eventPrice">
+              <Form.Label>Bio</Form.Label>
+              <Form.Control
+                type="text"
+                as="textarea"
+                rows={5}
+                defaultValue={props.currentProfile?.bio}
+                name="bio"
+                disabled={disabled}
+              />
+            </Form.Group>
 
-        <input
-          type="text"
-          defaultValue={props.currentProfile?.bio}
-          name="bio"
-          disabled={disabled}
-          id="addinput"
-          placeholder="bio"
-        />
+            <Form.Group controlId="textInput">
+              <Form.Label>linkedin</Form.Label>
+              <Form.Control
+                type="url"
+                name="linkedin"
+                defaultValue={props.currentProfile?.linkedin}
+                disabled={disabled}
+              />
+            </Form.Group>
 
-        <input
-          type="text"
-          defaultValue={props.currentProfile?.linkedin}
-          name="linkedin"
-          disabled={disabled}
-          id="addinput"
-          placeholder="linkedin url"
-        />
-        <input
-          type="text"
-          defaultValue={props.currentProfile?.github}
-          name="github"
-          disabled={disabled}
-          id="addinput"
-          placeholder="github url"
-        />
-        <input
-          type="text"
-          defaultValue={props.currentProfile?.cv}
-          name="lName"
-          disabled={disabled}
-          id="addinput"
-          placeholder="placeholder"
-        />
-        <br />
-        <br />
-        <button className="add" type="submit" disabled={disabled}>
-          {" "}
-          Submit{" "}
-        </button>
-      </form>
-      {props.currentProfile ? showCancelButton() : null}
-    </div>
+            <Form.Group controlId="textInput">
+              <Form.Label>github</Form.Label>
+              <Form.Control
+                type="url"
+                name="github"
+                defaultValue={props.currentProfile?.github}
+                disabled={disabled}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="eventLocation">
+              <Form.Label>cv</Form.Label>
+              <Form.Control
+                type="text"
+                defaultValue={props.currentProfile?.cv}
+                name="cv"
+                disabled={disabled}
+              />
+            </Form.Group>
+
+            <Button variant="primary" type="submit" >
+              Submit
+            </Button>
+          </Container>
+        </Form>
   );
 }
 

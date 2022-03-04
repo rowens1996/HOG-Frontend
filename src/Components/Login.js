@@ -28,7 +28,8 @@ function Login(props) {
   const signupHandler = (e) => {
     e.preventDefault();
     console.log(props);
-    console.log(e);
+    console.log(e.target.username);
+    //props.client undefined
     props.client
       .addNewUser(e.target.username.value, e.target.password.value)
       .then((response) => {
