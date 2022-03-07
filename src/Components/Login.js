@@ -27,11 +27,12 @@ function Login(props) {
 
   const signupHandler = (e) => {
     e.preventDefault();
-    console.log(props);
-    console.log(e.target.username);
+    e.persist();
+    console.log(e.target.parentElement);
+    console.log(e.target);
     //props.client undefined
     props.client
-      .addNewUser(e.target.username.value, e.target.password.value)
+    .addNewUser(e.target.parentElement.username.value, e.target.parentElement.password.value)
       .then((response) => {
         cDisabled(false);
         // props.loggedIn(response.data.token);
@@ -49,7 +50,7 @@ function Login(props) {
       <span className="login-header">Hire our Graduates</span>
       <span className="login-subheader">Login/SignUp</span>
       <hr />
-      <form onSubmit={(e) => submitHandler(e)}>
+      <form id="registerForm" onSubmit={(e) => submitHandler(e)}>
         <br />
         <input type="text" name="username" disabled={disabled} placeholder="username"/>
         <br />
