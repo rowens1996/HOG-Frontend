@@ -3,9 +3,10 @@ const url = "http://localhost:3001/";
 //const url = "https://rowens96-events-app.herokuapp.com/";
 
 export class ApiClient {
-  constructor(token, logoutHandler) {
+  constructor(token, logoutHandler, newRole) {
     this.token = token;
     this.logoutHandler = logoutHandler;
+    this.role= newRole;
   }
 
   apiCall(method, url, data) {
@@ -47,16 +48,17 @@ export class ApiClient {
     });
   }
 
-  register(username,password){
-    return this.apiCall("post",`${url}register`,{
-      userName: username,
-      password: password
-    })
-  }
+  // register(username, password, role){
+  //   return this.apiCall("post",`${url}register`,{
+  //     userName: username,
+  //     password: password,
+  //     role: role
+  //   })
+  // }
 
 
-  addNewUser(username, password) {
-    return this.authenticatedCall("post", `${url}register`, { username, password});
+  addNewUser(username, password, role) {
+    return this.authenticatedCall("post", `${url}register`, { username, password, role});
   };
 
 // ///// employer search 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
 
-import { Button, Container } from "react-bootstrap";
+import { Button, Container, Form } from "react-bootstrap";
 
 function Login(props) {
   const [disabled, cDisabled] = useState(false);
@@ -25,51 +25,36 @@ function Login(props) {
       });
   };
 
-  const signupHandler = (e) => {
-    e.preventDefault();
-    e.persist();
-    console.log(e.target.parentElement);
-    console.log(e.target);
-    //props.client undefined
-    props.client
-    .addNewUser(e.target.parentElement.username.value, e.target.parentElement.password.value)
-      .then((response) => {
-        cDisabled(false);
-        // props.loggedIn(response.data.token);
-      })
-      .catch((err) => {
-        alert("an error has occurred");
-        console.log(err);
-        cDisabled(false);
-      });
-
-  }
-
   return (
-    <div className="login-child">
-      <span className="login-header">Hire our Graduates</span>
-      <span className="login-subheader">Login/SignUp</span>
-      <hr />
-      <form id="registerForm" onSubmit={(e) => submitHandler(e)}>
+      <Form id="loginForm" onSubmit={(e) => submitHandler(e)}>
+        <Form.Text>
+          Hire our Graduates
+        </Form.Text>
         <br />
-        <input type="text" name="username" disabled={disabled} placeholder="username"/>
-        <br />
-        <br />
-        <input type="password" name="password" disabled={disabled} placeholder="password"/>
-        <br />
-        <br />
+        <Form.Text>
+          Login
+        </Form.Text>
+        <Form.Group controlId="loginUserName">
+          <Form.Control
+          name="username"
+          type="text"
+          disabled={disabled}
+          placeholder="username"
+          />
+        </Form.Group>
+        <Form.Group controlId="loginPassword">
+          <Form.Control
+          name="password"
+          type="text"
+          disabled={disabled}
+          placeholder="password"
+          />
+        </Form.Group>
         <Button variant="outline-success" type="submit" disabled={disabled}>
           {" "}
           Login{" "}
         </Button>
-&nbsp;&nbsp;&nbsp;
-        <Button variant="outline-primary" onClick={(e) => signupHandler(e)} type="" disabled={disabled}>
-          {" "}
-          Sign Up{" "}
-        </Button>
-
-      </form>
-    </div>
+      </Form>
   );
 }
 

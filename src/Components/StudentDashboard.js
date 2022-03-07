@@ -11,10 +11,11 @@ import {
   Button,
   Container,
   ListGroup,
-  ListGroupItem
-
+  ListGroupItem,
 } from "react-bootstrap";
 import StudentAdd from "./StudentAdd";
+
+
 function StudentDashboard(props) {
   const [userProfile, cUserProfile] = useState([]);
   const [current, cCurrent] = useState(undefined);
@@ -36,9 +37,6 @@ function StudentDashboard(props) {
   const buildStudentDash = () => {
     return (
       <>
-      
-
-      
         {/* <Card>
           <Card.Header as="h5" className="card-header">
             <Card.Title>
@@ -49,30 +47,25 @@ function StudentDashboard(props) {
           </Card.Header>
         </Card>*/}
 
-
-<Card style={{ width: '100%' }}>
-  <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-  <Card.Body>
-    <Card.Title>Info</Card.Title>
-    <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </Card.Text>
-  </Card.Body>
-  <ListGroup className="list-group-flush">
-    <ListGroupItem>Cras justo odio</ListGroupItem>
-    <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-    <ListGroupItem>Vestibulum at eros</ListGroupItem>
-  </ListGroup>
-  <Card.Body>
-    <Card.Link href="#">Linkedin</Card.Link>
-    <Card.Link href="#">Github</Card.Link>
-  </Card.Body>
-</Card>
-
-
-
-
+        <Card style={{ width: "100%" }}>
+          <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+          <Card.Body>
+            <Card.Title>Info</Card.Title>
+            <Card.Text>
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </Card.Text>
+          </Card.Body>
+          <ListGroup className="list-group-flush">
+            <ListGroupItem>Cras justo odio</ListGroupItem>
+            <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
+            <ListGroupItem>Vestibulum at eros</ListGroupItem>
+          </ListGroup>
+          <Card.Body>
+            <Card.Link href="#">Linkedin</Card.Link>
+            <Card.Link href="#">Github</Card.Link>
+          </Card.Body>
+        </Card>
       </>
     );
   };
@@ -83,7 +76,6 @@ function StudentDashboard(props) {
 
   return (
     <Container>
-     
       <StudentAdd
         client={props.client}
         refreshList={() => {
