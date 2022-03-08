@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function employerDash (){
+function EmployerDash (){
 
     return (
 
@@ -9,4 +9,4 @@ function employerDash (){
     )
 }
 
-export default employerDash
+export default EmployerDash

@@ -6,7 +6,7 @@ export class ApiClient {
   constructor(token, logoutHandler, newRole) {
     this.token = token;
     this.logoutHandler = logoutHandler;
-    this.role= newRole;
+    this.role = newRole;
   }
 
   apiCall(method, url, data) {
@@ -40,52 +40,45 @@ export class ApiClient {
   }
 
   login(username, password) {
-    // console.log("username",username)
-    // console.log("password",password)
     return this.apiCall("post", `${url}auth`, {
       userName: username,
       password: password,
     });
   }
 
-  // register(username, password, role){
-  //   return this.apiCall("post",`${url}register`,{
-  //     userName: username,
-  //     password: password,
-  //     role: role
-  //   })
-  // }
-
-
   addNewUser(username, password, role) {
-    return this.authenticatedCall("post", `${url}register`, { username, password, role});
-  };
+    return this.authenticatedCall("post", `${url}register`, {
+      username: username,
+      password: password,
+      role: role,
+    });
+  }
 
-// ///// employer search 
-//   getAllProfiles() {
-//     return this.authenticatedCall("get", `${url}event`);
-//   }
-// //////
+  // ///// employer search
+  //   getAllProfiles() {
+  //     return this.authenticatedCall("get", `${url}event`);
+  //   }
+  // //////
 
-getProfile() {
-  return this.authenticatedCall("get", url);
-}
+  getProfile() {
+    return this.authenticatedCall("get", url);
+  }
 
   getProfileById(id) {
     return this.authenticatedCall("get", `${url}search/id/${id}`);
   }
-
-  getProfileByName(name) {
-    return this.authenticatedCall("get", `${url}search/name/${name}`);
+  ///////
+  getUserByName(username) {
+    return this.apiCall("get", `${url}user/${username}`);
   }
-
-  addProfile( fname, lname, age, bio, linkedin, github, cv) {
-    console.log("adding profile")
+  ////////
+  addProfile(username,fname, lname, dob, bio, linkedin, github, cv) {
+    console.log("adding profile");
     return this.authenticatedCall("post", `${url}profile`, {
-      
+      username,
       fname,
       lname,
-      age,
+      dob,
       bio,
       linkedin,
       github,
@@ -97,7 +90,7 @@ getProfile() {
     return this.authenticatedCall("delete", `${url}event/${id}`);
   }
 
-  updateProfile( id, fname, lname, age, bio, linkedin, github, cv) {
+  updateProfile(id, fname, lname, age, bio, linkedin, github, cv) {
     return this.authenticatedCall("put", `${url}event/${id}`, {
       fname: fname,
       lname: lname,
@@ -105,7 +98,7 @@ getProfile() {
       bio: bio,
       linkedin: linkedin,
       github: github,
-      cv: cv
+      cv: cv,
     });
   }
 }

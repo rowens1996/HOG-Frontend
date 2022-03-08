@@ -3,78 +3,82 @@ import React, { useState } from "react";
 import "../App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Container, Form } from "react-bootstrap";
-import {ToastContainer,toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Button, Container, Form, FormCheck } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Register(props) {
   const [disabled, cDisabled] = useState(false);
-  //const navigate = useNavigate();
- 
+
+  // const [alignment, setAlignment] = React.useState('employer');
+  // const role = alignment
+  // const handleChange = (event, newAlignment) => {
+  //   setAlignment(newAlignment);
+  // };
+  // //const navigate = useNavigate();
+
   const submitHandler = (e) => {
-    
     e.preventDefault();
     e.persist();
+    console.log(e.target.role);
     props.client
-    .addNewUser(e.target.username.value, e.target.password.value, e.target.role.value)
+      .addNewUser(
+        e.target.username.value,
+        e.target.password.value,
+        e.target.role.value
+      )
       .then((response) => {
         cDisabled(false);
-        toast.success("You have successfully registered")
+        toast.success("You have successfully registered");
       })
       .catch((err) => {
         alert("an error has occurred");
         console.log(err);
         cDisabled(false);
       });
-  }
+  };
 
   return (
-<>
-    <Form id="RegisterForm" onSubmit={(e) => submitHandler(e)}>
-        <Form.Text>
-          Hire our Graduates
-        </Form.Text>
+    <>
+      <Form id="RegisterForm" onSubmit={(e) => submitHandler(e)}>
+        <Form.Text>Hire our Graduates</Form.Text>
         <br />
-        <Form.Text>
-          Create an Account
-        </Form.Text>
+        <Form.Text>Create an Account</Form.Text>
         <Form.Group controlId="RegisterUserName">
           <Form.Control
-          name="username"
-          type="text"
-          disabled={disabled}
-          placeholder="username"
+            name="username"
+            type="text"
+            disabled={disabled}
+            placeholder="username"
           />
         </Form.Group>
         <Form.Group controlId="RegisterPassword">
           <Form.Control
-          name="password"
-          type="text"
-          disabled={disabled}
-          placeholder="password"
+            name="password"
+            type="text"
+            disabled={disabled}
+            placeholder="password"
           />
         </Form.Group>
         <Form.Group controlId="RegisterRole">
-          <Form.Control
-          name="role"
-          type="text"
-          disabled={disabled}
-          placeholder="role"
-
+        <Form.Control
+            name="role"
+            type="text"
+            disabled={disabled}
+            placeholder="role"
           />
         </Form.Group>
 
         <div>
-        <Button variant="outline-success" type="submit" disabled={disabled}>
-          {" "}
-          Register{" "}
-        </Button>
-        <ToastContainer/>
+          <Button variant="outline-success" type="submit" disabled={disabled}>
+            {" "}
+            Register{" "}
+          </Button>
+          <ToastContainer />
         </div>
       </Form>
 
-     
-    {/* <div className="Register-child">
+      {/* <div className="Register-child">
       <span className="Register-header">Hire our Graduates</span>
       <span className="Register-subheader">Register an Account</span>
       <hr />

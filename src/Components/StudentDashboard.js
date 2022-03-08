@@ -15,9 +15,10 @@ import {
 } from "react-bootstrap";
 import StudentAdd from "./StudentAdd";
 
-
 function StudentDashboard(props) {
-  const [userProfile, cUserProfile] = useState([]);
+  const [userProfile, cUserProfile] = useState([
+
+  ]);
   const [current, cCurrent] = useState(undefined);
   const [token, changeToken] = useState(window.localStorage.getItem("token"));
 
