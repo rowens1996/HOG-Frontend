@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Container, Form, Modal, ModalTitle } from "react-bootstrap/";
+import { Button, Container, Form, FormCheck, Modal, ModalTitle } from "react-bootstrap/";
 
 function StudentAdd(props) {
   const [disabled, cDisabled] = useState(false);
@@ -9,35 +9,27 @@ function StudentAdd(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     e.persist();
-    // console.log(props.client);
+    console.log(props.username);
     cDisabled(true);
+  
     let result;
-    if (props.currentProfile) {
       result = props.client.updateProfile(
-        props.currentProfile._id,
+        props.username,
         e.target.fname.value,
         e.target.lname.value,
         e.target.dob.value,
         e.target.bio.value,
+        e.target.course.value,
+        e.target.employed.checked,
         e.target.linkedin.value,
         e.target.github.value,
         e.target.cv.value
       );
-    } else {
-      console.log(e.target.fname.value);
-      result = props.client.addProfile(
-        e.target.fname.value,
-        e.target.lname.value,
-        e.target.dob.value,
-        e.target.bio.value,
-        e.target.linkedin.value,
-        e.target.github.value,
-        e.target.cv.value
-      );
-    }
+    
     result
       .then(() => {
         cDisabled(false);
+        
         e.target.reset();
         props.refreshList();
       })
@@ -71,10 +63,10 @@ function StudentAdd(props) {
     <Form onSubmit={(e) => submitHandler(e)} id="addForm">
       <Container id="formContainer">
         <Form.Group controlId="eventName">
-          <Form.Label>First Name </Form.Label>
+          <Form.Label>First Name</Form.Label>
           <Form.Control
             type="text"
-            defaultValue={props.currentProfile?.fname}
+            defaultValue={props.fname}
             name="fname"
             disabled={disabled}
           />
@@ -91,11 +83,11 @@ function StudentAdd(props) {
         </Form.Group>
 
         <Form.Group controlId="eventDate">
-          <Form.Label>Date</Form.Label>
+          <Form.Label>Date of Birth</Form.Label>
           <Form.Control
             type="date"
-            defaultValue={props.currentProfile?.date}
-            name="date"
+            defaultValue={props.currentProfile?.dob}
+            name="dob"
             disabled={disabled}
           />
         </Form.Group>
@@ -110,6 +102,21 @@ function StudentAdd(props) {
             name="bio"
             disabled={disabled}
           />
+        </Form.Group>
+
+        <Form.Group controlId="eventPrice">
+          <Form.Label>Develeper Academy Course</Form.Label>
+          <Form.Control
+            type="text"
+            defaultValue={props.currentProfile?.course}
+            name="course"
+            disabled={disabled}
+          />
+        </Form.Group>
+
+        <Form.Text>Are you employed?</Form.Text>
+        <Form.Group controlId="RegisterRole">
+          <FormCheck name="employed" type="checkbox" label="I am employed" />
         </Form.Group>
 
         <Form.Group controlId="textInput">

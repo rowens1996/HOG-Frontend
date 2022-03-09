@@ -16,9 +16,22 @@ import {
 import StudentAdd from "./StudentAdd";
 
 function StudentDashboard(props) {
-  const [userProfile, cUserProfile] = useState([
+  const [userProfile, cUserProfile] = useState({
+    userName: "",
+    fname: "",
+    lname: "",
+    dob: "",
+    bio: "",
+    course: "",
+    employed: null,
+    //skills: Array,
+    //date since employment/graduation: String,
+    linkedin: "",
+    github: "",
+    cv: "",
 
-  ]);
+  }
+);
   const [current, cCurrent] = useState(undefined);
   const [token, changeToken] = useState(window.localStorage.getItem("token"));
 
@@ -27,15 +40,18 @@ function StudentDashboard(props) {
     changeToken("");
   };
 
-  const refreshList = () => {
-    props.client.getProfile().then((response) => cUserProfile(response.data));
-  };
+   const refreshList = () => {
+    console.log(window.localStorage.getItem("username"))
+    props.client.getProfileByUser(window.localStorage.getItem("username")).then((response) => cUserProfile(response.data))
+    .then(console.log(userProfile))
+   };
 
-  const updateProfile = (event) => {
-    cCurrent(event);
-  };
+   const updateProfile = (userProfile) => {
+    cCurrent(userProfile); 
+   };
 
   const buildStudentDash = () => {
+
     return (
       <>
         {/* <Card>
@@ -51,20 +67,21 @@ function StudentDashboard(props) {
         <Card style={{ width: "100%" }}>
           <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
           <Card.Body>
-            <Card.Title>Info</Card.Title>
+            <Card.Title id="title">{userProfile.fname} {userProfile.lname} <br/> {userProfile.userName} </Card.Title>
+            <Card.Title id="subtitle">{userProfile.dob} <br/> {userProfile.course}</Card.Title>
             <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              {userProfile.bio}
             </Card.Text>
           </Card.Body>
+          {/* skills array? */}
           <ListGroup className="list-group-flush">
-            <ListGroupItem>Cras justo odio</ListGroupItem>
-            <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-            <ListGroupItem>Vestibulum at eros</ListGroupItem>
+            <ListGroupItem>{userProfile.linkedin}</ListGroupItem>
+            <ListGroupItem>{userProfile.github}</ListGroupItem>
+            <ListGroupItem>{userProfile.cv}</ListGroupItem>
           </ListGroup>
           <Card.Body>
-            <Card.Link href="#">Linkedin</Card.Link>
-            <Card.Link href="#">Github</Card.Link>
+            <Card.Link href={userProfile.linkedin}>Linkedin</Card.Link>
+            <Card.Link href={userProfile.github}>Github</Card.Link>
           </Card.Body>
         </Card>
       </>
@@ -78,11 +95,12 @@ function StudentDashboard(props) {
   return (
     <Container>
       <StudentAdd
+        username={props.username}
         client={props.client}
-        refreshList={() => {
-          refreshList();
-          cCurrent(undefined);
-        }}
+         refreshList={() => {
+           refreshList();
+           cCurrent(undefined);
+         }}
         currentProfile={current}
         cCurrentProfile={cCurrent}
       />

@@ -11,7 +11,6 @@ export class ApiClient {
 
   apiCall(method, url, data) {
     console.log(url);
-
     return axios({
       method,
       url,
@@ -64,38 +63,66 @@ export class ApiClient {
     return this.authenticatedCall("get", url);
   }
 
-  getProfileById(id) {
-    return this.authenticatedCall("get", `${url}search/id/${id}`);
-  }
-  ///////
   getUserByName(username) {
-    return this.apiCall("get", `${url}user/${username}`);
+    return this.authenticatedCall("get", `${url}user/${username}`);
   }
-  ////////
-  addProfile(username,fname, lname, dob, bio, linkedin, github, cv) {
+
+  getProfileByUser(username) {
+    console.log(username)
+    return this.authenticatedCall("get", `${url}profile/${username}`);
+  }
+
+  addProfile(
+    userName,
+    fname,
+    lname,
+    dob,
+    bio,
+    course,
+    employed,
+    linkedin,
+    github,
+    cv
+  ) {
     console.log("adding profile");
     return this.authenticatedCall("post", `${url}profile`, {
-      username,
+      userName,
       fname,
       lname,
       dob,
       bio,
+      course,
+      employed,
       linkedin,
       github,
       cv,
     });
   }
 
-  removeProfile(id) {
-    return this.authenticatedCall("delete", `${url}event/${id}`);
+  removeProfile(username) {
+    return this.authenticatedCall("delete", `${url}profile/${username}`);
   }
 
-  updateProfile(id, fname, lname, age, bio, linkedin, github, cv) {
-    return this.authenticatedCall("put", `${url}event/${id}`, {
+  updateProfile(
+    userName,
+    fname,
+    lname,
+    dob,
+    bio,
+    course,
+    employed,
+    linkedin,
+    github,
+    cv
+  ) {
+    return this.authenticatedCall("put", `${url}profile/${userName}`, {
+      userName: userName,
       fname: fname,
       lname: lname,
-      age: age,
+      dob: dob,
       bio: bio,
+      course: course,
+      employed: employed,
       linkedin: linkedin,
       github: github,
       cv: cv,

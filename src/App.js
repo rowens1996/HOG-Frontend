@@ -46,7 +46,7 @@ function App() {
 
   const roleDash = () => {
     if (role === "student") {
-      return <StudentDashboard client={client} logOut={logout} />;
+      return <StudentDashboard username={username} client={client} logOut={logout} />;
     } else if (role === "employer") {
       return <EmployerDash client={client} logOut={logout} />;
     } else {

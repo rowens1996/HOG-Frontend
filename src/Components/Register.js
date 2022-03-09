@@ -10,23 +10,23 @@ import "react-toastify/dist/ReactToastify.css";
 function Register(props) {
   const [disabled, cDisabled] = useState(false);
 
-  // const [alignment, setAlignment] = React.useState('employer');
-  // const role = alignment
-  // const handleChange = (event, newAlignment) => {
-  //   setAlignment(newAlignment);
-  // };
-  // //const navigate = useNavigate();
+  const roleForm = (e) => {
+    let stringRole = "";
+    if (e.target.role.checked) {
+      stringRole = "employer";
+    } else {
+      stringRole = "student";
+    }
+    return stringRole;
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
     e.persist();
-    console.log(e.target.role);
+    let sRole = roleForm(e);
+    console.log(e.target.role.checked);
     props.client
-      .addNewUser(
-        e.target.username.value,
-        e.target.password.value,
-        e.target.role.value
-      )
+      .addNewUser(e.target.username.value, e.target.password.value, sRole)
       .then((response) => {
         cDisabled(false);
         toast.success("You have successfully registered");
@@ -36,7 +36,7 @@ function Register(props) {
         console.log(err);
         cDisabled(false);
       });
-  };
+  };  
 
   return (
     <>
@@ -52,6 +52,7 @@ function Register(props) {
             placeholder="username"
           />
         </Form.Group>
+
         <Form.Group controlId="RegisterPassword">
           <Form.Control
             name="password"
@@ -60,13 +61,9 @@ function Register(props) {
             placeholder="password"
           />
         </Form.Group>
+        <Form.Text>Are you an employer?</Form.Text>
         <Form.Group controlId="RegisterRole">
-        <Form.Control
-            name="role"
-            type="text"
-            disabled={disabled}
-            placeholder="role"
-          />
+          <FormCheck name="role" type="checkbox" label="I am an employer" />
         </Form.Group>
 
         <div>
