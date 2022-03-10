@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
 
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Container, Stack } from "react-bootstrap";
 
 function Login(props) {
   const [disabled, cDisabled] = useState(false);
@@ -31,10 +31,10 @@ function Login(props) {
   };
 
   return (
+    
     <Form id="loginForm" onSubmit={(e) => submitHandler(e)}>
-      <Form.Text>Hire our Graduates</Form.Text>
-      <br />
       <Form.Text>Login</Form.Text>
+      <Stack gap={2} className="col-md-50 mx-auto">
       <Form.Group controlId="loginUserName">
         <Form.Control
           name="username"
@@ -43,6 +43,8 @@ function Login(props) {
           placeholder="username"
         />
       </Form.Group>
+      
+      
       <Form.Group controlId="loginPassword">
         <Form.Control
           name="password"
@@ -51,11 +53,16 @@ function Login(props) {
           placeholder="password"
         />
       </Form.Group>
-      <Button variant="outline-success" type="submit" disabled={disabled}>
+     
+      <Button variant="success" type="submit" disabled={disabled}>
+
         {" "}
         Login{" "}
       </Button>
+      </Stack>
     </Form>
+
+  
   );
 }
 

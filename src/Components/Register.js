@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "../App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Container, Form, FormCheck } from "react-bootstrap";
+import { Button, Container, Form, FormCheck, Stack } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -40,10 +40,9 @@ function Register(props) {
 
   return (
     <>
-      <Form id="RegisterForm" onSubmit={(e) => submitHandler(e)}>
-        <Form.Text>Hire our Graduates</Form.Text>
-        <br />
+      <Form id="registerForm" onSubmit={(e) => submitHandler(e)}>
         <Form.Text>Create an Account</Form.Text>
+        <Stack gap={2} className="col-md-50 mx-auto">
         <Form.Group controlId="RegisterUserName">
           <Form.Control
             name="username"
@@ -61,18 +60,21 @@ function Register(props) {
             placeholder="password"
           />
         </Form.Group>
-        <Form.Text>Are you an employer?</Form.Text>
+        {/* <Form.Text>Are you an employer?</Form.Text> */}
         <Form.Group controlId="RegisterRole">
           <FormCheck name="role" type="checkbox" label="I am an employer" />
         </Form.Group>
-
+        </Stack>
         <div>
-          <Button variant="outline-success" type="submit" disabled={disabled}>
+        <Stack gap={2} className="col-md-50 mx-auto">
+          <Button variant="success" type="submit" disabled={disabled}>
             {" "}
             Register{" "}
           </Button>
           <ToastContainer />
+          </Stack>
         </div>
+       
       </Form>
 
       {/* <div className="Register-child">

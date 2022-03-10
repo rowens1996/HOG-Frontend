@@ -3,10 +3,12 @@ const url = "http://localhost:3001/";
 //const url = "https://rowens96-events-app.herokuapp.com/";
 
 export class ApiClient {
-  constructor(token, logoutHandler, newRole) {
+  constructor(token, logoutHandler, newRole, newUsername) {
     this.token = token;
     this.logoutHandler = logoutHandler;
     this.role = newRole;
+    //Ask about this !!!
+    this.username = newUsername;
   }
 
   apiCall(method, url, data) {
@@ -68,7 +70,6 @@ export class ApiClient {
   }
 
   getProfileByUser(username) {
-    console.log(username)
     return this.authenticatedCall("get", `${url}profile/${username}`);
   }
 

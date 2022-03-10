@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Container, Form, FormCheck, Modal, ModalTitle } from "react-bootstrap/";
+import { Button, Container, Form, FormCheck } from "react-bootstrap/";
 
 function StudentAdd(props) {
   const [disabled, cDisabled] = useState(false);
@@ -9,9 +9,7 @@ function StudentAdd(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     e.persist();
-    console.log(props.username);
     cDisabled(true);
-  
     let result;
       result = props.client.updateProfile(
         props.username,
@@ -38,7 +36,7 @@ function StudentAdd(props) {
         cDisabled(false);
       });
   };
-
+/* 
   // cancel event update
   const cancelUpdate = () => {
     props.cCurrentProfile(undefined);
@@ -46,7 +44,7 @@ function StudentAdd(props) {
   };
 
   // show cancel button
-  const showCancelButton = () => {
+ /*  const showCancelButton = () => {
     return (
       <button
         className="button-28"
@@ -57,7 +55,7 @@ function StudentAdd(props) {
         Cancel Update{" "}
       </button>
     );
-  };
+  }; */ 
 
   return (
     <Form onSubmit={(e) => submitHandler(e)} id="addForm">
@@ -66,7 +64,7 @@ function StudentAdd(props) {
           <Form.Label>First Name</Form.Label>
           <Form.Control
             type="text"
-            defaultValue={props.fname}
+            defaultValue={props.currentProfile?.fname}
             name="fname"
             disabled={disabled}
           />
@@ -105,7 +103,7 @@ function StudentAdd(props) {
         </Form.Group>
 
         <Form.Group controlId="eventPrice">
-          <Form.Label>Develeper Academy Course</Form.Label>
+          <Form.Label>Developer Academy Course</Form.Label>
           <Form.Control
             type="text"
             defaultValue={props.currentProfile?.course}

@@ -3,12 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
 import "./StudentAdd";
 import {
-  Navbar,
   Card,
-  Nav,
-  Form,
-  FormControl,
-  Button,
   Container,
   ListGroup,
   ListGroupItem,
@@ -33,25 +28,32 @@ function StudentDashboard(props) {
   }
 );
   const [current, cCurrent] = useState(undefined);
-  const [token, changeToken] = useState(window.localStorage.getItem("token"));
-
-  const logout = () => {
-    window.localStorage.removeItem("token");
-    changeToken("");
-  };
 
    const refreshList = () => {
-    console.log(window.localStorage.getItem("username"))
     props.client.getProfileByUser(window.localStorage.getItem("username")).then((response) => cUserProfile(response.data))
-    .then(console.log(userProfile))
    };
 
-   const updateProfile = (userProfile) => {
-    cCurrent(userProfile); 
+   const updateProfile = () => {
+     let profile = userProfile;
+    cCurrent(profile); 
    };
 
+
+
+  useEffect(() => { 
+    
+    refreshList();
+    // eslint-disable-next-line
+    }, [])
+
+  useEffect(() => { 
+    
+    updateProfile();
+    // eslint-disable-next-line
+    }, [userProfile])
+
+   
   const buildStudentDash = () => {
-
     return (
       <>
         {/* <Card>
@@ -90,6 +92,7 @@ function StudentDashboard(props) {
 
   useEffect(() => {
     refreshList();
+    // eslint-disable-next-line
   }, []);
 
   return (

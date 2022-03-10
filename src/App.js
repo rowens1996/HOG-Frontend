@@ -1,18 +1,32 @@
 import React from "react";
 import StudentDashboard from "./Components/StudentDashboard";
 import EmployerDash from "./Components/EmployerDash";
+import TdaDash from "./Components/TdaDash";
 import { ApiClient } from "./apiClient";
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
+import { FaUserGraduate } from "react-icons/fa";
 import "./App.css";
-import { Button, Container } from "react-bootstrap/";
+
+import {
+  Button,
+  Container,
+  Nav,
+  Navbar,
+  Form,
+  FormControl,
+  Row,
+  Col,
+} from "react-bootstrap/";
 
 function App() {
   const [token, changeToken] = useState(window.localStorage.getItem("token"));
   const [role, cRole] = useState(window.localStorage.getItem("role"));
-  const [username, cUsername] = useState(window.localStorage.getItem("username"));
+  const [username, cUsername] = useState(
+    window.localStorage.getItem("username")
+  );
 
   const logout = () => {
     window.localStorage.removeItem("token");
@@ -42,13 +56,17 @@ function App() {
   //   updateUser();
   // }, [role]);
 
-  const client = new ApiClient(token, role, logout);
+  const client = new ApiClient(token, logout, role, username);
 
   const roleDash = () => {
     if (role === "student") {
-      return <StudentDashboard username={username} client={client} logOut={logout} />;
+      return (
+        <StudentDashboard username={username} client={client} logOut={logout} />
+      );
     } else if (role === "employer") {
       return <EmployerDash client={client} logOut={logout} />;
+    } else if (role === "TDA") {
+      return <TdaDash client={client} logOut={logout} />;
     } else {
       return <>error no such role</>;
     }
@@ -64,11 +82,29 @@ function App() {
           {roleDash()}
         </>
       ) : (
-        <Container>
-          <Login client={client} loggedIn={loggedIn} />
+        <>
+          <Navbar bg="dark" expand="lg">
+            <Container id="navContainer">
+              <Navbar.Brand id="header">
+                Hire our Graduates <FaUserGraduate id="gradlogo" />
+              </Navbar.Brand>
+            </Container>
+          </Navbar>
+          <Container id= "div">
+          <Container id="formBackground" className="flex">
+            <Row>
+              <Col>
+                <Login client={client} loggedIn={loggedIn} />
+              </Col>
+              <Col>
+                <Register client={client} loggedIn={loggedIn} />
+              </Col>
+            </Row>
+
           <hr />
-          <Register client={client} loggedIn={loggedIn} />
-        </Container>
+          </Container>
+          </Container>
+        </>
       )}
     </>
   );
