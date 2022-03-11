@@ -5,10 +5,12 @@ import {
   ListGroup,
   ListGroupItem,
   Nav,
-  Navbar
+  Navbar,
 } from "react-bootstrap";
 
 import { FaUserGraduate } from "react-icons/fa";
+
+import "./EmployerDash.css";
 
 function EmployerDash(props) {
   const [studentList, cStudentsList] = useState([]);
@@ -31,8 +33,7 @@ function EmployerDash(props) {
             <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
             <Card.Body>
               <Card.Title id="title">
-                {something.fname} {something.lname} <br />{" "}
-                {something.userName}{" "}
+                {something.fname} {something.lname} <br /> {something.userName}{" "}
               </Card.Title>
               <Card.Title id="subtitle">
                 {something.dob} <br /> {something.course}
@@ -56,18 +57,26 @@ function EmployerDash(props) {
   };
 
   return (
-  <Container id="Dash">
-     <Navbar bg="dark" expand="lg">
-                <Container id="navContainer">
-                  <Navbar.Brand id="header">
-                    Hire our Graduates <FaUserGraduate id="gradlogo" />
-                  </Navbar.Brand>
-                  <Nav.Link id="navLinks" onClick={()=>props.logOut()}>Logout</Nav.Link>
-                </Container>
-              </Navbar>
-  <>EmployerDash</>
-    {buildCards()}
-  </Container>)
+    <>
+      <Navbar bg="dark" expand="lg">
+        <Container id="navContainer">
+          <Nav.Item>
+            <Navbar.Brand id="header">
+              Hire our Graduates <FaUserGraduate id="gradlogo" />
+            </Navbar.Brand>
+            <Nav.Item>Employer Dashboard</Nav.Item>
+          </Nav.Item>
+
+          <Nav.Link id="navLinks" onClick={() => props.logOut()}>
+            Logout
+          </Nav.Link>
+        </Container>
+      </Navbar>
+      <Container>
+        {buildCards()}
+      </Container>
+    </>
+  );
 }
 
 export default EmployerDash;

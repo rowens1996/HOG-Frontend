@@ -85,7 +85,7 @@ function App() {
           ) : (
             <>
               <Navbar bg="dark" expand="lg">
-                <Container id="navContainer">
+                <Container id="navLoginContainer">
                   <Navbar.Brand id="header">
                     Hire our Graduates <FaUserGraduate id="gradlogo" />
                   </Navbar.Brand>
