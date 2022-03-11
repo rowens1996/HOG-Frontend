@@ -2,14 +2,11 @@ import React from "react";
 import StudentDashboard from "./Components/StudentDashboard";
 import EmployerDash from "./Components/EmployerDash";
 import TdaDash from "./Components/TdaDash";
-import { ApiClient } from "./apiClient";
-import { useState, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
-import { FaUserGraduate } from "react-icons/fa";
-import "./App.css";
 
+import { ApiClient } from "./apiClient";
+import { useState, useEffect } from "react";
 import {
   Button,
   Container,
@@ -20,6 +17,10 @@ import {
   Row,
   Col,
 } from "react-bootstrap/";
+
+import { FaUserGraduate } from "react-icons/fa";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 function App() {
   const [token, changeToken] = useState(window.localStorage.getItem("token"));
@@ -74,38 +75,45 @@ function App() {
 
   return (
     <>
-      {token ? (
-        <>
-          <Button variant="secondary" onClick={() => logout()}>
-            Logout
-          </Button>
-          {roleDash()}
-        </>
-      ) : (
-        <>
-          <Navbar bg="dark" expand="lg">
-            <Container id="navContainer">
-              <Navbar.Brand id="header">
-                Hire our Graduates <FaUserGraduate id="gradlogo" />
-              </Navbar.Brand>
-            </Container>
-          </Navbar>
-          <Container id= "div">
-          <Container id="formBackground" className="flex">
-            <Row>
-              <Col>
-                <Login client={client} loggedIn={loggedIn} />
-              </Col>
-              <Col>
-                <Register client={client} loggedIn={loggedIn} />
-              </Col>
-            </Row>
-
-          <hr />
-          </Container>
-          </Container>
-        </>
-      )}
+      <Container id="container">
+        <div id="main">
+          <div class="background"></div>
+          {token ? (
+            <>
+              {roleDash()}
+            </>
+          ) : (
+            <>
+              <Navbar bg="dark" expand="lg">
+                <Container id="navContainer">
+                  <Navbar.Brand id="header">
+                    Hire our Graduates <FaUserGraduate id="gradlogo" />
+                  </Navbar.Brand>
+                </Container>
+              </Navbar>
+              <Container id="div">
+                <Container id="formBackground" className="flex">
+                  <Row>
+                    <Col>
+                      <Login client={client} loggedIn={loggedIn} />
+                    </Col>
+                    <Col>
+                      <Register client={client} loggedIn={loggedIn} />
+                    </Col>
+                  </Row>
+                  <hr />
+                </Container>
+              </Container>
+            </>
+          )}
+        </div>
+      </Container>
+      <footer class="container-fluid bg-5 text-center">
+        <p>
+          This Website Was Made By Ryan Owens <br />
+          Copyright &copy; 2022
+        </p>
+      </footer>
     </>
   );
 }

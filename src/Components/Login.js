@@ -48,7 +48,7 @@ function Login(props) {
       <Form.Group controlId="loginPassword">
         <Form.Control
           name="password"
-          type="text"
+          type="password"
           disabled={disabled}
           placeholder="password"
         />

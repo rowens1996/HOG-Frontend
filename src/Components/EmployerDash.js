@@ -4,7 +4,11 @@ import {
   Container,
   ListGroup,
   ListGroupItem,
+  Nav,
+  Navbar
 } from "react-bootstrap";
+
+import { FaUserGraduate } from "react-icons/fa";
 
 function EmployerDash(props) {
   const [studentList, cStudentsList] = useState([]);
@@ -52,7 +56,15 @@ function EmployerDash(props) {
   };
 
   return (
-  <Container>
+  <Container id="Dash">
+     <Navbar bg="dark" expand="lg">
+                <Container id="navContainer">
+                  <Navbar.Brand id="header">
+                    Hire our Graduates <FaUserGraduate id="gradlogo" />
+                  </Navbar.Brand>
+                  <Nav.Link id="navLinks" onClick={()=>props.logOut()}>Logout</Nav.Link>
+                </Container>
+              </Navbar>
   <>EmployerDash</>
     {buildCards()}
   </Container>)

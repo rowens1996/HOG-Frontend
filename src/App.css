@@ -4,122 +4,163 @@
 } */
 
 * {
- margin: 0;
- padding: 0;
- justify-content: center;
- box-sizing: border-box;
+  margin: 0 ;
+  padding: 0;
+  justify-content: center;
+  box-sizing: border-box;
+
 }
 
- .row{
+html, body{
+  height: 100%;
+}
+
+#container{
+  min-width: 100vw;
+  min-height: 100vh;
+  
+  margin: 0;
+  padding: 0;
+}
+
+#main{
+overflow: auto;
+padding-bottom: 10vh;
+}
+
+.row {
   align-items: center;
- }
+}
 
 /* dark grey header with text */
-#header{
-  font-family: 'Bubblegum Sans', cursive;
+#header {
+  font-family: "Bubblegum Sans", cursive;
   font-size: 40px;
-  color: rgb(1, 174, 7);  
+  color: rgb(1, 174, 7);
 }
 
-#navContainer{
+#navContainer {
   justify-content: space-around;
 }
 
 /* background img */
-body {
+.background {
   background-image: url("https://cdn.pixabay.com/photo/2016/11/19/16/52/dawn-1840298_960_720.jpg");
-  background-size: 100%;
- }
-
-/* graduate logo on header */
-#gradlogo{
-  padding-right: 10px;
-  padding-bottom: 5px;
-  color:rgb(1, 174, 7);
+  z-index: -1;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-position: center, center;
+  background-size: cover;
+  -webkit-backgroung-size: cover;
 }
 
-/* the header's backgournd color,(could just be solved with a navbar maybe?) */
-#div{
-  height: 100vh;;
-  
+/* graduate logo on header */
+#gradlogo {
+  padding-right: 10px;
+  padding-bottom: 5px;
+  color: rgb(1, 174, 7);
+}
+
+div#div.container{
+ margin-top: 10%;
+ margin-bottom: 10%;
+}
+
+div.nav-item{
+  color: white;
 }
 
 /* register/signup form background, colour and parameters */
-#formBackground{
- background-color: rgba(39, 39, 39, 0.5);
-  border-radius: 10px; 
-  border-style: outset; 
- border-width: 10px;
- padding-top: 75px;
- padding-bottom: 75px;
- padding-left: 150px;
- padding-right: 150px;
- margin-top: 20vh;
- 
+#formBackground {
+  background-color: rgba(39, 39, 39, 0.5);
+  border-radius: 10px;
+  border-style: outset;
+  border-width: 10px;
+  padding-top: 75px;
+  padding-bottom: 75px;
+  padding-left: 150px;
+  padding-right: 150px;
 }
 
 /* defines login text font, colour */
-#loginForm{
-  
-  font-family: 'Bubblegum Sans', cursive;
+#loginForm {
+  font-family: "Bubblegum Sans", cursive;
   color: rgb(1, 174, 7);
   padding-right: 100px;
-  
 }
-#loginForm > small, #registerForm > small{
-  font-family: 'Bubblegum Sans', cursive;
-  size:100px;
+#loginForm > small,
+#registerForm > small {
+  font-family: "Bubblegum Sans", cursive;
+  size: 100px;
   color: rgb(1, 174, 7);
   font-size: 20px;
-  
 }
 
 /* defines signup form position, potential other position */
-#registerForm{
-/* margin-left: 960px;
+#registerForm {
+  /* margin-left: 960px;
 margin: bottom 400px;  */
-/* padding-top: 100px; */
-padding-left:100px;
-font-family: 'Bubblegum Sans', cursive;
-
+  /* padding-top: 100px; */
+  padding-left: 100px;
+  font-family: "Bubblegum Sans", cursive;
 }
 
 /* defines signup text colour and font */
-#signtxt{
-  font-family: 'Bubblegum Sans', cursive;
+#signtxt {
+  font-family: "Bubblegum Sans", cursive;
   color: #0275d8;
 }
 
 /* defines the login button's width */
-#logbtn{
+#logbtn {
   border-width: 3px;
   min-width: 16%;
 }
 
 /* defines the signup button's width */
-#signbtn{
+#signbtn {
   border-width: 3px;
   min-width: 16%;
 }
 
 /* defines footer colour, random white line on the bottom left */
-#footer{
-background-color:rgba(39, 39, 39, 1);
+
+footer {
+  background-color: rgba(39, 39, 39, 1);
+  color: antiquewhite;
+  padding: 1.5vh;
+  text-align: center;
+  font-size: 2vh;
+  width: 100%;
+  position: relative;
+  height: 10vh;
+  margin-top: -10vh;
+  clear: both;
 }
 
-
-#about{
-margin-left:900px;
-border-radius: 10px;
- border-style: outset;
- border-width: 5px;
- font-family: 'Sansita Swashed', cursive;
- font-size: large;
- 
-  
+#about {
+  margin-left: 900px;
+  border-radius: 10px;
+  border-style: outset;
+  border-width: 5px;
+  font-family: "Sansita Swashed", cursive;
+  font-size: large;
 }
 
-#abouttop{
-  background-color: rgba(39, 39, 39, 0.7)
+#abouttop {
+  background-color: rgba(39, 39, 39, 0.7);
+}
 
+#Dash {
+  margin: 0;
+  padding: 0;
+  min-width: 100vw;
+}
+
+#flex-horizontal{
+  display: flex;
+  flex-direction: row;
 }
