@@ -5,6 +5,7 @@ import TdaDash from "./Components/TdaDash";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
 
+
 import { ApiClient } from "./apiClient";
 import { useState, useEffect } from "react";
 import {
@@ -77,7 +78,7 @@ function App() {
     <>
       <Container id="container">
         <div id="main">
-          <div class="background"></div>
+          <div className="background"></div>
           {token ? (
             <>
               {roleDash()}
@@ -108,7 +109,7 @@ function App() {
           )}
         </div>
       </Container>
-      <footer class="container-fluid bg-5 text-center">
+      <footer className="container-fluid bg-5 text-center">
         <p>
           This Website Was Made By Ryan Owens <br />
           Copyright &copy; 2022
