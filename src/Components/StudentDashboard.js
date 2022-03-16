@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./StudentAdd";
+import  StudentCard from "./StudentCard"
 import {
   Card,
   Container,
@@ -8,14 +9,18 @@ import {
   Nav,
   Navbar,
   NavItem,
+  Button
 } from "react-bootstrap";
 import { FaUserGraduate } from "react-icons/fa";
+import {BsLinkedin} from "react-icons/bs"
+
 
 import StudentAdd from "./StudentAdd";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
 import "./StudentDash.css";
+// import { Button } from "bootstrap";
 
 function StudentDashboard(props) {
   const [userProfile, cUserProfile] = useState({
@@ -26,7 +31,7 @@ function StudentDashboard(props) {
     bio: "",
     course: "",
     employed: null,
-    //skills: Array,
+    skills: [],
     //date since employment/graduation: String,
     linkedin: "",
     github: "",
@@ -55,53 +60,62 @@ function StudentDashboard(props) {
     // eslint-disable-next-line
   }, [userProfile]);
 
-  const buildStudentDash = () => {
-    return (
-      <Container id="studentProfile">
-        {/* <Card>
-          <Card.Header as="h5" className="card-header">
-            <Card.Title>
-              {}
-            </Card.Title>
-            <Card></Card>
+  // const buildStudentDash = () => {
+  //   return (
+  //     <Container id="studentProfile">
+  //       {/* <Card>
+  //         <Card.Header as="h5" className="card-header">
+  //           <Card.Title>
+  //             {}
+  //           </Card.Title>
+  //           <Card></Card>
 
-          </Card.Header>
-        </Card>*/}
+  //         </Card.Header>
+  //       </Card>*/}
 
-        <Card id="profileCard" style={{ width: "100%" }}>
-          <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-          <Card.Body>
-            <Card.Title id="title">
-              {userProfile.fname} {userProfile.lname} <br />{" "}
-              {userProfile.userName}{" "}
-            </Card.Title>
-            <Card.Title id="subtitle">
-              {userProfile.dob} <br /> {userProfile.course}
-            </Card.Title>
-            <Card.Text>{userProfile.bio}</Card.Text>
-          </Card.Body>
-          {/* skills array? */}
-          <ListGroup className="list-group-flush">
-            <ListGroupItem>{userProfile.linkedin}</ListGroupItem>
-            <ListGroupItem>{userProfile.github}</ListGroupItem>
-            <ListGroupItem>{userProfile.cv}</ListGroupItem>
-          </ListGroup>
-          <Card.Body>
-            <Card.Link href={userProfile.linkedin}>Linkedin</Card.Link>
-            <Card.Link href={userProfile.github}>Github</Card.Link>
-          </Card.Body>
-        </Card>
-      </Container>
-    );
-  };
+  //       <Card id="profileCard" style={{ width: "100%" }}>
+  //         <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+  //         <Card.Body>
+  //           <Card.Title id="title">
+  //             {userProfile.fname} {userProfile.lname} <br />{" "}
+  //             {userProfile.userName}{" "}
+  //           </Card.Title>
+  //           <Card.Title id="subtitle">
+  //             {userProfile.dob} <br /> {userProfile.course}
+  //           </Card.Title>
+  //           <Card.Text>{userProfile.bio}</Card.Text>
+  //         </Card.Body>
+  //         {/* skills array? */}
+  //         <ListGroup className="list-group-flush">
+  //         <a href={userProfile.linkedin}><BsLinkedin/></a>
+  //         {/* <Button>  {userProfile.linkedin} </Button> */}
+  //         {/* <Button> href ={userProfile.linkedin} </Button> */}
+          
+  //           <ListGroupItem>{userProfile.github}</ListGroupItem>
+  //           <ListGroupItem>{userProfile.cv}</ListGroupItem>
+  //         </ListGroup>
+  //         <Card.Body>
+  //           <Card.Link href={userProfile.linkedin}>Linkedin</Card.Link>
+  //           <Card.Link href={userProfile.github}>Github</Card.Link>
+  //         </Card.Body>
+  //       </Card>
+  //     </Container>
+  //   );
+  // };
 
   useEffect(() => {
     refreshList();
     // eslint-disable-next-line
   }, []);
 
+  const consolelog = () => {
+    console.log("rendering the studentdash");
+  };
+
+
   return (
     <Container id="Dash">
+      {/* {consolelog()} */}
       <Navbar bg="dark" expand="lg">
         <Container id="navContainer">
           <NavItem>
@@ -128,7 +142,12 @@ function StudentDashboard(props) {
         cCurrentProfile={cCurrent}
       />
       <br/>
-      {buildStudentDash()}
+      <StudentCard
+        userProfile = {userProfile}
+      />
+      {/* {buildStudentDash()} */}
+
+      
     </Container>
   );
 }

@@ -2,6 +2,9 @@
   
   float: left;
 } */
+:root{
+--githubgray: #9b9b9b;
+}
 
 * {
   margin: 0;
