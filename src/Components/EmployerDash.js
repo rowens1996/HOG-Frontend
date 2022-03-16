@@ -12,6 +12,9 @@ import { FaUserGraduate } from "react-icons/fa";
 
 import "./EmployerDash.css";
 
+import NavbarComp from "./NavbarComp.js";
+
+
 function EmployerDash(props) {
   const [studentList, cStudentsList] = useState([]);
   const [current, cCurrent] = useState(undefined);
@@ -58,7 +61,7 @@ function EmployerDash(props) {
 
   return (
     <>
-      <Navbar bg="dark" expand="lg">
+      {/* <Navbar bg="dark" expand="lg">
         <Container id="navContainer">
           <Nav.Item>
             <Navbar.Brand id="header">
@@ -71,7 +74,8 @@ function EmployerDash(props) {
             Logout
           </Nav.Link>
         </Container>
-      </Navbar>
+      </Navbar> */}
+      <NavbarComp role={props.role}/>
       <Container>
         {buildCards()}
       </Container>

@@ -62,12 +62,12 @@ function App() {
   const roleDash = () => {
     if (role === "student") {
       return (
-        <StudentDashboard username={username} client={client} logOut={logout} />
+        <StudentDashboard username={username} client={client} logOut={logout} role={role} />
       );
     } else if (role === "employer") {
-      return <EmployerDash client={client} logOut={logout} />;
+      return <EmployerDash client={client} logOut={logout} role={role}  />;
     } else if (role === "TDA") {
-      return <TdaDash client={client} logOut={logout} />;
+      return <TdaDash client={client} logOut={logout} role={role}  />;
     } else {
       return <>error no such role</>;
     }
