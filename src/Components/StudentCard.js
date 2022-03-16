@@ -17,36 +17,21 @@ import {
 
 export default function StudentCard(props){
 
-
-  //change this to a strig creator from an array. How do we target the label
-  const mapSkills1 = () => {
-    let displayedSkills = [];
-     let skillsArray = props.userProfile.skills;
-     console.log(skillsArray[0].value);
-     
-    for(let i = 0; i < skillsArray.length ; i++){
-      displayedSkills.push(skillsArray[i]);
-    }
-    return(
-      displayedSkills
-    )
-    }
-
-
-// const mapSkills = () => {
-// let SKILLS = props.userProfile.skills
-// return(
-//   SKILLS.map( (item) => { return(item.value)})
-// )
-// }
-
 const consolelog = () => {
-  console.log("rendering the student card");
+  console.log("rendering card");
 };
-
+   
+const employed = () => {
+  if(props.userProfile.employed){
+    return "Employed"
+  } else {
+    return "Looking for Work"
+  }
+  
+}
     return (
         <Container id="studentProfile">
-          {/* {consolelog()} */}
+          {/* {consolelog()}  */}
           {/* <Card>
             <Card.Header as="h5" className="card-header">
               <Card.Title>
@@ -90,12 +75,12 @@ const consolelog = () => {
 
               <Card.Title className = "bio" > Deatils </Card.Title>
               <Card.Text className="BioText">
-                dob: {props.userProfile.dob} <br /> course: {props.userProfile.course} <br /> {props.userProfile.cv}
+                dob: {props.userProfile.dob} <br /> Courses Completed: {props.userProfile.course.join(", ")} <br /> {props.userProfile.cv} <br/> Employment Status: {employed()}
               </Card.Text>
 
               <Card.Title className = "bio" > Tech Skills </Card.Title>
 
-              <Card.Text className = "BioText">Skills: mapSkills1()</Card.Text>
+              <Card.Text className = "BioText">Skills: {props.userProfile.skills.join(", ")} </Card.Text>
             </Card.Body>
             {/* skills array? */}
             {/* <ListGroup className="list-group-flush">
@@ -106,9 +91,6 @@ const consolelog = () => {
               {/* <ListGroupItem>{props.userProfile.github}</ListGroupItem>
               <ListGroupItem>{props.userProfile.cv}</ListGroupItem>
             </ListGroup> */} 
-            
-            
-
           </Card>
         </Container>
       );

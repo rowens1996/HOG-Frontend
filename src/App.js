@@ -4,6 +4,7 @@ import EmployerDash from "./Components/EmployerDash";
 import TdaDash from "./Components/TdaDash";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
+import { Routes, Route, useNavigate, BrowserRouter} from "react-router-dom";
 
 
 import { ApiClient } from "./apiClient";
@@ -75,7 +76,7 @@ function App() {
   };
 
   return (
-    <>
+<>
       <Container id="container">
         <div id="main">
           <div className="background"></div>
@@ -115,7 +116,7 @@ function App() {
           Copyright &copy; 2022
         </p>
       </footer>
-    </>
+      </>
   );
 }
 
