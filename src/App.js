@@ -7,6 +7,7 @@ import Register from "./Components/Register";
 import { Routes, Route, useNavigate, BrowserRouter} from "react-router-dom";
 
 
+
 import { ApiClient } from "./apiClient";
 import { useState, useEffect } from "react";
 import {
@@ -54,12 +55,12 @@ function App() {
   const roleDash = () => {
     if (role === "Student") {
       return (
-        <StudentDashboard username={username} client={client} logOut={logout} />
+        <StudentDashboard username={username} client={client} logout={logout} role={role} />
       );
     } else if (role === "Employer") {
-      return <EmployerDash client={client} logOut={logout} />;
+      return <EmployerDash client={client} logout={logout} role={role}  />;
     } else if (role === "TDA") {
-      return <TdaDash client={client} logOut={logout} />;
+      return <TdaDash client={client} logout={logout} role={role}  />;
     } else {
       return <>error no such role</>;
     }
