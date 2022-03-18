@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Container, Form, FormCheck } from "react-bootstrap/";
+import { Button, Container, Form, FormCheck, Stack } from "react-bootstrap/";
+import UploadFiles from "./UploadFile";
 
 function StudentAdd(props) {
   const [disabled, cDisabled] = useState(false);
 
   const submitHandler = (e) => {
+    console.log(props)
     e.preventDefault();
     e.persist();
     cDisabled(true);
@@ -60,9 +62,10 @@ function StudentAdd(props) {
   return (
     <Form onSubmit={(e) => submitHandler(e)} id="addForm">
       <Container id="formContainer">
-        <Form.Group controlId="eventName">
+        <Form.Group controlId="fName">
           <Form.Label>First Name</Form.Label>
           <Form.Control
+            
             type="text"
             defaultValue={props.currentProfile?.fname}
             name="fname"
@@ -70,9 +73,10 @@ function StudentAdd(props) {
           />
         </Form.Group>
 
-        <Form.Group controlId="eventLocation">
+        <Form.Group controlId="lName">
           <Form.Label>Last Name</Form.Label>
           <Form.Control
+          
             type="text"
             defaultValue={props.currentProfile?.lname}
             name="lname"
@@ -80,9 +84,10 @@ function StudentAdd(props) {
           />
         </Form.Group>
 
-        <Form.Group controlId="eventDate">
+        <Form.Group controlId="dateOfBirth">
           <Form.Label>Date of Birth</Form.Label>
           <Form.Control
+          
             type="date"
             defaultValue={props.currentProfile?.dob}
             name="dob"
@@ -90,9 +95,10 @@ function StudentAdd(props) {
           />
         </Form.Group>
 
-        <Form.Group controlId="eventPrice">
+        <Form.Group controlId="bio">
           <Form.Label>Bio</Form.Label>
           <Form.Control
+          
             type="text"
             as="textarea"
             rows={5}
@@ -102,9 +108,10 @@ function StudentAdd(props) {
           />
         </Form.Group>
 
-        <Form.Group controlId="eventPrice">
+        <Form.Group controlId="course">
           <Form.Label>Developer Academy Course</Form.Label>
           <Form.Control
+          
             type="text"
             defaultValue={props.currentProfile?.course}
             name="course"
@@ -113,13 +120,14 @@ function StudentAdd(props) {
         </Form.Group>
 
         <Form.Text>Are you employed?</Form.Text>
-        <Form.Group controlId="RegisterRole">
+        <Form.Group controlId="registerRole">
           <FormCheck name="employed" type="checkbox" label="I am employed" />
         </Form.Group>
 
-        <Form.Group controlId="textInput">
+        <Form.Group controlId="linkedIn">
           <Form.Label>linkedin</Form.Label>
           <Form.Control
+          
             type="url"
             name="linkedin"
             defaultValue={props.currentProfile?.linkedin}
@@ -127,19 +135,22 @@ function StudentAdd(props) {
           />
         </Form.Group>
 
-        <Form.Group controlId="textInput">
-          <Form.Label>github</Form.Label>
+        <Form.Group controlId="gitHub">
+          <Form.Label>github </Form.Label>
           <Form.Control
+          
             type="url"
             name="github"
             defaultValue={props.currentProfile?.github}
             disabled={disabled}
           />
         </Form.Group>
-
-        <Form.Group controlId="eventLocation">
+<Stack gap={2} className="col-md-50 mx-auto">
+        <Form.Group controlId="cV">
           <Form.Label>cv</Form.Label>
+          
           <Form.Control
+          
             type="text"
             defaultValue={props.currentProfile?.cv}
             name="cv"
@@ -147,9 +158,15 @@ function StudentAdd(props) {
           />
         </Form.Group>
 
+        <UploadFiles 
+        username={props.username}
+        client={props.client}
+        />
+
         <Button variant="primary" type="submit">
-          Submit
+          Comfirm Updates
         </Button>
+        </Stack>
       </Container>
     </Form>
   );

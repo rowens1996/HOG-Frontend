@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../App.css";
 import "./StudentAdd";
 import {
   Card,
   Container,
   ListGroup,
   ListGroupItem,
+  Nav,
+  Navbar,
+  NavItem,
 } from "react-bootstrap";
+import { FaUserGraduate } from "react-icons/fa";
+
 import StudentAdd from "./StudentAdd";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../App.css";
+import "./StudentDash.css";
 
 function StudentDashboard(props) {
   const [userProfile, cUserProfile] = useState({
@@ -24,38 +31,33 @@ function StudentDashboard(props) {
     linkedin: "",
     github: "",
     cv: "",
-
-  }
-);
+  });
   const [current, cCurrent] = useState(undefined);
 
-   const refreshList = () => {
-    props.client.getProfileByUser(window.localStorage.getItem("username")).then((response) => cUserProfile(response.data))
-   };
+  const refreshList = () => {
+    props.client
+      .getProfileByUser(window.localStorage.getItem("username"))
+      .then((response) => cUserProfile(response.data));
+  };
 
-   const updateProfile = () => {
-     let profile = userProfile;
-    cCurrent(profile); 
-   };
+  const updateProfile = () => {
+    let profile = userProfile;
+    cCurrent(profile);
+  };
 
-
-
-  useEffect(() => { 
-    
+  useEffect(() => {
     refreshList();
     // eslint-disable-next-line
-    }, [])
+  }, []);
 
-  useEffect(() => { 
-    
+  useEffect(() => {
     updateProfile();
     // eslint-disable-next-line
-    }, [userProfile])
+  }, [userProfile]);
 
-   
   const buildStudentDash = () => {
     return (
-      <>
+      <Container id="studentProfile">
         {/* <Card>
           <Card.Header as="h5" className="card-header">
             <Card.Title>
@@ -66,14 +68,17 @@ function StudentDashboard(props) {
           </Card.Header>
         </Card>*/}
 
-        <Card style={{ width: "100%" }}>
+        <Card id="profileCard" style={{ width: "100%" }}>
           <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
           <Card.Body>
-            <Card.Title id="title">{userProfile.fname} {userProfile.lname} <br/> {userProfile.userName} </Card.Title>
-            <Card.Title id="subtitle">{userProfile.dob} <br/> {userProfile.course}</Card.Title>
-            <Card.Text>
-              {userProfile.bio}
-            </Card.Text>
+            <Card.Title id="title">
+              {userProfile.fname} {userProfile.lname} <br />{" "}
+              {userProfile.userName}{" "}
+            </Card.Title>
+            <Card.Title id="subtitle">
+              {userProfile.dob} <br /> {userProfile.course}
+            </Card.Title>
+            <Card.Text>{userProfile.bio}</Card.Text>
           </Card.Body>
           {/* skills array? */}
           <ListGroup className="list-group-flush">
@@ -86,7 +91,7 @@ function StudentDashboard(props) {
             <Card.Link href={userProfile.github}>Github</Card.Link>
           </Card.Body>
         </Card>
-      </>
+      </Container>
     );
   };
 
@@ -96,18 +101,33 @@ function StudentDashboard(props) {
   }, []);
 
   return (
-    <Container>
+    <Container id="Dash">
+      <Navbar bg="dark" expand="lg">
+        <Container id="navContainer">
+          <NavItem>
+            <Navbar.Brand id="header">
+              Hire our Graduates <FaUserGraduate id="gradlogo" />
+            </Navbar.Brand>
+            <Nav.Item id="pageTitle">Student Dashboard</Nav.Item>
+          </NavItem>
+          <NavItem id="flex-horizontal">
+            <Nav.Link id="navLinks" onClick={() => props.logOut()}>
+              Logout
+            </Nav.Link>
+          </NavItem>
+        </Container>
+      </Navbar>
       <StudentAdd
         username={props.username}
         client={props.client}
-         refreshList={() => {
-           refreshList();
-           cCurrent(undefined);
-         }}
+        refreshList={() => {
+          refreshList();
+          cCurrent(undefined);
+        }}
         currentProfile={current}
         cCurrentProfile={cCurrent}
       />
-
+      <br/>
       {buildStudentDash()}
     </Container>
   );

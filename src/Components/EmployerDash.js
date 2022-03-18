@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from "react";
 import {
+  Button,
   Card,
   Container,
   ListGroup,
   ListGroupItem,
+  Nav,
+  Navbar,
+  Row,
+  Col
 } from "react-bootstrap";
+
+import { FaUserGraduate } from "react-icons/fa";
+
+import "./EmployerDash.css";
 
 function EmployerDash(props) {
   const [studentList, cStudentsList] = useState([]);
@@ -22,20 +31,19 @@ function EmployerDash(props) {
   const buildCards = () => {
     return studentList.map((something) => {
       return (
-        <div key={something._id}>
-          <Card style={{ width: "100%" }}>
+        <Col key={something._id}>
+         {/* <Card className="containerCards" >
             <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
             <Card.Body>
               <Card.Title id="title">
-                {something.fname} {something.lname} <br />{" "}
-                {something.userName}{" "}
+                {something.fname} {something.lname} <br /> {something.userName}{" "}
               </Card.Title>
               <Card.Title id="subtitle">
                 {something.dob} <br /> {something.course}
               </Card.Title>
-              <Card.Text>{something.bio}</Card.Text>
+              <Card.Text></Card.Text>
             </Card.Body>
-            {/* skills array? */}
+           
             <ListGroup className="list-group-flush">
               <ListGroupItem>{something.linkedin}</ListGroupItem>
               <ListGroupItem>{something.github}</ListGroupItem>
@@ -45,17 +53,80 @@ function EmployerDash(props) {
               <Card.Link href={something.linkedin}>Linkedin</Card.Link>
               <Card.Link href={something.github}>Github</Card.Link>
             </Card.Body>
+          </Card> */}
+          <Card id="profileCards" className="ad-container">
+            <Card.Header className="ad-userdetails">
+            <Card.Img className="profileAvatar" src="holder.js/100px180?text=Image cap" />
+              <Card.Text as="h3">
+                {something.fname} {something.lname}
+              </Card.Text>
+              <Card.Text as="h6">
+                {something.dob}
+              </Card.Text>
+              <Card.Title as="h6">Location{something.location}</Card.Title>
+            </Card.Header>
+            <br />
+            <Card.Text>Skills, skills, etc</Card.Text>
+            <Card.Text className="cardButton">
+              <a href={something.cv}>
+                <Button size="sm" variant="success">
+                  Download CV
+                </Button>
+              </a>
+              </Card.Text>
+            <Card.Text className="cardButton">
+              <a href={something.linkedin}>
+                <Button size="sm" variant="success">
+                  Linkedin
+                </Button>
+                
+              </a>
+            </Card.Text>
+            <Card.Text className="cardButton">
+              <a href={something.github}>
+                <Button size="sm" variant="success">
+                  Github
+                </Button>
+              </a>
+            </Card.Text>
+            <Card.Text className="cardButton">
+              <a href="{something.email}">
+                <Button size="sm" variant="success">
+                  email
+                </Button>
+              </a>
+            </Card.Text>
+            <Card.Text>"something.cohort"</Card.Text>
+            <Card.Text>"something.graduated"</Card.Text>
           </Card>
-        </div>
+       </Col>
       );
     });
   };
 
   return (
-  <Container>
-  <>EmployerDash</>
-    {buildCards()}
-  </Container>)
+    <>
+      <Navbar bg="dark" expand="lg">
+        <Container id="navContainer">
+          <Nav.Item>
+            <Navbar.Brand id="header">
+              Hire our Graduates <FaUserGraduate id="gradlogo" />
+            </Navbar.Brand>
+            <Nav.Item>Employer Dashboard</Nav.Item>
+          </Nav.Item>
+
+          <Nav.Link id="navLinks" onClick={() => props.logOut()}>
+            Logout
+          </Nav.Link>
+        </Container>
+      </Navbar>
+      <Container>
+        <Row xs={1} sm={2} md={3} lg={4} xl={5} id="studentRows">
+        {buildCards()}
+        </Row>
+      </Container>
+    </>
+  );
 }
 
 export default EmployerDash;

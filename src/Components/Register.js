@@ -55,7 +55,7 @@ function Register(props) {
         <Form.Group controlId="RegisterPassword">
           <Form.Control
             name="password"
-            type="text"
+            type="password"
             disabled={disabled}
             placeholder="password"
           />

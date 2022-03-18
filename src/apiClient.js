@@ -1,6 +1,6 @@
 import axios from "axios";
 const url = "http://localhost:3001/";
-//const url = "https://rowens96-events-app.herokuapp.com/";
+//const url = "https://hireourgraduates.herokuapp.com/";
 
 export class ApiClient {
   constructor(token, logoutHandler, newRole, newUsername) {
@@ -129,4 +129,12 @@ export class ApiClient {
       cv: cv,
     });
   }
+
+  postFile(filename, myfile) {
+    const formData = new FormData();
+    formData.append("name", filename);
+    formData.append("myfile", myfile);
+    console.log(formData)
+    return this.authenticatedCall("post",`${url}user/new`, formData);
+  };
 }
