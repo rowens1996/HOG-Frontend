@@ -49,6 +49,7 @@ function StudentDashboard(props) {
     linkedin: "",
     github: "",
     cv: "",
+    //email: ""
   });
 
   const [current, cCurrent] = useState(undefined);
@@ -91,13 +92,35 @@ function StudentDashboard(props) {
   };
 
 
-  return (
-    <>
-{/* {consolelog()} */}
-    <NavbarComp 
-    role={props.role} 
-    logout={props.logout}
-    />
+
+    <Container id="Dash">
+      {/* {consolelog()} */}
+      <Navbar bg="dark" expand="lg">
+        <Container id="navContainer">
+          <NavItem>
+            <Navbar.Brand id="header">
+              Hire our Graduates <FaUserGraduate id="gradlogo" />
+            </Navbar.Brand>
+            <Nav.Item id="pageTitle">Student Dashboard</Nav.Item>
+          </NavItem>
+          <NavItem id="flex-horizontal">
+            <Nav.Link id="navLinks" onClick={() => props.logout()}>
+              Logout
+            </Nav.Link>
+            <Nav.Link id="navLinks" onClick={() => handleShow()}>
+              Update Profile
+            </Nav.Link>
+          </NavItem>
+        </Container>
+      </Navbar>
+
+//     <>
+// {/* {consolelog()} */}
+//     <NavbarComp 
+//     role={props.role} 
+//     logout={props.logout}
+//     />
+
       <StudentAdd
       show={show}
       handleClose={handleClose}

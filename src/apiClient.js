@@ -84,7 +84,8 @@ export class ApiClient {
     linkedin,
     github,
     cv,
-    skills
+    skills,
+    //email
   ) {
     console.log("adding profile");
     return this.authenticatedCall("post", `${url}profile`, {
@@ -98,7 +99,8 @@ export class ApiClient {
       linkedin,
       github,
       cv,
-      skills
+      skills,
+      //email
     });
   }
 
@@ -117,7 +119,8 @@ export class ApiClient {
     linkedin,
     github,
     cv,
-    skills
+    skills,
+    //email
   ) {
     return this.authenticatedCall("put", `${url}profile/${userName}`, {
       userName: userName,
@@ -130,9 +133,22 @@ export class ApiClient {
       linkedin: linkedin,
       github: github,
       cv: cv,
-      skills:skills
+      skills: skills,
+      //email: email
     });
   }
+
+
+  getByFname(fname) {
+    return this.authenticatedCall("get", `${url}search/fname/${fname}`) ;
+  }
+
+   //Find functionality for Employers
+   queryResult(name){
+    return this.authenticatedCall("post", `${url}search/employer`, name)
+  }
+
+
 
   postFile(filename, myfile) {
     const formData = new FormData();
@@ -141,4 +157,5 @@ export class ApiClient {
     console.log(formData)
     return this.authenticatedCall("post",`${url}user/new`, formData);
   };
+
 }
