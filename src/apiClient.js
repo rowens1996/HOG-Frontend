@@ -138,6 +138,7 @@ export class ApiClient {
     });
   }
 
+
   getByFname(fname) {
     return this.authenticatedCall("get", `${url}search/fname/${fname}`) ;
   }
@@ -147,5 +148,14 @@ export class ApiClient {
     return this.authenticatedCall("post", `${url}search/employer`, name)
   }
 
+
+
+  postFile(filename, myfile) {
+    const formData = new FormData();
+    formData.append("name", filename);
+    formData.append("myfile", myfile);
+    console.log(formData)
+    return this.authenticatedCall("post",`${url}user/new`, formData);
+  };
 
 }

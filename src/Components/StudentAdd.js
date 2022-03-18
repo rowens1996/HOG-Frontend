@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import {
   Button,
   Container,
@@ -12,6 +13,7 @@ import {
 } from "react-bootstrap/";
 import makeAnimated from "react-select/animated";
 import Select from "react-select";
+
 
 function StudentAdd(props) {
   const [disabled, cDisabled] = useState(false);
@@ -49,6 +51,7 @@ function StudentAdd(props) {
   const animatedComponents = makeAnimated();
 
   const submitHandler = (e) => {
+    console.log(props)
     e.preventDefault();
     e.persist();
     cDisabled(true);
@@ -108,6 +111,7 @@ function StudentAdd(props) {
               />
             </Form.Group>
 
+
             <Form.Group controlId="lName">
               <Form.Label>Last Name</Form.Label>
               <Form.Control
@@ -155,15 +159,18 @@ function StudentAdd(props) {
                 name="skills"
               ></Select>
               {/* <Form.Select
+
          className="course"  defaultValue={props.currentProfile?.course}   disabled={disabled}>
         <option value="">Please select a course</option>
         <option value="Sheffield Council 12 week Bootcamp">Sheffield Council 12 week Bootcamp</option>
         <option value="Part-Time Software Development Bootcamp">Part-Time Software Development Bootcamp</option>
         <option value="Part-Time Data Science Bootcamp">Part-Time Data Science Bootcamp</option>
         </Form.Select> */}
+
               {/* <Form.Control
           
             id="textInput"
+
             type="text"
             defaultValue={props.currentProfile?.course}
             name="course"
@@ -252,6 +259,7 @@ function StudentAdd(props) {
           </Container>
         </Modal.Body>
       </Form>
+
     </Modal>
   );
 }

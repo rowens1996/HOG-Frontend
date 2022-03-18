@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import {
   BrowserRouter,
@@ -28,6 +29,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
 import "./StudentDash.css";
 // import { Button } from "bootstrap";
+
+
+
+import NavbarComp from "./NavbarComp.js";
+
 
 function StudentDashboard(props) {
   const [userProfile, cUserProfile] = useState({
@@ -82,9 +88,11 @@ function StudentDashboard(props) {
 
   const consolelog = () => {
     console.log("rendering the studentdash");
+
   };
 
-  return (
+
+
     <Container id="Dash">
       {/* {consolelog()} */}
       <Navbar bg="dark" expand="lg">
@@ -105,6 +113,14 @@ function StudentDashboard(props) {
           </NavItem>
         </Container>
       </Navbar>
+
+//     <>
+// {/* {consolelog()} */}
+//     <NavbarComp 
+//     role={props.role} 
+//     logout={props.logout}
+//     />
+
       <StudentAdd
       show={show}
       handleClose={handleClose}
@@ -118,11 +134,13 @@ function StudentDashboard(props) {
         currentProfile={current}
         cCurrentProfile={cCurrent}
       />
-      <br />
-      <StudentCard userProfile={userProfile} />
-      {/* {buildStudentDash()} */}
-    </Container>
+      <br/>
+      <StudentCard
+        userProfile = {userProfile}
+      />    
+</>
   );
 }
 
-export default StudentDashboard;
+
+export default StudentDashboard
