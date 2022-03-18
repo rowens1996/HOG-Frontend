@@ -47,16 +47,6 @@ function App() {
     cUsername(newUser);
   };
 
-  // const updateUser = (username) => {
-  //   cUser(
-  //     client.getUserByName(username).then((response) => cUser(response.data))
-  //   );
-  // };
-
-  // useEffect(() => {
-  //   updateUser();
-  // }, [role]);
-
   const client = new ApiClient(token, logout, role, username);
 
   const roleDash = () => {
@@ -77,7 +67,7 @@ function App() {
     <>
       <Container id="container">
         <div id="main">
-          <div class="background"></div>
+          <div className="background"></div>
           {token ? (
             <>
               {roleDash()}
@@ -108,13 +98,14 @@ function App() {
           )}
         </div>
       </Container>
-      <footer class="container-fluid bg-5 text-center">
+      <footer className="container-fluid bg-5 text-center">
         <p>
           This Website Was Made By Ryan Owens <br />
           Copyright &copy; 2022
         </p>
       </footer>
-    </>
+     </>
+    
   );
 }
 

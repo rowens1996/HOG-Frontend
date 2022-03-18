@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Container, Form, FormCheck, Stack } from "react-bootstrap/";
+import UploadFiles from "./UploadFile";
 
 function StudentAdd(props) {
   const [disabled, cDisabled] = useState(false);
 
   const submitHandler = (e) => {
+    console.log(props)
     e.preventDefault();
     e.persist();
     cDisabled(true);
@@ -63,7 +65,7 @@ function StudentAdd(props) {
         <Form.Group controlId="fName">
           <Form.Label>First Name</Form.Label>
           <Form.Control
-            id="textInput"
+            
             type="text"
             defaultValue={props.currentProfile?.fname}
             name="fname"
@@ -74,7 +76,7 @@ function StudentAdd(props) {
         <Form.Group controlId="lName">
           <Form.Label>Last Name</Form.Label>
           <Form.Control
-          id="textInput"
+          
             type="text"
             defaultValue={props.currentProfile?.lname}
             name="lname"
@@ -85,7 +87,7 @@ function StudentAdd(props) {
         <Form.Group controlId="dateOfBirth">
           <Form.Label>Date of Birth</Form.Label>
           <Form.Control
-          id="textInput"
+          
             type="date"
             defaultValue={props.currentProfile?.dob}
             name="dob"
@@ -96,7 +98,7 @@ function StudentAdd(props) {
         <Form.Group controlId="bio">
           <Form.Label>Bio</Form.Label>
           <Form.Control
-          id="textInput"
+          
             type="text"
             as="textarea"
             rows={5}
@@ -109,7 +111,7 @@ function StudentAdd(props) {
         <Form.Group controlId="course">
           <Form.Label>Developer Academy Course</Form.Label>
           <Form.Control
-          id="textInput"
+          
             type="text"
             defaultValue={props.currentProfile?.course}
             name="course"
@@ -125,7 +127,7 @@ function StudentAdd(props) {
         <Form.Group controlId="linkedIn">
           <Form.Label>linkedin</Form.Label>
           <Form.Control
-          id="textInput"
+          
             type="url"
             name="linkedin"
             defaultValue={props.currentProfile?.linkedin}
@@ -136,7 +138,7 @@ function StudentAdd(props) {
         <Form.Group controlId="gitHub">
           <Form.Label>github </Form.Label>
           <Form.Control
-          id="textInput"
+          
             type="url"
             name="github"
             defaultValue={props.currentProfile?.github}
@@ -148,13 +150,18 @@ function StudentAdd(props) {
           <Form.Label>cv</Form.Label>
           
           <Form.Control
-          id="textInput"
+          
             type="text"
             defaultValue={props.currentProfile?.cv}
             name="cv"
             disabled={disabled}
           />
         </Form.Group>
+
+        <UploadFiles 
+        username={props.username}
+        client={props.client}
+        />
 
         <Button variant="primary" type="submit">
           Comfirm Updates
