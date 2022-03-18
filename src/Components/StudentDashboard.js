@@ -111,7 +111,7 @@ function StudentDashboard(props) {
     // eslint-disable-next-line
   }, []);
 
-<<<<<<< HEAD
+
   const buildCards = () => {
     return studentList.map((something) => {
       return (
@@ -141,15 +141,15 @@ function StudentDashboard(props) {
         </div>
       );
     });
-=======
+
   const consolelog = () => {
     console.log("rendering the studentdash");
->>>>>>> b8ce13f9e8525916e725265bfffa6620ee77972d
+
   };
 
 
   return (
-<<<<<<< HEAD
+
     // <Container id="Dash">
     //   <Navbar bg="dark" expand="lg">
     //     <Container id="navContainer">
@@ -171,7 +171,7 @@ function StudentDashboard(props) {
       <Container>
         {buildCards()}
       </Container>
-=======
+
     <Container id="Dash">
       {/* {consolelog()} */}
       <Navbar bg="dark" expand="lg">
@@ -189,7 +189,7 @@ function StudentDashboard(props) {
           </NavItem>
         </Container>
       </Navbar>
->>>>>>> b8ce13f9e8525916e725265bfffa6620ee77972d
+
       <StudentAdd
         username={props.username}
         client={props.client}
@@ -201,21 +201,20 @@ function StudentDashboard(props) {
         cCurrentProfile={cCurrent}
       />
       <br/>
-<<<<<<< HEAD
       {buildStudentDash()}
-    </>
+    <>
     
-=======
+
       <StudentCard
         userProfile = {userProfile}
       />
       {/* {buildStudentDash()} */}
 
       
-    </Container>
->>>>>>> b8ce13f9e8525916e725265bfffa6620ee77972d
+    <>
+
   );
-}
+};
 
 
 export default StudentDashboard;
