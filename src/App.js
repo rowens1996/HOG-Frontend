@@ -52,11 +52,11 @@ function App() {
   const client = new ApiClient(token, logout, role, username);
 
   const roleDash = () => {
-    if (role === "student") {
+    if (role === "Student") {
       return (
         <StudentDashboard username={username} client={client} logOut={logout} />
       );
-    } else if (role === "employer") {
+    } else if (role === "Employer") {
       return <EmployerDash client={client} logOut={logout} />;
     } else if (role === "TDA") {
       return <TdaDash client={client} logOut={logout} />;
