@@ -83,7 +83,8 @@ export class ApiClient {
     employed,
     linkedin,
     github,
-    cv
+    cv,
+    skills
   ) {
     console.log("adding profile");
     return this.authenticatedCall("post", `${url}profile`, {
@@ -97,6 +98,7 @@ export class ApiClient {
       linkedin,
       github,
       cv,
+      skills
     });
   }
 
@@ -114,7 +116,8 @@ export class ApiClient {
     employed,
     linkedin,
     github,
-    cv
+    cv,
+    skills
   ) {
     return this.authenticatedCall("put", `${url}profile/${userName}`, {
       userName: userName,
@@ -127,6 +130,7 @@ export class ApiClient {
       linkedin: linkedin,
       github: github,
       cv: cv,
+      skills:skills
     });
   }
 
