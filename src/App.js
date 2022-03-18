@@ -49,16 +49,6 @@ function App() {
     cUsername(newUser);
   };
 
-  // const updateUser = (username) => {
-  //   cUser(
-  //     client.getUserByName(username).then((response) => cUser(response.data))
-  //   );
-  // };
-
-  // useEffect(() => {
-  //   updateUser();
-  // }, [role]);
-
   const client = new ApiClient(token, logout, role, username);
 
   const roleDash = () => {
