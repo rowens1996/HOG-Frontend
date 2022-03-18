@@ -14,6 +14,7 @@ import {
 import makeAnimated from "react-select/animated";
 import Select from "react-select";
 
+import UploadFiles from "./UploadFile.js"
 
 function StudentAdd(props) {
   const [disabled, cDisabled] = useState(false);
@@ -259,7 +260,7 @@ function StudentAdd(props) {
           </Container>
         </Modal.Body>
       </Form>
-
+<UploadFiles username={props.username} client={props.client}/>
     </Modal>
   );
 }

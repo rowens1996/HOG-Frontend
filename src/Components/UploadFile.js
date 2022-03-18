@@ -1,4 +1,4 @@
-import { Button, Form } from "react-bootstrap/";
+import { Button, Container, Form } from "react-bootstrap/";
 import { useState } from "react";
 
 function UploadFiles(props) {
@@ -19,7 +19,7 @@ function UploadFiles(props) {
   };
 
   return (
-    <>
+    <Container>
       <Form id="avatar" onSubmit={upload}>
         <Form.Group action="/user/new" method="POST" enctype="multipart/form-data" controlId="formFile" className="mb-3">
           <Form.Label>Default file input example</Form.Label>
@@ -27,7 +27,7 @@ function UploadFiles(props) {
         </Form.Group>
         <Button onClick={submitFile}>upload</Button>
       </Form>
-    </>
+    </Container>
   );
 }
 export default UploadFiles;
