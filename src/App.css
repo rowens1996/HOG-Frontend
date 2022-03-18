@@ -3,203 +3,203 @@
   float: left;
 } */
 :root{
---githubgray: #9b9b9b;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  justify-content: center;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-#container {
-  min-width: 100vw;
-  min-height: 100vh;
-
-  margin: 0;
-  padding: 0;
-}
-
-#main {
-  overflow: auto;
-  padding-bottom: 10vh;
-}
-
-.row {
-  align-items: flex-start;
-  --bs-gutter-x: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: calc(-1 * var(--bs-gutter-y));
-  margin-right: calc(-0.5 * var(--bs-gutter-x));
-  margin-left: calc(-0.5 * var(--bs-gutter-x));
-}
-
-.col {
-  --bs-gutter-y: 1rem;
-  display: flex;
-  margin: 0 0 0 0;
-  width: 100%;
+  --githubgray: #9b9b9b;
+  }
   
-}
-
-#profileCards{
-  width: 100%;
-  justify-content: flex-start;
-}
-
-/* dark grey header with text */
-#header {
-  font-family: "Bubblegum Sans", cursive;
-  font-size: 40px;
-  color: rgb(1, 174, 7);
-}
-
-#navLoginContainer {
-  justify-content: space-around;
-}
-
-/* background img */
-.background {
-  background-image: url("https://cdn.pixabay.com/photo/2016/11/19/16/52/dawn-1840298_960_720.jpg");
-  z-index: -1;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background-position: center, center;
-  background-size: cover;
-  -webkit-backgroung-size: cover;
-}
-
-/* graduate logo on header */
-#gradlogo {
-  padding-right: 10px;
-  padding-bottom: 5px;
-  color: rgb(1, 174, 7);
-}
-
-div#div.container {
-  margin-top: 10%;
-  margin-bottom: 10%;
-}
-
-div.nav-item {
-  color: white;
-}
-
-/* register/signup form background, colour and parameters */
-#formBackground {
-  background-color: rgba(39, 39, 39, 0.5);
-  border-radius: 10px;
-  border-style: outset;
-  border-width: 10px;
-  padding-top: 75px;
-  padding-bottom: 75px;
-  padding-left: 150px;
-  padding-right: 150px;
-}
-
-/* defines login text font, colour */
-#loginForm {
-  font-family: "Bubblegum Sans", cursive;
-  color: rgb(1, 174, 7);
-  padding-right: 100px;
-}
-#loginForm > small,
-#registerForm > small {
-  font-family: "Bubblegum Sans", cursive;
-  size: 100px;
-  color: rgb(1, 174, 7);
-  font-size: 20px;
-}
-
-/* defines signup form position, potential other position */
-#registerForm {
-  /* margin-left: 960px;
-margin: bottom 400px;  */
-  /* padding-top: 100px; */
-  padding-left: 100px;
-  font-family: "Bubblegum Sans", cursive;
-}
-
-/* defines signup text colour and font */
-#signtxt {
-  font-family: "Bubblegum Sans", cursive;
-  color: #0275d8;
-}
-
-/* defines the login button's width */
-#logbtn {
-  border-width: 3px;
-  min-width: 16%;
-}
-
-/* defines the signup button's width */
-#signbtn {
-  border-width: 3px;
-  min-width: 16%;
-}
-
-/* defines footer colour, random white line on the bottom left */
-
-footer {
-  background-color: rgba(39, 39, 39, 1);
-  color: antiquewhite;
-  padding: 1.5vh;
-  text-align: center;
-  font-size: 2vh;
-  width: 100%;
-  position: relative;
-  height: 10vh;
-  margin-top: -10vh;
-  clear: both;
-}
-
-#about {
-  margin-left: 900px;
-  border-radius: 10px;
-  border-style: outset;
-  border-width: 5px;
-  font-family: "Sansita Swashed", cursive;
-  font-size: large;
-}
-
-#abouttop {
-  background-color: rgba(39, 39, 39, 0.7);
-}
-
-#Dash {
-  margin: 0;
-  padding: 0;
-  min-width: 100vw;
-}
-
-#flex-horizontal {
-  display: flex;
-  flex-direction: row;
-}
-
-div#studentRows {
-  align-items: stretch;
-}
-div.containerCards {
-  background-color: rgba(0, 0, 255, 0);
-}
-
-div.list-group-item {
-  position: relative;
-  display: block;
-  padding: 0.5rem 1rem;
-  color: #212529;
-  text-decoration: none;
-  background-color: rgba(255, 255, 255, 0);
-  border: 1px solid rgba(0, 0, 0, 0.125);
-}
+  * {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    height: 100%;
+  }
+  
+  #container {
+    min-width: 100vw;
+    min-height: 100vh;
+  
+    margin: 0;
+    padding: 0;
+  }
+  
+  #main {
+    overflow: auto;
+    padding-bottom: 10vh;
+  }
+  
+  .row {
+    align-items: flex-start;
+    --bs-gutter-x: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+  }
+  
+  .col {
+    --bs-gutter-y: 1rem;
+    display: flex;
+    margin: 0 0 0 0;
+    width: 100%;
+    
+  }
+  
+  #profileCards{
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  /* dark grey header with text */
+  #header {
+    font-family: "Bubblegum Sans", cursive;
+    font-size: 40px;
+    color: rgb(1, 174, 7);
+  }
+  
+  #navLoginContainer {
+    justify-content: space-around;
+  }
+  
+  /* background img */
+  .background {
+    background-image: url("https://cdn.pixabay.com/photo/2016/11/19/16/52/dawn-1840298_960_720.jpg");
+    z-index: -1;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-position: center, center;
+    background-size: cover;
+    -webkit-backgroung-size: cover;
+  }
+  
+  /* graduate logo on header */
+  #gradlogo {
+    padding-right: 10px;
+    padding-bottom: 5px;
+    color: rgb(1, 174, 7);
+  }
+  
+  div#div.container {
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+  
+  div.nav-item {
+    color: white;
+  }
+  
+  /* register/signup form background, colour and parameters */
+  #formBackground {
+    background-color: rgba(39, 39, 39, 0.5);
+    border-radius: 10px;
+    border-style: outset;
+    border-width: 10px;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+  
+  /* defines login text font, colour */
+  #loginForm {
+    font-family: "Bubblegum Sans", cursive;
+    color: rgb(1, 174, 7);
+    padding-right: 100px;
+  }
+  #loginForm > small,
+  #registerForm > small {
+    font-family: "Bubblegum Sans", cursive;
+    size: 100px;
+    color: rgb(1, 174, 7);
+    font-size: 20px;
+  }
+  
+  /* defines signup form position, potential other position */
+  #registerForm {
+    /* margin-left: 960px;
+  margin: bottom 400px;  */
+    /* padding-top: 100px; */
+    padding-left: 100px;
+    font-family: "Bubblegum Sans", cursive;
+  }
+  
+  /* defines signup text colour and font */
+  #signtxt {
+    font-family: "Bubblegum Sans", cursive;
+    color: #0275d8;
+  }
+  
+  /* defines the login button's width */
+  #logbtn {
+    border-width: 3px;
+    min-width: 16%;
+  }
+  
+  /* defines the signup button's width */
+  #signbtn {
+    border-width: 3px;
+    min-width: 16%;
+  }
+  
+  /* defines footer colour, random white line on the bottom left */
+  
+  footer {
+    background-color: rgba(39, 39, 39, 1);
+    color: antiquewhite;
+    padding: 1.5vh;
+    text-align: center;
+    font-size: 2vh;
+    width: 100%;
+    position: relative;
+    height: 10vh;
+    margin-top: -10vh;
+    clear: both;
+  }
+  
+  #about {
+    margin-left: 900px;
+    border-radius: 10px;
+    border-style: outset;
+    border-width: 5px;
+    font-family: "Sansita Swashed", cursive;
+    font-size: large;
+  }
+  
+  #abouttop {
+    background-color: rgba(39, 39, 39, 0.7);
+  }
+  
+  #Dash {
+    margin: 0;
+    padding: 0;
+    min-width: 100vw;
+  }
+  
+  #flex-horizontal {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  div#studentRows {
+    align-items: stretch;
+  }
+  div.containerCards {
+    background-color: rgba(0, 0, 255, 0);
+  }
+  
+  div.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #212529;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+  }

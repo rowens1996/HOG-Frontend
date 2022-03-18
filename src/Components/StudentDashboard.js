@@ -43,6 +43,7 @@ function StudentDashboard(props) {
     linkedin: "",
     github: "",
     cv: "",
+    //email: ""
   });
 
   const [current, cCurrent] = useState(undefined);
@@ -95,7 +96,7 @@ function StudentDashboard(props) {
             <Nav.Item id="pageTitle">Student Dashboard</Nav.Item>
           </NavItem>
           <NavItem id="flex-horizontal">
-            <Nav.Link id="navLinks" onClick={() => props.logOut()}>
+            <Nav.Link id="navLinks" onClick={() => props.logout()}>
               Logout
             </Nav.Link>
             <Nav.Link id="navLinks" onClick={() => handleShow()}>
