@@ -13,9 +13,9 @@ function Register(props) {
   const roleForm = (e) => {
     let stringRole = "";
     if (e.target.role.checked) {
-      stringRole = "employer";
+      stringRole = "Employer";
     } else {
-      stringRole = "student";
+      stringRole = "Student";
     }
     return stringRole;
   };

@@ -61,14 +61,14 @@ function App() {
   const client = new ApiClient(token, logout, role, username);
 
   const roleDash = () => {
-    if (role === "student") {
+    if (role === "Student") {
       return (
-        <StudentDashboard username={username} client={client} logOut={logout} role={role} />
+        <StudentDashboard username={username} client={client} logout={logout} role={role} />
       );
-    } else if (role === "employer") {
-      return <EmployerDash client={client} logOut={logout} role={role}  />;
+    } else if (role === "Employer") {
+      return <EmployerDash client={client} logout={logout} role={role}  />;
     } else if (role === "TDA") {
-      return <TdaDash client={client} logOut={logout} role={role}  />;
+      return <TdaDash client={client} logout={logout} role={role}  />;
     } else {
       return <>error no such role</>;
     }

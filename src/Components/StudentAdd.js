@@ -1,27 +1,30 @@
 import React, { useState } from "react";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Container, Form, FormCheck, Stack } from "react-bootstrap/";
+import { Button, Container, Form, FormCheck, Stack, Modal, ModalTitle } from "react-bootstrap/";
  import makeAnimated from 'react-select/animated';
 import Select from "react-select"
+
 
 function StudentAdd(props) {
   const [disabled, cDisabled] = useState(false);
   const [skills, cSkills]= useState([])
+  const [course, cCourse]= useState([])
 
-//   const skillOptions = [
-//     { value: 'JS', label: 'Javascript' },
-//     { value: 'HTML', label: 'Html' },
-//     { value: 'CSS', label: 'CSS' },
-//     { value: 'React', label: 'React'},
-//     { value: 'MongoDB', label: 'Mongo'}
-// ]
-const skillOptions = [
-  { value: 'JavaScript'},
-  { value: 'HTML'},
-  { value: 'CSS'},
-  { value: 'React'},
-  { value: 'MongoDB'}
+  const skillOptions = [
+    { value: 'JS', label: 'Javascript' },
+    { value: 'HTML', label: 'Html' },
+    { value: 'CSS', label: 'CSS' },
+    { value: 'React', label: 'React'},
+    { value: 'MongoDB', label: 'Mongo'}
+]
+
+const courseOptions = [
+  { value: 'Web Development 12 week Bootcamp', label: 'Web Development 12 week Bootcamp' },
+  { value: 'Part-Time Web Development Bootcamp', label: 'Part-Time Web Development Bootcamp' },
+  { value: 'Part-Time Data Science Bootcamp', label: 'Part-Time Data Science Bootcamp' },
+  { value: 'Game Development Bootcamp', label: 'Game Development Bootcamp'},
+  { value: 'Network Engineering Bootcamp', label: 'Network Engineering Bootcamp'}
 ]
   
 const animatedComponents = makeAnimated();
@@ -30,21 +33,7 @@ const animatedComponents = makeAnimated();
     e.preventDefault();
     e.persist();
     cDisabled(true);
-    // let result;
-    // result = props.client.updateProfile(
-    //   props.username,
-    //   e.target.fname.value,
-    //   e.target.lname.value,
-    //   e.target.dob.value,
-    //   e.target.bio.value,
-    //   e.target.course.value,
-    //   e.target.employed.checked,
-    //   e.target.linkedin.value,
-    //   e.target.github.value,
-    //   e.target.cv.value,
-    //   skills.map( (item) => { return(item.value)}),
-    // );
-
+    
     let result;
     result = props.client.updateProfile(
       props.username,
@@ -52,7 +41,7 @@ const animatedComponents = makeAnimated();
       e.target.lname.value,
       e.target.dob.value,
       e.target.bio.value,
-      e.target.course.value,
+      course.map( (item) => { return(item.value)}),
       e.target.employed.checked,
       e.target.linkedin.value,
       e.target.github.value,
@@ -72,35 +61,18 @@ const animatedComponents = makeAnimated();
         cDisabled(false);
       });
   };
-  /* 
-  // cancel event update
-  const cancelUpdate = () => {
-    props.cCurrentProfile(undefined);
-    document.getElementById("addForm").reset();
-  };
-
-  // show cancel button
- /*  const showCancelButton = () => {
-    return (
-      <button
-        className="button-28"
-        type="button"
-        onClick={() => cancelUpdate()}
-      >
-        {" "}
-        Cancel Update{" "}
-      </button>
-    );
-  }; */
-
-
 
 const consolelog = () => {
   console.log("rendering the editform");
 };
   return (
-    <Form onSubmit={(e) => submitHandler(e)} id="addForm">
+    <Modal size="xl" show={props.show} onHide={props.handleClose}>
+      <Modal.Header closeButton>
+        <ModalTitle>Edit Profile</ModalTitle>
+      </Modal.Header>
+    <Form onSubmit={(e) => submitHandler(e)} id="addForm" >
       {/* {consolelog()} */}
+      <Modal.Body>
       <Container id="formContainer">
         <Form.Group controlId="fName">
           <Form.Label>First Name</Form.Label>
@@ -149,14 +121,24 @@ const consolelog = () => {
         </Form.Group>
 
         <Form.Group controlId="course">
-          <Form.Label>Developer Academy Course</Form.Label>
-          <Form.Select
+          <Form.Label>Developer Academy Courses</Form.Label>
+          <Select
+          className="findSelect" 
+          onChange={(e)=>{cCourse(e)}}
+          closeMenuOnSelect={false}
+          components={animatedComponents}
+          defaultValue={props.currentProfile?.course}
+          isMulti
+          options={courseOptions}
+          name="skills">
+          </Select>
+          {/* <Form.Select
          className="course"  defaultValue={props.currentProfile?.course}   disabled={disabled}>
         <option value="">Please select a course</option>
         <option value="Sheffield Council 12 week Bootcamp">Sheffield Council 12 week Bootcamp</option>
         <option value="Part-Time Software Development Bootcamp">Part-Time Software Development Bootcamp</option>
         <option value="Part-Time Data Science Bootcamp">Part-Time Data Science Bootcamp</option>
-        </Form.Select>
+        </Form.Select> */}
           {/* <Form.Control
           
             id="textInput"
@@ -169,7 +151,7 @@ const consolelog = () => {
 
         <Form.Text>Are you employed?</Form.Text>
         <Form.Group controlId="registerRole">
-          <FormCheck name="employed" type="checkbox" label="I am employed" />
+          <FormCheck name="employed" type="checkbox" label="I am employed" defaultValue={props.currentProfile?.employed} disabled={disabled} />
         </Form.Group>
 
         {/* <Form.Group className="mb-3" controlId="formBasicSkills">
@@ -236,7 +218,10 @@ const consolelog = () => {
           </Button>
         </Stack>
       </Container>
+      </Modal.Body>
     </Form>
+    
+    </Modal>
   );
 }
 
