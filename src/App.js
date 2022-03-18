@@ -4,6 +4,8 @@ import EmployerDash from "./Components/EmployerDash";
 import TdaDash from "./Components/TdaDash";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
+import { Routes, Route, useNavigate, BrowserRouter} from "react-router-dom";
+
 
 
 import { ApiClient } from "./apiClient";
@@ -48,16 +50,6 @@ function App() {
     cUsername(newUser);
   };
 
-  // const updateUser = (username) => {
-  //   cUser(
-  //     client.getUserByName(username).then((response) => cUser(response.data))
-  //   );
-  // };
-
-  // useEffect(() => {
-  //   updateUser();
-  // }, [role]);
-
   const client = new ApiClient(token, logout, role, username);
 
   const roleDash = () => {
@@ -75,7 +67,7 @@ function App() {
   };
 
   return (
-    <>
+<>
       <Container id="container">
         <div id="main">
           <div className="background"></div>
@@ -115,7 +107,7 @@ function App() {
           Copyright &copy; 2022
         </p>
       </footer>
-    </>
+      </>
   );
 }
 

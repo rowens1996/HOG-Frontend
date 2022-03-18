@@ -1,7 +1,15 @@
 
 import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  useNavigate,
+} from "react-router-dom";
 import "./StudentAdd";
-import  StudentCard from "./StudentCard"
+import StudentCard from "./StudentCard";
+
 import {
   Card,
   Container,
@@ -10,11 +18,10 @@ import {
   Nav,
   Navbar,
   NavItem,
-  Button
+  Button,
 } from "react-bootstrap";
 import { FaUserGraduate } from "react-icons/fa";
-import {BsLinkedin} from "react-icons/bs"
-
+import { BsLinkedin } from "react-icons/bs";
 
 import StudentAdd from "./StudentAdd";
 
@@ -24,7 +31,9 @@ import "./StudentDash.css";
 // import { Button } from "bootstrap";
 
 
+
 import NavbarComp from "./NavbarComp.js";
+
 
 function StudentDashboard(props) {
   const [userProfile, cUserProfile] = useState({
@@ -33,7 +42,7 @@ function StudentDashboard(props) {
     lname: "",
     dob: "",
     bio: "",
-    course: "",
+    course: [],
     employed: null,
     skills: [],
     //date since employment/graduation: String,
@@ -41,7 +50,14 @@ function StudentDashboard(props) {
     github: "",
     cv: "",
   });
+
   const [current, cCurrent] = useState(undefined);
+  const [show, SetShow] = useState(false);
+
+  const handleShow = () =>  SetShow(true);
+
+
+  const handleClose = () => SetShow(false);
 
   const refreshList = () => {
     props.client
@@ -64,56 +80,10 @@ function StudentDashboard(props) {
     // eslint-disable-next-line
   }, [userProfile]);
 
-  // const buildStudentDash = () => {
-  //   return (
-  //     <Container id="studentProfile">
-  //       {/* <Card>
-  //         <Card.Header as="h5" className="card-header">
-  //           <Card.Title>
-  //             {}
-  //           </Card.Title>
-  //           <Card></Card>
-
-  //         </Card.Header>
-  //       </Card>*/}
-
-  //       <Card id="profileCard" style={{ width: "100%" }}>
-  //         <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-  //         <Card.Body>
-  //           <Card.Title id="title">
-  //             {userProfile.fname} {userProfile.lname} <br />{" "}
-  //             {userProfile.userName}{" "}
-  //           </Card.Title>
-  //           <Card.Title id="subtitle">
-  //             {userProfile.dob} <br /> {userProfile.course}
-  //           </Card.Title>
-  //           <Card.Text>{userProfile.bio}</Card.Text>
-  //         </Card.Body>
-  //         {/* skills array? */}
-  //         <ListGroup className="list-group-flush">
-  //         <a href={userProfile.linkedin}><BsLinkedin/></a>
-  //         {/* <Button>  {userProfile.linkedin} </Button> */}
-  //         {/* <Button> href ={userProfile.linkedin} </Button> */}
-          
-  //           <ListGroupItem>{userProfile.github}</ListGroupItem>
-  //           <ListGroupItem>{userProfile.cv}</ListGroupItem>
-  //         </ListGroup>
-  //         <Card.Body>
-  //           <Card.Link href={userProfile.linkedin}>Linkedin</Card.Link>
-  //           <Card.Link href={userProfile.github}>Github</Card.Link>
-  //         </Card.Body>
-  //       </Card>
-  //     </Container>
-  //   );
-  // };
-
   useEffect(() => {
     refreshList();
     // eslint-disable-next-line
   }, []);
-
-
-  
 
   const consolelog = () => {
     console.log("rendering the studentdash");
@@ -123,33 +93,15 @@ function StudentDashboard(props) {
 
   return (
     <>
-
-    {/* <Container id="Dash">
-      <Navbar bg="dark" expand="lg">
-        <Container id="navContainer">
-          <NavItem>
-            <Navbar.Brand id="header">
-              Hire our Graduates <FaUserGraduate id="gradlogo" />
-            </Navbar.Brand>
-            <Nav.Item id="pageTitle">Student Dashboard</Nav.Item>
-         </NavItem>
-          <NavItem id="flex-horizontal">
-             <Nav.Link id="navLinks" onClick={() => props.logOut()}>
-             Logout
-             </Nav.Link>
-          </NavItem>
-         </Container>
-      </Navbar> */}
-   
+{/* {consolelog()} */}
     <NavbarComp 
     role={props.role} 
     logout={props.logout}
     />
-      
-
-
-
       <StudentAdd
+      show={show}
+      handleClose={handleClose}
+      handleShow={handleShow}
         username={props.username}
         client={props.client}
         refreshList={() => {
@@ -160,16 +112,10 @@ function StudentDashboard(props) {
         cCurrentProfile={cCurrent}
       />
       <br/>
-      
-    
-    
-
       <StudentCard
         userProfile = {userProfile}
-      />
-    
+      />    
 </>
-
   );
 }
 

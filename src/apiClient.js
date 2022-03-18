@@ -133,4 +133,12 @@ export class ApiClient {
       skills:skills
     });
   }
+
+  postFile(filename, myfile) {
+    const formData = new FormData();
+    formData.append("name", filename);
+    formData.append("myfile", myfile);
+    console.log(formData)
+    return this.authenticatedCall("post",`${url}user/new`, formData);
+  };
 }

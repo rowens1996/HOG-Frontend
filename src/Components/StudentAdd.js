@@ -5,7 +5,6 @@ import { Button, Container, Form, FormCheck, Stack, Modal, ModalTitle } from "re
  import makeAnimated from 'react-select/animated';
 import Select from "react-select"
 
-
 function StudentAdd(props) {
   const [disabled, cDisabled] = useState(false);
   const [skills, cSkills]= useState([])
@@ -30,6 +29,7 @@ const courseOptions = [
 const animatedComponents = makeAnimated();
   
   const submitHandler = (e) => {
+    console.log(props)
     e.preventDefault();
     e.persist();
     cDisabled(true);
@@ -88,7 +88,7 @@ const consolelog = () => {
         <Form.Group controlId="lName">
           <Form.Label>Last Name</Form.Label>
           <Form.Control
-            
+
             type="text"
             defaultValue={props.currentProfile?.lname}
             name="lname"
@@ -99,7 +99,7 @@ const consolelog = () => {
         <Form.Group controlId="dateOfBirth">
           <Form.Label>Date of Birth</Form.Label>
           <Form.Control
-           
+
             type="date"
             defaultValue={props.currentProfile?.dob}
             name="dob"
@@ -110,7 +110,7 @@ const consolelog = () => {
         <Form.Group controlId="bio">
           <Form.Label>Bio</Form.Label>
           <Form.Control
-           
+
             type="text"
             as="textarea"
             rows={5}
@@ -140,8 +140,8 @@ const consolelog = () => {
         <option value="Part-Time Data Science Bootcamp">Part-Time Data Science Bootcamp</option>
         </Form.Select> */}
           {/* <Form.Control
-          
-            id="textInput"
+
+
             type="text"
             defaultValue={props.currentProfile?.course}
             name="course"
@@ -163,7 +163,7 @@ const consolelog = () => {
         <Form.Group controlId="linkedIn">
           <Form.Label>linkedin</Form.Label>
           <Form.Control
-           
+
             type="url"
             name="linkedin"
             defaultValue={props.currentProfile?.linkedin}
@@ -174,7 +174,7 @@ const consolelog = () => {
         <Form.Group controlId="gitHub">
           <Form.Label>github </Form.Label>
           <Form.Control
-            
+
             type="url"
             name="github"
             defaultValue={props.currentProfile?.github}
@@ -209,13 +209,13 @@ const consolelog = () => {
           options={skillOptions}
           name="skills">
           </Select>
-        
-        
+
         </Form.Group>
 
           <Button variant="primary" type="submit">
             Confirm Updates
           </Button>
+
         </Stack>
       </Container>
       </Modal.Body>
