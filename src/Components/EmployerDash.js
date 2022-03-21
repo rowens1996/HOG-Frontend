@@ -4,17 +4,12 @@ import {
   Button,
   Card,
   Container,
-  ListGroup,
-  ListGroupItem,
-  Nav,
-  Navbar,
   Row,
   Col,
   Collapse,
   Stack
 } from "react-bootstrap";
 
-import { FaUserGraduate } from "react-icons/fa";
 import { BsLinkedin } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import { AiTwotoneMail } from "react-icons/ai";
@@ -157,10 +152,8 @@ function EmployerDash(props) {
 
   return (
     <>
+      <NavbarComp role={props.role} logout={props.logout} handleShow={props.handleShow}/>
 
-    
-      <NavbarComp role={props.role}/>
-      <Nav.Link id="navLinks" onClick={() => props.logOut()}></Nav.Link>
       <Container>
         <Row xs={1} sm={2} md={3} lg={4} xl={5} id="studentRows">
           {buildCards()}
@@ -168,12 +161,10 @@ function EmployerDash(props) {
       </Container>
 
       <SearchAll
-        
         refreshList={() => {
           refreshList();
           cCurrent(undefined);
         }}
-
         //cFname={cFname}
         //cLocation={cLocation}
         //getByLocation={(loc) => getByLocation(loc)}
@@ -181,12 +172,8 @@ function EmployerDash(props) {
         // currentStudent = {current}
         client={props.client}
         querySearch={querySearch}
-        currentProfile={current}
-          
-        
+        currentProfile={current} 
       />
-
-
     </>
 
   );

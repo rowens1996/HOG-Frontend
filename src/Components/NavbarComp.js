@@ -6,6 +6,7 @@ import {
   ListGroupItem,
   Nav,
   Navbar,
+  NavItem
 } from "react-bootstrap";
 
 import { FaUserGraduate } from "react-icons/fa";
@@ -14,7 +15,17 @@ import StudentAdd from "./StudentAdd";
 
 
 function NavbarComp(props) {
-console.log(props.logout);
+
+const updateModal = () => {
+  console.log(props.handleShow)
+  if(props.role=="Student"){
+    return(
+      <Nav.Link id="navLinks" onClick={() => props.handleShow()}>
+              Update Profile
+            </Nav.Link>
+    )
+  }
+}
   return (
     <>
       <Navbar bg="dark" expand="lg">
@@ -25,10 +36,12 @@ console.log(props.logout);
             </Navbar.Brand>
             <Nav.Item>{props.role} Dashboard</Nav.Item>
           </Nav.Item>
-
-          <Nav.Link id="navLinks" onClick={() => props.logout()}>
-            Logout
-          </Nav.Link>
+          <NavItem id="flex-horizontal">
+            <Nav.Link id="navLinks" onClick={() => props.logout()}>
+              Logout
+            </Nav.Link>
+            {updateModal()}
+          </NavItem>
         </Container>
       </Navbar>
     </>
