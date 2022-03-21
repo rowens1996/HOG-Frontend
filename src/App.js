@@ -7,6 +7,7 @@ import Register from "./Components/Register";
 import { Routes, Route, useNavigate, BrowserRouter} from "react-router-dom";
 
 
+
 import { ApiClient } from "./apiClient";
 import { useState, useEffect } from "react";
 import {
@@ -49,27 +50,18 @@ function App() {
     cUsername(newUser);
   };
 
-  // const updateUser = (username) => {
-  //   cUser(
-  //     client.getUserByName(username).then((response) => cUser(response.data))
-  //   );
-  // };
-
-  // useEffect(() => {
-  //   updateUser();
-  // }, [role]);
-
   const client = new ApiClient(token, logout, role, username);
 
   const roleDash = () => {
     if (role === "Student") {
       return (
-        <StudentDashboard username={username} client={client} logout={logout} />
+
+        <StudentDashboard username={username} client={client} logout={logout} role={role} />
       );
     } else if (role === "Employer") {
-      return <EmployerDash client={client} logout={logout} />;
+      return <EmployerDash client={client} logout={logout} role={role}  />;
     } else if (role === "TDA") {
-      return <TdaDash client={client} logout={logout} />;
+      return <TdaDash client={client} logout={logout} role={role}  />;
     } else {
       return <>error no such role</>;
     }
