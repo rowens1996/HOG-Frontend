@@ -104,9 +104,9 @@ export class ApiClient {
     });
   }
 
-  removeProfile(username) {
-    return this.authenticatedCall("delete", `${url}profile/${username}`);
-  }
+  // removeProfile(username) {
+  //   return this.authenticatedCall("delete", `${url}profile/${username}`);
+  // }
 
   updateProfile(
     userName,
@@ -157,5 +157,29 @@ export class ApiClient {
     console.log(formData)
     return this.authenticatedCall("post",`${url}user/new`, formData);
   };
+
+
+  //TDA functions
+  removeProfile(id) {
+    return this.authenticatedCall("delete", `${url}delete/${id}`);
+  }
+
+  updateTdaProfile(
+    id, 
+    userName,
+    fname,
+    lname,
+    dob,
+    bio,
+    course,
+    employed,
+    linkedin,
+    github,
+    cv,
+    skills,) {
+    return this.authenticatedCall("put", `${url}update/${id}`, { userName, fname, lname, dob, bio, course, employed, linkedin, github, cv, skills});
+
+
+}
 
 }

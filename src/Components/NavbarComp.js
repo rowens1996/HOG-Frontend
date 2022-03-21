@@ -14,7 +14,7 @@ import StudentAdd from "./StudentAdd";
 
 
 function NavbarComp(props) {
-console.log(props.logout);
+//console.log(props.logout);
   return (
     <>
       <Navbar bg="dark" expand="lg">
