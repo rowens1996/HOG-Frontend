@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import {
   BrowserRouter,
@@ -92,7 +91,7 @@ function StudentDashboard(props) {
   };
 
 
-
+return(
     <Container id="Dash">
       {/* {consolelog()} */}
       <Navbar bg="dark" expand="lg">
@@ -114,12 +113,12 @@ function StudentDashboard(props) {
         </Container>
       </Navbar>
 
-//     <>
-// {/* {consolelog()} */}
-//     <NavbarComp 
-//     role={props.role} 
-//     logout={props.logout}
-//     />
+ 
+ {/* {consolelog()} */}
+    {/* <NavbarComp 
+     role={props.role} 
+     logout={props.logout}
+     /> */}
 
       <StudentAdd
       show={show}
@@ -138,9 +137,8 @@ function StudentDashboard(props) {
       <StudentCard
         userProfile = {userProfile}
       />    
-</>
-  );
-}
-
+</Container>
+)
+      }
 
 export default StudentDashboard
