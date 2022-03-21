@@ -1,5 +1,6 @@
 import { Button, Container, Form } from "react-bootstrap/";
 import { useState } from "react";
+import "./StudentAdd.css";
 
 function UploadFiles(props) {
   const [selectedFile, cSelectedFile] = useState();
@@ -19,10 +20,10 @@ function UploadFiles(props) {
   };
 
   return (
-    <Container>
+    <Container id="formContainer">
       <Form id="avatar" onSubmit={upload}>
         <Form.Group action="/user/new" method="POST" enctype="multipart/form-data" controlId="formFile" className="mb-3">
-          <Form.Label>Default file input example</Form.Label>
+          <Form.Label id= "txtcolour">Default file input example</Form.Label>
           <Form.Control type="file" name="myfile" onChange={changeHandler} />
         </Form.Group>
         <Button onClick={submitFile}>upload</Button>

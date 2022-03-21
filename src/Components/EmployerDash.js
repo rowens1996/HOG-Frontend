@@ -160,7 +160,7 @@ function EmployerDash(props) {
 
     
       <NavbarComp role={props.role}/>
-      <Nav.Link id="navLinks" onClick={() => props.logOut()}></Nav.Link>
+      <Nav.Link id="navLinks" onClick={() => props.logout()}></Nav.Link>
       <Container>
         <Row xs={1} sm={2} md={3} lg={4} xl={5} id="studentRows">
           {buildCards()}

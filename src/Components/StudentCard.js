@@ -76,13 +76,13 @@ const employed = () => {
 
               <Card.Title className = "bio" > Deatils </Card.Title>
               <Card.Text className="BioText">
-                dob: {props.userProfile.dob} <br /> Courses Completed: {props.userProfile.course.join(", ")} <br /> {props.userProfile.cv} <br/> Employment Status: {employed()}
+                DOB : {props.userProfile.dob} <br/> <br/>Courses Completed : {props.userProfile.course.join(", ")} <br/> {props.userProfile.cv} <br/> Employment Status : {employed()}
 
               </Card.Text>
 
               <Card.Title className = "bio" > Tech Skills </Card.Title>
 
-              <Card.Text className = "BioText">Skills: {props.userProfile.skills.join(", ")} </Card.Text>
+              <Card.Text className = "BioText">Skills : {props.userProfile.skills.join(", ")} </Card.Text>
 
             </Card.Body>
             {/* skills array? */}

@@ -2,20 +2,24 @@ import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
+import Collapse from "react-bootstrap/Collapse";
 import Form from "react-bootstrap/Form";
-//import Select from "react-select";
-//import makeAnimated from "react-select/animated";
+import Select from "react-select";
+import makeAnimated from "react-select/animated";
+import "./SearchAll.css"
 
 function SearchAll(props) {
+  const [open, setOpen] = useState(false)
   const [disabled, cDisabled] = useState(false);
-  // const [skills, cSkills] = useState([]);
-  // const animatedComponents = makeAnimated();
-  // const skillOptions = [
-  //   { value: "JS", label: "Javascript" },
-  //   { value: "HTML", label: "Html" },
-  //   { value: "CSS", label: "CSS" },
-  //   { value: "React", label: "React" },
-  // ];
+  const [skills, cSkills] = useState([]);
+   const animatedComponents = makeAnimated();
+  const skillOptions = [
+    { value: "JS", label: "Javascript" },
+    { value: "HTML", label: "Html" },
+    { value: "CSS", label: "CSS" },
+    { value: "React", label: "React" },
+    { value: "MongoDB", label: "Mongo" }
+  ];
   const submitHandler = (e) => {
     e.preventDefault();
     const search = {
@@ -23,8 +27,8 @@ function SearchAll(props) {
       Lastname: e.target.Lastname.value,
     
       //sCourse: e.target.sCourse.value,
-    
-      //sSkills: skills.map((item) => item.value),
+      sCourse: e.target.sCourse.value,
+      sSkills: skills.map((item) => item.value),
     };
     props.querySearch(search);
   };
@@ -37,9 +41,19 @@ function SearchAll(props) {
 
   return (
     <>
+    
+    <br/>  <br/>  
+    <Button
+        onClick={() => setOpen(!open)}
+        aria-controls="example-collapse-text"
+        aria-expanded={open}
+      >
+        Search Profiles
+      </Button>
+      <Collapse in={open}>
       <Container className="mx-auto formContainer">
-        <br/> <br/> <br/>
-        <h5 className="findHeader">Search Profiles</h5>
+        <br/> <br/> 
+        
         <br />
         <Form
           className="form2"
@@ -47,7 +61,7 @@ function SearchAll(props) {
           id="findForm"
         >
           <Form.Group>
-            <Form.Label className="fname">First name:</Form.Label>
+            <Form.Label id="txtcolour" className="fname">First name:</Form.Label>
             <Form.Control
               type="text"
               defaultValue={props.currentProfile?.Firstname}
@@ -57,7 +71,7 @@ function SearchAll(props) {
             ></Form.Control>
           </Form.Group>
           <Form.Group>
-            <Form.Label className="fname">Last name:</Form.Label>
+            <Form.Label id="txtcolour" className="fname">Last name:</Form.Label>
             <Form.Control
               type="text"
               defaultValue={props.currentProfile?.Lastname}
@@ -67,25 +81,31 @@ function SearchAll(props) {
             ></Form.Control>
           </Form.Group>
          
-          {/* <Form.Group>
-            <Form.Label>Course:</Form.Label>
+          <Form.Group>
+            <Form.Label id="txtcolour">Course:</Form.Label>
             <Form.Select id="sCourse" name="sCourse">
               <option value="">Please select a course</option>
-              <option value="Sheffield Council 12 week Bootcamp">
-                Sheffield Council 12 week Bootcamp
+              <option value="Web Development 12 week Bootcamp">
+              Web Development 12 week Bootcamp
               </option>
-              <option value="Part-Time Software Development Bootcamp">
-                Part-Time Software Development Bootcamp
+              <option value="Part-Time Web Development Bootcamp">
+              Part-Time Web Development Bootcamp
               </option>
               <option value="Part-Time Data Science Bootcamp">
-                Part-Time Data Science Bootcamp
+              Part-Time Data Science Bootcamp
+              </option>
+              <option value="Game Development Bootcamp">
+              Game Development Bootcamp
+              </option>
+              <option value="Network Engineering Bootcamp">
+              Network Engineering Bootcamp
               </option>
             </Form.Select>
-          </Form.Group> */}
+          </Form.Group>
      
          
-          {/* <Form.Group className="findSelectForm">
-            <Form.Label>Skills</Form.Label>
+          <Form.Group className="findSelectForm">
+            <Form.Label id="txtcolour">Skills</Form.Label>
             <Select
               className="findSelect"
               onChange={(e) => {
@@ -93,13 +113,14 @@ function SearchAll(props) {
               }}
               closeMenuOnSelect={false}
               components={animatedComponents}
-              defaultValue={props.currentProfile?.skills}
+              defaultValue={props.currentProfile?.sSkills}
               isMulti
               options={skillOptions}
-              name="skills"
+              name="sSkills"
             ></Select>
-          </Form.Group> */}
+          </Form.Group>
           <br />
+          <Container className = "Buttons">
           <Button
             variant="primary"
             
@@ -109,14 +130,21 @@ function SearchAll(props) {
             {" "}
             Search{" "}
           </Button>
+          &nbsp;
+            &nbsp;
           <Button 
           variant="secondary"
           onClick={() => showAll()}>
               {" "}
               Show All{" "}
             </Button>
+            </Container>
         </Form>
       </Container>
+      </Collapse>
+     
+    
+    
     </>
   );
 }
