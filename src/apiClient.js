@@ -143,8 +143,8 @@ export class ApiClient {
   }
 
    //Find functionality for Employers
-   queryResult(name){
-    return this.authenticatedCall("post", `${url}search/employer`, name)
+   queryResult(searchEmp){
+    return this.authenticatedCall("post", `${url}search/employer`, searchEmp)
   }
 
 

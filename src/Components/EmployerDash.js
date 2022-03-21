@@ -35,8 +35,8 @@ function EmployerDash(props) {
     props.client.getProfile().then((response) => cStudentsList(response.data));
   };
 
-  const querySearch = (name) => {
-    props.client.queryResult(name).then((response) => cStudentsList(response.data))
+  const querySearch = (searchEmp) => {
+    props.client.queryResult(searchEmp).then((response) => cStudentsList(response.data))
   }
 
 //Search by first name
@@ -97,7 +97,7 @@ function EmployerDash(props) {
             </Card.Header>
             <br />
             <Card.Text>{current.course}</Card.Text>
-            <Card.Text>{current.skills}</Card.Text>
+            <Card.Text>{current.skills.join("   ")}</Card.Text>
             <Stack>
              
             <Button
