@@ -16,11 +16,7 @@ import {
   import {FaCss3Alt} from 'react-icons/fa'
     import "./Cat.jpeg"
   import "./StudentCard.css";
-import { BsLinkedin } from "react-icons/bs";
-import { BsGithub } from "react-icons/bs";
-import { AiTwotoneMail } from "react-icons/ai";
-import "./Cat.jpeg";
-import "./StudentCard.css";
+
 
 export default function StudentCard(props) {
   const consolelog = () => {
@@ -85,7 +81,8 @@ export default function StudentCard(props) {
           <Card.Text className="BioText">
             dob: {props.userProfile.dob} <br /> Courses Completed:{" "}
             {props.userProfile.course.join(", ")}
-            <br /> Employment Status: {employed()}
+            <br /> Employment Status: {employed()} 
+            <br/> Location: {props.userProfile.location}
           </Card.Text>
             <Nav.Link href={pdfLink} >Preview CV</Nav.Link>
           <Card.Title className="bio"> Tech Skills </Card.Title>

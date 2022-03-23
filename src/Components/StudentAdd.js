@@ -78,6 +78,7 @@ function StudentAdd(props) {
         return item.value;
       }),
       e.target.email.value,
+      e.target.location.value
     );
 
     result
@@ -131,6 +132,16 @@ function StudentAdd(props) {
                 type="date"
                 defaultValue={props.currentProfile?.dob}
                 name="dob"
+                disabled={disabled}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="location">
+              <Form.Label>Location</Form.Label>
+              <Form.Control
+                type="text"
+                defaultValue={props.currentProfile?.location}
+                name="location"
                 disabled={disabled}
               />
             </Form.Group>

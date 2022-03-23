@@ -7,7 +7,9 @@ import {
   Row,
   Col,
   Collapse,
-  Stack
+  Stack,
+  NavLink
+
 } from "react-bootstrap";
 
 import { BsLinkedin } from "react-icons/bs";
@@ -86,7 +88,7 @@ function EmployerDash(props) {
             <Card.Header className="details">
               <Card.Img
                 className="profilepic"
-                src="https://static.scientificamerican.com/sciam/cache/file/32665E6F-8D90-4567-9769D59E11DB7F26_source.jpg?w=590&h=800&7E4B4CAD-CAE1-4726-93D6A160C2B068B2"
+                src={`http://localhost:3001/file/get/${current.avatar}`}
               />
               <Card.Text as="h3">
                 {current.fname} {current.lname}
@@ -111,36 +113,50 @@ function EmployerDash(props) {
               
             </Button>
             </Stack>
-            <Collapse className = "extra" in={open} >
-              <div className="extra" >
 
-             &nbsp;
+            <br/>
+            <Collapse className = "extra" in={open} >
+            
+              
+              <div className="extra" >
+              
+              
+              
+          
+           
+              
             &nbsp;
-            &nbsp; 
+            &nbsp;
+            
             <Card.Text className="cardButton">
             <a href={current.linkedin}><i ><BsLinkedin size={40}/></i></a>
             </Card.Text>
+          
             &nbsp;
             &nbsp;
             &nbsp;
             <Card.Text className="cardButton">
             <a href={current.github}><i ><BsGithub size={40} color={"var(--githubgray)"}/></i></a>
             </Card.Text>
+          
             &nbsp;
             &nbsp;
             &nbsp;
             <Card.Text className="cardButton">
-            <a href={current.github}><i ><AiTwotoneMail size={40} color={"white"}/></i></a>
+            <a href={current.email}><i ><AiTwotoneMail size={40} color={"white"}/></i></a>
             </Card.Text>
+           <Container className = "Other">
             <Card.Text>"current.cohort"</Card.Text>
             <Card.Text>"current.graduated"</Card.Text>
             <Card.Text className="cardButton">
-              <a href={current.cv}>
+              <a href={`http://localhost:3001/file/get/${current.cv}`} target="_blank">
                 <Button size="sm" variant="success">
                   Download CV
                 </Button>
               </a>
+
             </Card.Text>
+            </Container>
               </div>
             </Collapse>
            
@@ -155,13 +171,11 @@ function EmployerDash(props) {
       <NavbarComp role={props.role} logout={props.logout} handleShow={props.handleShow}/>
 
     
-      <NavbarComp role={props.role}
-      logout={props.logout}
-      />
-      <Nav.Link id="navLinks" onClick={() => props.logout()}></Nav.Link>
+      
+   
 
       <Container>
-        <Row xs={1} sm={2} md={3} lg={4} xl={5} id="studentRows">
+        <Row xs={1} sm={2} md={3} lg={4} id="studentRows">
           {buildCards()}
         </Row>
       </Container>

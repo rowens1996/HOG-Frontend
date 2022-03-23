@@ -121,7 +121,8 @@ export class ApiClient {
     cv,
     avatar,
     skills,
-    email
+    email,
+    location
   ) {
     return this.authenticatedCall("put", `${url}profile/${userName}`, {
       userName: userName,
@@ -136,7 +137,8 @@ export class ApiClient {
       cv: cv,
       avatar: avatar,
       skills: skills,
-      email: email
+      email: email,
+      location: location
     });
   }
 
@@ -182,9 +184,9 @@ export class ApiClient {
     skills,) {
     return this.authenticatedCall("put", `${url}update/${id}`, { userName, fname, lname, dob, bio, course, employed, linkedin, github, cv, skills});
 
-
-
+    
+    }
   getFile(filename) {
     return this.authenticatedCall("get",`${url}file/get/${filename}`);
   };
-}}
+}
