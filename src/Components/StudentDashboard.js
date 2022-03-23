@@ -45,6 +45,7 @@ function StudentDashboard(props) {
     linkedin: "",
     github: "",
     cv: "",
+    avatar: "avatar_placeholder_1.jpg",
     //email: ""
   });
 
@@ -108,7 +109,8 @@ function StudentDashboard(props) {
         cCurrentProfile={cCurrent}
       />
       <br />
-      <StudentCard userProfile={userProfile} />
+      <StudentCard userProfile={userProfile} username={props.username}
+        client={props.client} />
     </Container>
   );
 }

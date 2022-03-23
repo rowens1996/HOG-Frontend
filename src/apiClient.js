@@ -119,6 +119,7 @@ export class ApiClient {
     linkedin,
     github,
     cv,
+    avatar,
     skills,
     //email
   ) {
@@ -133,6 +134,7 @@ export class ApiClient {
       linkedin: linkedin,
       github: github,
       cv: cv,
+      avatar: avatar,
       skills: skills,
       //email: email
     });
@@ -155,7 +157,10 @@ export class ApiClient {
     formData.append("name", filename);
     formData.append("myfile", myfile);
     console.log(formData)
-    return this.authenticatedCall("post",`${url}user/new`, formData);
+    return this.authenticatedCall("post",`${url}file/new`, formData);
   };
 
+  getFile(filename) {
+    return this.authenticatedCall("get",`${url}file/get/${filename}`);
+  };
 }
