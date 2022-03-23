@@ -103,7 +103,7 @@ function App() {
       </Container>
       <footer className="container-fluid bg-5 text-center">
         <p>
-          This Website Was Made By Ryan Owens <br />
+          This Website Was Made By Ryan Owens/Abdullah Daoub/ Barni <br />
           Copyright &copy; 2022
         </p>
       </footer>

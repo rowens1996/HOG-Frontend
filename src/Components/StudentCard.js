@@ -1,16 +1,21 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import {
-  Card,
-  Container,
-  ListGroup,
-  ListGroupItem,
-  Nav,
-  Navbar,
-  NavItem,
-  Button,
-} from "react-bootstrap";
-
+    Card,
+    Container,
+    ListGroup,
+    ListGroupItem,
+    Nav,
+    Navbar,
+    NavItem,
+    Button
+  } from "react-bootstrap";
+  import {BsLinkedin} from "react-icons/bs"
+  import {BsGithub} from "react-icons/bs"
+  import { AiTwotoneMail } from "react-icons/ai";
+  import {FaCss3Alt} from 'react-icons/fa'
+    import "./Cat.jpeg"
+  import "./StudentCard.css";
 import { BsLinkedin } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import { AiTwotoneMail } from "react-icons/ai";
@@ -31,9 +36,7 @@ export default function StudentCard(props) {
     }
   };
 
-
   const pdfLink = `http://localhost:3001/file/get/${props.userProfile.cv}`;
- 
 
   return (
     <Container id="studentProfile">
@@ -56,6 +59,7 @@ export default function StudentCard(props) {
               <Button className ="github" href={props.userProfile.github}><BsGithub/> Github</Button>
               &nbsp;
               <Button className ="email" href={props.userProfile.github}><AiTwotoneMail/> Email</Button> */}
+
             <a href={(props.userProfile.github)}>
               <i>
                 <BsGithub size={60} color={"var(--githubgray)"} />
@@ -68,7 +72,7 @@ export default function StudentCard(props) {
               </i>
             </a>
             &nbsp; &nbsp; &nbsp;
-            <a href={props.userProfile.github}>
+            <a href={"mailto:"+props.userProfile.email}>
               <i>
                 <AiTwotoneMail size={60} color={"white"} />
               </i>
@@ -87,7 +91,7 @@ export default function StudentCard(props) {
           <Card.Title className="bio"> Tech Skills </Card.Title>
 
           <Card.Text className="BioText">
-            Skills: {props.userProfile.skills.join(", ")}{" "}
+            Skills: {props.userProfile.skills.join("  ")}{" "}
           </Card.Text>
         </Card.Body>
         {/* skills array? */}
@@ -103,3 +107,4 @@ export default function StudentCard(props) {
     </Container>
   );
 }
+

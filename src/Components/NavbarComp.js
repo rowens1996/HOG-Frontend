@@ -16,6 +16,7 @@ import StudentAdd from "./StudentAdd";
 
 function NavbarComp(props) {
 
+
 const updateModal = () => {
   console.log(props.handleShow)
   if(props.role=="Student"){

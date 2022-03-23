@@ -104,9 +104,9 @@ export class ApiClient {
     });
   }
 
-  removeProfile(username) {
-    return this.authenticatedCall("delete", `${url}profile/${username}`);
-  }
+  // removeProfile(username) {
+  //   return this.authenticatedCall("delete", `${url}profile/${username}`);
+  // }
 
   updateProfile(
     userName,
@@ -121,7 +121,7 @@ export class ApiClient {
     cv,
     avatar,
     skills,
-    //email
+    email
   ) {
     return this.authenticatedCall("put", `${url}profile/${userName}`, {
       userName: userName,
@@ -136,7 +136,7 @@ export class ApiClient {
       cv: cv,
       avatar: avatar,
       skills: skills,
-      //email: email
+      email: email
     });
   }
 
@@ -146,8 +146,8 @@ export class ApiClient {
   }
 
    //Find functionality for Employers
-   queryResult(name){
-    return this.authenticatedCall("post", `${url}search/employer`, name)
+   queryResult(searchEmp){
+    return this.authenticatedCall("post", `${url}search/employer`, searchEmp)
   }
 
 
@@ -160,7 +160,31 @@ export class ApiClient {
     return this.authenticatedCall("post",`${url}file/new`, formData);
   };
 
+
+
+  //TDA functions
+  removeProfile(id) {
+    return this.authenticatedCall("delete", `${url}delete/${id}`);
+  }
+
+  updateTdaProfile(
+    id, 
+    userName,
+    fname,
+    lname,
+    dob,
+    bio,
+    course,
+    employed,
+    linkedin,
+    github,
+    cv,
+    skills,) {
+    return this.authenticatedCall("put", `${url}update/${id}`, { userName, fname, lname, dob, bio, course, employed, linkedin, github, cv, skills});
+
+
+
   getFile(filename) {
     return this.authenticatedCall("get",`${url}file/get/${filename}`);
   };
-}
+}}
