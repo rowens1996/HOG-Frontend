@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SearchAll from "./SearchAll";
 import {
+  Accordion,
   Button,
   Card,
   Container,
@@ -8,8 +9,7 @@ import {
   Col,
   Collapse,
   Stack,
-  NavLink
-
+  NavLink,
 } from "react-bootstrap";
 
 import { BsLinkedin } from "react-icons/bs";
@@ -18,18 +18,16 @@ import { AiTwotoneMail } from "react-icons/ai";
 
 import "./EmployerDash.css";
 
-
 import NavbarComp from "./NavbarComp.js";
-
-
+import AccordionItem from "react-bootstrap/esm/AccordionItem";
+import AccordionHeader from "react-bootstrap/esm/AccordionHeader";
 
 function EmployerDash(props) {
   const [studentList, cStudentsList] = useState([]);
   const [current, cCurrent] = useState(undefined);
-  const [open, setOpen] = useState(false);
   const [fname, cFname] = useState(undefined);
+  const [open, cOpen] = useState({});
 
-  
 
 
   const refreshList = () => {
@@ -37,21 +35,22 @@ function EmployerDash(props) {
   };
 
   const querySearch = (searchEmp) => {
-    props.client.queryResult(searchEmp).then((response) => cStudentsList(response.data))
-  }
+    props.client
+      .queryResult(searchEmp)
+      .then((response) => cStudentsList(response.data));
+  };
 
-//Search by first name
+  //Search by first name
   // const getByFname = (fnam) => {
   //   props.client.getByFname(fnam).then((response) => cStudentsList(response.data));
   // };
-
 
   // const handleExpandClick = () => {
   //   setOpen(!open)
   // };
 
   // const expnadProfile = (id, expand)=>{
-    
+
   //   const expanded = studentList.map((profile)=>{
   //     if (profile._id===id){
   //       if (expand){
@@ -59,21 +58,24 @@ function EmployerDash(props) {
   //       }
   //     }
   //     return profile
-      
+
   //   })
   //   cStudentsList(expanded)
-   
+
   // }
   // const expandProfile = (id)=>{
   //   const expand = studentList.map((current)=>{
   //     if (current._id===id){
   //       return (setOpen(true))
 
-
-  //     } 
+  //     }
   //   })
   //   setOpen(expand)
   // }
+
+  const collapse = (id) => {
+    cOpen((prevState => ({...prevState, [id]: !prevState[id]})))
+  }
 
   useEffect(() => {
     refreshList();
@@ -91,7 +93,7 @@ function EmployerDash(props) {
                 src={`http://localhost:3001/file/get/${current.avatar}`}
               />
               <Card.Text as="h3">
-                {current.fname} {current.lname}
+                {current.fname}  {current.lname}
               </Card.Text>
               <Card.Text as="h6">{current.dob}</Card.Text>
               <Card.Title as="h6">Location{current.location}</Card.Title>
@@ -99,68 +101,54 @@ function EmployerDash(props) {
             <br />
             <Card.Text>{current.course}</Card.Text>
             <Card.Text>{current.skills.join("   ")}</Card.Text>
-            <Stack>
-             
-            <Button
-              variant = "secondary"
-              
-              onClick={() =>  setOpen(!open)}
-              aria-controls="example-collapse-text"
-              //aria-expanded={open}
-            >
-              
-              Expand Profile
-              
-            </Button>
-            </Stack>
-
-            <br/>
-            <Collapse className = "extra" in={open} >
             
-              
-              <div className="extra" >
-              
-              
-              
-          
-           
-              
-            &nbsp;
-            &nbsp;
-            
-            <Card.Text className="cardButton">
-            <a href={current.linkedin}><i ><BsLinkedin size={40}/></i></a>
-            </Card.Text>
-          
-            &nbsp;
-            &nbsp;
-            &nbsp;
-            <Card.Text className="cardButton">
-            <a href={current.github}><i ><BsGithub size={40} color={"var(--githubgray)"}/></i></a>
-            </Card.Text>
-          
-            &nbsp;
-            &nbsp;
-            &nbsp;
-            <Card.Text className="cardButton">
-            <a href={current.email}><i ><AiTwotoneMail size={40} color={"white"}/></i></a>
-            </Card.Text>
-           <Container className = "Other">
-            <Card.Text>"current.cohort"</Card.Text>
-            <Card.Text>"current.graduated"</Card.Text>
-            <Card.Text className="cardButton">
-              <a href={`http://localhost:3001/file/get/${current.cv}`} target="_blank">
-                <Button size="sm" variant="success">
-                  Download CV
-                </Button>
-              </a>
-
-            </Card.Text>
-            </Container>
+           <Button onClick={(()=>collapse(current._id))}>Expand</Button>
+            <br />
+            <Collapse className="extra" in={open[current._id]}>
+              <div className="extra">
+                &nbsp; &nbsp;
+                <Card.Text className="cardButton">
+                  <a href={current.linkedin}>
+                    <i>
+                      <BsLinkedin size={40} />
+                    </i>
+                  </a>
+                </Card.Text>
+                &nbsp; &nbsp; &nbsp;
+                <Card.Text className="cardButton">
+                  <a href={current.github}>
+                    <i>
+                      <BsGithub size={40} color={"var(--githubgray)"} />
+                    </i>
+                  </a>
+                </Card.Text>
+                &nbsp; &nbsp; &nbsp;
+                <Card.Text className="cardButton">
+                  <a href={current.email}>
+                    <i>
+                      <AiTwotoneMail size={40} color={"white"} />
+                    </i>
+                  </a>
+                </Card.Text>
+                <Container className="Other">
+                  <Card.Text>"current.cohort"</Card.Text>
+                  <Card.Text>"current.graduated"</Card.Text>
+                  <Card.Text className="cardButton">
+                    <a
+                      href={`http://localhost:3001/file/get/${current.cv}`}
+                      target="_blank"
+                    >
+                      <Button size="sm" variant="success">
+                        Download CV
+                      </Button>
+                    </a>
+                  </Card.Text>
+                </Container>
               </div>
             </Collapse>
-           
-            </Card>
+
+
+          </Card>
         </Col>
       );
     });
@@ -168,11 +156,11 @@ function EmployerDash(props) {
 
   return (
     <>
-      <NavbarComp role={props.role} logout={props.logout} handleShow={props.handleShow}/>
-
-    
-      
-   
+      <NavbarComp
+        role={props.role}
+        logout={props.logout}
+        handleShow={props.handleShow}
+      />
 
       <Container>
         <Row xs={1} sm={2} md={3} lg={4} id="studentRows">
@@ -192,10 +180,9 @@ function EmployerDash(props) {
         // currentStudent = {current}
         client={props.client}
         querySearch={querySearch}
-        currentProfile={current} 
+        currentProfile={current}
       />
     </>
-
   );
 }
 
