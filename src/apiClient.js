@@ -120,7 +120,7 @@ export class ApiClient {
     github,
     cv,
     skills,
-    //email
+    email
   ) {
     return this.authenticatedCall("put", `${url}profile/${userName}`, {
       userName: userName,
@@ -134,7 +134,7 @@ export class ApiClient {
       github: github,
       cv: cv,
       skills: skills,
-      //email: email
+      email: email
     });
   }
 

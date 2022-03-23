@@ -48,7 +48,7 @@ function StudentDashboard(props) {
     linkedin: "",
     github: "",
     cv: "",
-    //email: ""
+    email: ""
   });
 
   const [current, cCurrent] = useState(undefined);
@@ -136,6 +136,7 @@ return(
       <br/>
       <StudentCard
         userProfile = {userProfile}
+        currentProfile={current}
       />    
 </Container>
 )

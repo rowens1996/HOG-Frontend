@@ -12,6 +12,7 @@ import {
   import {BsLinkedin} from "react-icons/bs"
   import {BsGithub} from "react-icons/bs"
   import { AiTwotoneMail } from "react-icons/ai";
+  import {FaCss3Alt} from 'react-icons/fa'
     import "./Cat.jpeg"
   import "./StudentCard.css";
 
@@ -27,8 +28,16 @@ const employed = () => {
   } else {
     return "Looking for Work"
   }
+
   
 }
+//Skills Icons
+
+// let skillIcon = null;
+//   if (props.userProfile.skills=== "CSS"){
+//     skillIcon = <FaCss3Alt/>
+//   }
+  
     return (
         <Container id="studentProfile">
           {/* {consolelog()}  */}
@@ -69,7 +78,7 @@ const employed = () => {
               &nbsp;
               &nbsp;
               &nbsp;
-              <a href={props.userProfile.github}><i ><AiTwotoneMail size={60} color={"white"}/></i></a>
+              <a href={"mailto:"+props.userProfile.email}><i ><AiTwotoneMail size={60} color={"white"}/></i></a>
               </Container>
               <Card.Title className = "bio" > BIO </Card.Title>
               <Card.Text className = "BioText">{props.userProfile.bio}</Card.Text>
@@ -81,8 +90,9 @@ const employed = () => {
               </Card.Text>
 
               <Card.Title className = "bio" > Tech Skills </Card.Title>
+              {/* <Card.Text className = "BioText">Skills: {skillIcon} </Card.Text> */}
 
-              <Card.Text className = "BioText">Skills: {props.userProfile.skills.join(", ")} </Card.Text>
+              <Card.Text className = "BioText">Skills: {props.userProfile.skills.join("  ")} </Card.Text>
 
             </Card.Body>
             {/* skills array? */}
@@ -94,7 +104,7 @@ const employed = () => {
               {/* <ListGroupItem>{props.userProfile.github}</ListGroupItem>
               <ListGroupItem>{props.userProfile.cv}</ListGroupItem>
             </ListGroup> */} 
-            <Button></Button>
+            
           </Card>
         </Container>
       );

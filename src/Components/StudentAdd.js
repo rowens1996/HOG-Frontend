@@ -70,10 +70,11 @@ function StudentAdd(props) {
       e.target.linkedin.value,
       e.target.github.value,
       e.target.cv.value,
-      //e.target.email.value,
+      
       skills.map((item) => {
         return item.value;
-      })
+      }),
+      e.target.email.value,
     );
 
     result
@@ -194,7 +195,7 @@ function StudentAdd(props) {
                 <Select options={options} defaultValue={options} isMulti />
               </Form.Group> */}
 
-            {/* <Form.Group controlId="email">
+            <Form.Group controlId="email">
               <Form.Label>Email</Form.Label>
               <Form.Control
                 type="text"
@@ -202,7 +203,7 @@ function StudentAdd(props) {
                 defaultValue={props.currentProfile?.email}
                 disabled={disabled}
               />
-            </Form.Group> */}
+            </Form.Group>
 
             <Form.Group controlId="linkedIn">
               <Form.Label>linkedin</Form.Label>

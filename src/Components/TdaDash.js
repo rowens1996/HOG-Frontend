@@ -139,7 +139,9 @@ function TdaDash(props) {
             &nbsp; &nbsp; &nbsp;
             
             <Button
-            onClick={() =>{ handleShow();updateTdaProfile(current) }}
+            onClick={() =>{ 
+              handleShow();
+              updateTdaProfile(current) }}
         
             >
                 Update

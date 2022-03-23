@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: center; 
+  opacity: 0.90;
 }
 
 .profilePic{
@@ -40,7 +41,7 @@ img.card-img.pic{
     border: 1px solid #5093E2;
     border-radius: 6px;
     background-color: #5093E2; 
-    color: rgb(10, 9, 9);
+    color: rgb(121, 5, 5);
     justify-content: center;
     align-items: center;
   }
