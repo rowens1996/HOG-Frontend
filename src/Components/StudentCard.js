@@ -94,7 +94,6 @@ const employed = () => {
               {/* <ListGroupItem>{props.userProfile.github}</ListGroupItem>
               <ListGroupItem>{props.userProfile.cv}</ListGroupItem>
             </ListGroup> */} 
-            <Button></Button>
           </Card>
         </Container>
       );
