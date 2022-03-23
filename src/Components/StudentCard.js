@@ -14,7 +14,8 @@ import {
   import {BsGithub} from "react-icons/bs"
   import { AiTwotoneMail } from "react-icons/ai";
   import {FaCss3Alt} from 'react-icons/fa'
-    import "./Cat.jpeg"
+  import {FaReact} from 'react-icons/fa'
+   
   import "./StudentCard.css";
 
 
@@ -31,6 +32,22 @@ export default function StudentCard(props) {
       return "Looking for Work";
     }
   };
+
+const icons = ()=>{
+  
+let skillIcons =[];
+if (props.userProfile.skills.includes("CSS")){
+  skillIcons.push(<FaCss3Alt/>);
+}; 
+if (props.userProfile.skills.includes("React")){
+  skillIcons.push(<FaReact/>)
+}
+console.log(skillIcons)
+
+let ico = skillIcons.map((item)=>{ return item})
+return ico
+
+}
 
   const pdfLink = `http://localhost:3001/file/get/${props.userProfile.cv}`;
 
@@ -55,22 +72,25 @@ export default function StudentCard(props) {
               <Button className ="github" href={props.userProfile.github}><BsGithub/> Github</Button>
               &nbsp;
               <Button className ="email" href={props.userProfile.github}><AiTwotoneMail/> Email</Button> */}
-
+             
             <a href={(props.userProfile.github)}>
               <i>
-                <BsGithub size={60} color={"var(--githubgray)"} />
+                <BsGithub className={"githubStudentDash"} size={60} 
+                color={"var(--githubgray)"} 
+                />
               </i>
             </a>
+            
             &nbsp; &nbsp; &nbsp;
-            <a href={props.userProfile.github}>
+            <a href={props.userProfile.linkedin}>
               <i>
-                <BsLinkedin size={60} />
+                <BsLinkedin className={"linkedinStudentDash"} size={60} />
               </i>
             </a>
             &nbsp; &nbsp; &nbsp;
             <a href={"mailto:"+props.userProfile.email}>
               <i>
-                <AiTwotoneMail size={60} color={"white"} />
+                <AiTwotoneMail className={"emailStudentDash"} size={75} color={"white"} />
               </i>
             </a>
           </Container>
@@ -87,8 +107,13 @@ export default function StudentCard(props) {
             <Nav.Link href={pdfLink} >Preview CV</Nav.Link>
           <Card.Title className="bio"> Tech Skills </Card.Title>
 
-          <Card.Text className="BioText">
+          {/* <Card.Text className="BioText">
+  
             Skills: {props.userProfile.skills.join("  ")}{" "}
+          </Card.Text> */}
+          <Card.Text className="BioText">
+  
+            Skills: {icons()}
           </Card.Text>
         </Card.Body>
         {/* skills array? */}

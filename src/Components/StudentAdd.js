@@ -16,6 +16,9 @@ import Select from "react-select";
 
 import UploadFiles from "./UploadFile.js";
 
+
+
+
 function StudentAdd(props) {
   const [disabled, cDisabled] = useState(false);
   const [skills, cSkills] = useState([]);

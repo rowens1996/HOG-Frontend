@@ -14,11 +14,11 @@ import {
 import makeAnimated from "react-select/animated";
 import Select from "react-select";
 
-
 function TdaUpdate(props) {
   const [disabled, cDisabled] = useState(false);
   const [skills, cSkills] = useState([]);
   const [course, cCourse] = useState([]);
+  
 
   const skillOptions = [
     { value: "JS", label: "Javascript" },
@@ -51,7 +51,7 @@ function TdaUpdate(props) {
   const animatedComponents = makeAnimated();
 
   const submitHandler = (e) => {
-    console.log(props)
+    console.log(props);
     e.preventDefault();
     e.persist();
     cDisabled(true);
@@ -70,11 +70,14 @@ function TdaUpdate(props) {
       e.target.employed.checked,
       e.target.linkedin.value,
       e.target.github.value,
-      e.target.cv.value,
+      // cV,
+      // avatar,
       //e.target.email.value,
       skills.map((item) => {
         return item.value;
-      })
+      }),
+      e.target.email.value,
+      e.target.location.value
     );
 
     result
@@ -112,7 +115,6 @@ function TdaUpdate(props) {
               />
             </Form.Group>
 
-
             <Form.Group controlId="lName">
               <Form.Label>Last Name</Form.Label>
               <Form.Control
@@ -129,6 +131,16 @@ function TdaUpdate(props) {
                 type="date"
                 defaultValue={props.currentProfile?.dob}
                 name="dob"
+                disabled={disabled}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="location">
+              <Form.Label>Location</Form.Label>
+              <Form.Control
+                type="text"
+                defaultValue={props.currentProfile?.location}
+                name="location"
                 disabled={disabled}
               />
             </Form.Group>
@@ -205,6 +217,16 @@ function TdaUpdate(props) {
               />
             </Form.Group> */}
 
+            <Form.Group controlId="email">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="text"
+                name="email"
+                defaultValue={props.currentProfile?.email}
+                disabled={disabled}
+              />
+            </Form.Group>
+
             <Form.Group controlId="linkedIn">
               <Form.Label>linkedin</Form.Label>
               <Form.Control
@@ -260,7 +282,6 @@ function TdaUpdate(props) {
           </Container>
         </Modal.Body>
       </Form>
-
     </Modal>
   );
 }

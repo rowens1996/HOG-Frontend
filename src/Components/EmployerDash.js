@@ -26,7 +26,7 @@ import NavbarComp from "./NavbarComp.js";
 function EmployerDash(props) {
   const [studentList, cStudentsList] = useState([]);
   const [current, cCurrent] = useState(undefined);
-  const [open, setOpen] = useState(false);
+  const [open, cOpen] = useState({});
   const [fname, cFname] = useState(undefined);
 
   
@@ -40,40 +40,9 @@ function EmployerDash(props) {
     props.client.queryResult(searchEmp).then((response) => cStudentsList(response.data))
   }
 
-//Search by first name
-  // const getByFname = (fnam) => {
-  //   props.client.getByFname(fnam).then((response) => cStudentsList(response.data));
-  // };
-
-
-  // const handleExpandClick = () => {
-  //   setOpen(!open)
-  // };
-
-  // const expnadProfile = (id, expand)=>{
-    
-  //   const expanded = studentList.map((profile)=>{
-  //     if (profile._id===id){
-  //       if (expand){
-  //         return {id, count: profile.count+1}
-  //       }
-  //     }
-  //     return profile
-      
-  //   })
-  //   cStudentsList(expanded)
-   
-  // }
-  // const expandProfile = (id)=>{
-  //   const expand = studentList.map((current)=>{
-  //     if (current._id===id){
-  //       return (setOpen(true))
-
-
-  //     } 
-  //   })
-  //   setOpen(expand)
-  // }
+  const collapse = (id) => {
+    cOpen((prevState => ({...prevState, [id]: !prevState[id]})))
+  }
 
   useEffect(() => {
     refreshList();
@@ -82,6 +51,7 @@ function EmployerDash(props) {
 
   const buildCards = () => {
     return studentList.map((current) => {
+      if (current.employed===false){
       return (
         <Col key={current._id}>
           <Card className="mappedCards">
@@ -94,28 +64,18 @@ function EmployerDash(props) {
                 {current.fname} {current.lname}
               </Card.Text>
               <Card.Text as="h6">{current.dob}</Card.Text>
-              <Card.Title as="h6">Location{current.location}</Card.Title>
+              <Card.Title as="h6">{current.location}</Card.Title>
             </Card.Header>
             <br />
             <Card.Text>{current.course}</Card.Text>
             <Card.Text>{current.skills.join("   ")}</Card.Text>
             <Stack>
              
-            <Button
-              variant = "secondary"
-              
-              onClick={() =>  setOpen(!open)}
-              aria-controls="example-collapse-text"
-              //aria-expanded={open}
-            >
-              
-              Expand Profile
-              
-            </Button>
+            <Button onClick={(()=>collapse(current._id))} variant = "secondary">Expand</Button>
             </Stack>
 
             <br/>
-            <Collapse className = "extra" in={open} >
+            <Collapse className = "extra" in={open[current._id]} >
             
               
               <div className="extra" >
@@ -162,17 +122,13 @@ function EmployerDash(props) {
            
             </Card>
         </Col>
-      );
+      )};
     });
   };
 
   return (
     <>
       <NavbarComp role={props.role} logout={props.logout} handleShow={props.handleShow}/>
-
-    
-      
-   
 
       <Container>
         <Row xs={1} sm={2} md={3} lg={4} id="studentRows">

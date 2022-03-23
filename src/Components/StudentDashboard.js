@@ -46,8 +46,8 @@ function StudentDashboard(props) {
     github: "",
     cv: "",
     avatar: "avatar_placeholder_1.jpg",
-    email: ""
-
+    email: "",
+    location: ""
   });
 
   const [current, cCurrent] = useState(undefined);

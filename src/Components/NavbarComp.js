@@ -11,14 +11,14 @@ import {
 
 import { FaUserGraduate } from "react-icons/fa";
 
-import StudentAdd from "./StudentAdd";
+//import StudentAdd from "./StudentAdd";
 
 
 function NavbarComp(props) {
 
 
 const updateModal = () => {
-  console.log(props.handleShow)
+  //console.log(props.handleShow)
   if(props.role=="Student"){
     return(
       <Nav.Link id="navLinks" onClick={() => props.handleShow()}>

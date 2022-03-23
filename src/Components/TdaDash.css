@@ -1,0 +1,175 @@
+
+.container{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    margin: auto;
+}
+
+.mappedCards.card{
+    width: 100%;   
+    display:flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #1A1B21;
+    padding: 2%;
+}
+
+img.card-img.profilepic{
+  
+    width:180px;
+    height:200px;
+}
+
+
+.details.card-header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 80px;
+    text-align: center;
+    color: #e3e9dc;
+    align-self: center;
+    align-items: center;
+   
+}
+
+p.card-text{
+    /* margin: 5px 0px 5px 0px; */
+     /* padding: 0px;  */
+    text-align: left;
+    /* padding-top: 10px;
+    padding-left: 10px; */
+    font-size: 17px;
+    color: white;
+    letter-spacing: -0.05em;
+
+}
+
+.vstack{
+    display:flex;
+    justify-content: flex-end;
+}
+
+/* .icons.container{
+  display:flex;
+  justify-content: center;
+  padding:0px;
+} */
+
+
+
+.extra.collapse.show{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.profileCard{
+  background-color: #1A1B21;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.profilePic{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: center;
+    width:100px;
+
+}
+
+img.card-img.pic{
+    width:1000px;
+    height:100px;
+}
+
+#title{
+    font-size: 80px;
+    text-align: center;
+    color: #404d2e;
+    margin-top: 0;
+  }
+
+  .linkedin {
+    flex-direction: row;
+    width: 200px;
+    height: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #5093E2;
+    border-radius: 6px;
+    background-color: #5093E2; 
+    color: rgb(10, 9, 9);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .github {
+    
+    flex-direction: row;
+    width: 200px;
+    height: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #212427;
+    border-radius: 6px;
+    background-color: rgb(75, 74, 74);
+    color: rgb(10, 9, 9);
+    justify-content: center;
+    align-items: center;
+  }
+  /* .github .email .linkedin:hover{
+    background-color: aliceblue;
+  } */
+
+  /* .Buttons.container > a:hover{
+    background-color:green;
+    border-color: green;
+  } */
+
+  .email {
+    flex-direction: row;
+    width: 200px;
+    height: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #212427;
+    border-radius: 6px;
+    background-color: whitesmoke;
+    color: #1A1B21;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .Buttons{
+      display:flex;
+      position:center;
+  }
+
+  .bio{
+     margin: 5px 0px 5px 0px;
+     padding: 0px; 
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 22px;
+    color: #86B049;
+    letter-spacing: -0.05em;
+  }
+  .BioText{
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+    padding-top: 0;
+  }
+
+  label.fname.form-label{
+      color:black;
+  }
+
+ 
+  

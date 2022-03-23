@@ -180,9 +180,14 @@ export class ApiClient {
     employed,
     linkedin,
     github,
-    cv,
-    skills,) {
-    return this.authenticatedCall("put", `${url}update/${id}`, { userName, fname, lname, dob, bio, course, employed, linkedin, github, cv, skills});
+    // cv,
+    // avatar,
+    skills,
+    email,
+    location
+    ) {
+    return this.authenticatedCall("put", `${url}update/${id}`, { 
+      userName, fname, lname, dob, bio, course, employed, linkedin, github, skills, email, location});
 
     
     }

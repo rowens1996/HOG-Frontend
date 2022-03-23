@@ -1,7 +1,10 @@
-import NavbarComp from "./NavbarComp.js";
+
 import React, { useState, useEffect } from "react";
+
+import "./TdaDash.css"
+import NavbarComp from "./NavbarComp.js";
 import SearchAll from "./SearchAll";
-import TdaUpdate from "./TdaUpdate"
+import TdaUpdate from "./TdaUpdate";
 import {
   Button,
   Card,
@@ -21,10 +24,12 @@ import { BsLinkedin } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import { AiTwotoneMail } from "react-icons/ai";
 
+
+
 function TdaDash(props) {
   const [studentList, cStudentsList] = useState([]);
   const [current, cCurrent] = useState(undefined);
-  const [open, setOpen] = useState(false);
+  const [open, cOpen] = useState({});
   const [show, SetShow] = useState(false);
 
   const handleShow = () =>  SetShow(true);
@@ -51,6 +56,19 @@ function TdaDash(props) {
       .then((response) => cStudentsList(response.data));
   };
 
+
+  const employed = (employed) => {
+    if (employed) {
+      return "Employed";
+    } else {
+      return "Looking for Work";
+    }
+  };
+
+  const collapse = (id) => {
+    cOpen((prevState => ({...prevState, [id]: !prevState[id]})))
+  }
+
   useEffect(() => {
     refreshList();
     // eslint-disable-next-line
@@ -64,13 +82,13 @@ function TdaDash(props) {
             <Card.Header className="details">
               <Card.Img
                 className="profilepic"
-                src="https://static.scientificamerican.com/sciam/cache/file/32665E6F-8D90-4567-9769D59E11DB7F26_source.jpg?w=590&h=800&7E4B4CAD-CAE1-4726-93D6A160C2B068B2"
+                src={`http://localhost:3001/file/get/${current.avatar}`}
               />
               <Card.Text as="h3">
                 {current.fname} {current.lname}
               </Card.Text>
               <Card.Text as="h6">{current.dob}</Card.Text>
-              <Card.Title as="h6">Location{current.location}</Card.Title>
+              <Card.Title as="h6">{current.location}</Card.Title>
             </Card.Header>
             <br />
             <Card.Text>{current.course}</Card.Text>
@@ -80,14 +98,14 @@ function TdaDash(props) {
             <Stack>
               <Button
                 variant="secondary"
-                onClick={() => setOpen(!open)}
+                onClick={(() => collapse(current._id))}
                 aria-controls="example-collapse-text"
                 //aria-expanded={open}
               >
                 Expand Profile
               </Button>
             </Stack>
-            <Collapse className="extra" in={open}>
+            <Collapse className="extra" in={open[current._id]}>
               <div className="extra">
                 &nbsp; &nbsp; &nbsp;
                 <Card.Text className="cardButton">
@@ -113,10 +131,10 @@ function TdaDash(props) {
                     </i>
                   </a>
                 </Card.Text>
-                <Card.Text>"current.cohort"</Card.Text>
+                <Card.Text>Employment Status: {employed(current.employed)} </Card.Text>
                 <Card.Text>"current.graduated"</Card.Text>
                 <Card.Text className="cardButton">
-                  <a href={current.cv}>
+                  <a href={`http://localhost:3001/file/get/${current.cv}`} target="_blank">
                     <Button size="sm" variant="success">
                       Download CV
                     </Button>
@@ -163,7 +181,7 @@ function TdaDash(props) {
       <NavbarComp role={props.role} logout={props.logout} />
       <Nav.Link id="navLinks" onClick={() => props.logout()}></Nav.Link>
       <Container>
-        <Row xs={1} sm={2} md={3} lg={4} xl={5} id="studentRows">
+        <Row xs={1} sm={2} md={3} lg={4}  id="studentRows">
           {buildCards()}
         </Row>
 
