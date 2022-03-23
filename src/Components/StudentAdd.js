@@ -14,11 +14,14 @@ import {
 import makeAnimated from "react-select/animated";
 import Select from "react-select";
 
+import UploadFiles from "./UploadFile.js";
 
 function StudentAdd(props) {
   const [disabled, cDisabled] = useState(false);
   const [skills, cSkills] = useState([]);
   const [course, cCourse] = useState([]);
+  const [avatar, cAvatar] = useState("avatar_placeholder_1");
+  const [cV, cCV] = useState();
 
   const skillOptions = [
     { value: "JS", label: "Javascript" },
@@ -51,7 +54,7 @@ function StudentAdd(props) {
   const animatedComponents = makeAnimated();
 
   const submitHandler = (e) => {
-    console.log(props)
+    console.log(props);
     e.preventDefault();
     e.persist();
     cDisabled(true);
@@ -69,8 +72,8 @@ function StudentAdd(props) {
       e.target.employed.checked,
       e.target.linkedin.value,
       e.target.github.value,
-      e.target.cv.value,
-      
+      cV,
+      avatar,
       skills.map((item) => {
         return item.value;
       }),
@@ -111,7 +114,6 @@ function StudentAdd(props) {
                 disabled={disabled}
               />
             </Form.Group>
-
 
             <Form.Group controlId="lName">
               <Form.Label>Last Name</Form.Label>
@@ -225,17 +227,6 @@ function StudentAdd(props) {
               />
             </Form.Group>
             <Stack gap={2} className="col-md-50 mx-auto">
-              <Form.Group controlId="cV">
-                <Form.Label>cv</Form.Label>
-
-                <Form.Control
-                  type="text"
-                  defaultValue={props.currentProfile?.cv}
-                  name="cv"
-                  disabled={disabled}
-                />
-              </Form.Group>
-
               <Form.Group className="findSelectForm">
                 <Form.Label>Skills</Form.Label>
 
@@ -260,7 +251,14 @@ function StudentAdd(props) {
           </Container>
         </Modal.Body>
       </Form>
-
+      <UploadFiles
+        username={props.username}
+        client={props.client}
+        avatar={avatar}
+        cAvatar={cAvatar}
+        cV={cV}
+        cCV={cCV}
+      />
     </Modal>
   );
 }
