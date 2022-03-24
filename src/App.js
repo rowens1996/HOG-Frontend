@@ -7,7 +7,6 @@ import Register from "./Components/Register";
 import { Routes, Route, useNavigate, BrowserRouter} from "react-router-dom";
 
 
-
 import { ApiClient } from "./apiClient";
 import { useState, useEffect } from "react";
 import {
@@ -104,7 +103,9 @@ function App() {
       </Container>
       <footer className="container-fluid bg-5 text-center">
         <p>
+
           This Website Was Made By Ryan Owens, Abdullah Adaoub, Barnabas Puskas <br />
+
           Copyright &copy; 2022
         </p>
       </footer>

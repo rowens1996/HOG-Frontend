@@ -13,12 +13,15 @@ import {
 } from "react-bootstrap/";
 import makeAnimated from "react-select/animated";
 import Select from "react-select";
-
+import UploadFiles from "./UploadFile";
 
 function TdaUpdate(props) {
   const [disabled, cDisabled] = useState(false);
   const [skills, cSkills] = useState([]);
   const [course, cCourse] = useState([]);
+  const [avatar, cAvatar] = useState("avatar_placeholder_1.jpg");
+  const [cV, cCV] = useState();
+
 
   const skillOptions = [
     { value: "JS", label: "Javascript" },
@@ -51,7 +54,7 @@ function TdaUpdate(props) {
   const animatedComponents = makeAnimated();
 
   const submitHandler = (e) => {
-    console.log(props)
+    console.log(props);
     e.preventDefault();
     e.persist();
     cDisabled(true);
@@ -59,7 +62,7 @@ function TdaUpdate(props) {
     let result;
     result = props.client.updateTdaProfile(
       props.currentProfile._id,
-      props.username,
+      props.currentProfile.userName,
       e.target.fname.value,
       e.target.lname.value,
       e.target.dob.value,
@@ -70,11 +73,14 @@ function TdaUpdate(props) {
       e.target.employed.checked,
       e.target.linkedin.value,
       e.target.github.value,
-      e.target.cv.value,
+      cV,
+      avatar,
       //e.target.email.value,
       skills.map((item) => {
         return item.value;
-      })
+      }),
+      e.target.email.value,
+      e.target.location.value
     );
 
     result
@@ -112,7 +118,6 @@ function TdaUpdate(props) {
               />
             </Form.Group>
 
-
             <Form.Group controlId="lName">
               <Form.Label>Last Name</Form.Label>
               <Form.Control
@@ -129,6 +134,16 @@ function TdaUpdate(props) {
                 type="date"
                 defaultValue={props.currentProfile?.dob}
                 name="dob"
+                disabled={disabled}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="location">
+              <Form.Label>Location</Form.Label>
+              <Form.Control
+                type="text"
+                defaultValue={props.currentProfile?.location}
+                name="location"
                 disabled={disabled}
               />
             </Form.Group>
@@ -168,7 +183,6 @@ function TdaUpdate(props) {
         </Form.Select> */}
 
               {/* <Form.Control
-          
             id="textInput"
             type="text"
             defaultValue={props.currentProfile?.course}
@@ -202,6 +216,16 @@ function TdaUpdate(props) {
                 disabled={disabled}
               />
             </Form.Group> */}
+
+            <Form.Group controlId="email">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="text"
+                name="email"
+                defaultValue={props.currentProfile?.email}
+                disabled={disabled}
+              />
+            </Form.Group>
 
             <Form.Group controlId="linkedIn">
               <Form.Label>linkedin</Form.Label>
@@ -251,16 +275,23 @@ function TdaUpdate(props) {
                 ></Select>
               </Form.Group>
 
-              <Button variant="primary" type="submit">
+              <UploadFiles
+                username={props.currentProfile?.userName}
+                client={props.client}
+                avatar={avatar}
+                cAvatar={cAvatar}
+                cV={cV}
+                cCV={cCV}
+              />
+              <Button variant="primary" type="submit" onClick={props.handleClose}> 
+
                 Confirm Updates
               </Button>
             </Stack>
           </Container>
         </Modal.Body>
       </Form>
-
     </Modal>
   );
 }
-
 export default TdaUpdate;

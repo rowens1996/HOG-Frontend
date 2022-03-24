@@ -1,19 +1,15 @@
-/* div.mx-auto.formContainer.collapse.show.container{
-    
-} */
+/* div.mx-auto.formContainer.collapse.show.container{} */
 
 label.form-label{
     color:black;
     }
-    
+
     .Buttons.Container{
-    
     display:flex;
     justify-content: center;
     }
 
 #findForm{
-
     background-color: rgba(39, 39, 39, 1);
     margin-bottom: 50px;
     padding: 20px 20px 20px 20px;

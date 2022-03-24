@@ -6,7 +6,7 @@ import {
   Link,
   useNavigate,
 } from "react-router-dom";
-import "./StudentAdd";
+
 import StudentCard from "./StudentCard";
 
 import {
@@ -29,10 +29,7 @@ import "../App.css";
 import "./StudentDash.css";
 // import { Button } from "bootstrap";
 
-
-
 import NavbarComp from "./NavbarComp.js";
-
 
 function StudentDashboard(props) {
   const [userProfile, cUserProfile] = useState({
@@ -48,14 +45,15 @@ function StudentDashboard(props) {
     linkedin: "",
     github: "",
     cv: "",
-    //email: ""
+    avatar: "avatar_placeholder_1.jpg",
+    email: "",
+    location: ""
   });
 
   const [current, cCurrent] = useState(undefined);
   const [show, SetShow] = useState(false);
 
-  const handleShow = () =>  SetShow(true);
-
+  const handleShow = () => SetShow(true);
 
   const handleClose = () => SetShow(false);
 
@@ -87,43 +85,22 @@ function StudentDashboard(props) {
 
   const consolelog = () => {
     console.log("rendering the studentdash");
-
   };
 
 
-return(
+  return (
     <Container id="Dash">
       {/* {consolelog()} */}
-      <Navbar bg="dark" expand="lg">
-        <Container id="navContainer">
-          <NavItem>
-            <Navbar.Brand id="header">
-              Hire our Graduates <FaUserGraduate id="gradlogo" />
-            </Navbar.Brand>
-            <Nav.Item id="pageTitle">Student Dashboard</Nav.Item>
-          </NavItem>
-          <NavItem id="flex-horizontal">
-            <Nav.Link id="navLinks" onClick={() => props.logout()}>
-              Logout
-            </Nav.Link>
-            <Nav.Link id="navLinks" onClick={() => handleShow()}>
-              Update Profile
-            </Nav.Link>
-          </NavItem>
-        </Container>
-      </Navbar>
-
- 
- {/* {consolelog()} */}
-    {/* <NavbarComp 
-     role={props.role} 
-     logout={props.logout}
-     /> */}
+      <NavbarComp
+        role={props.role}
+        logout={props.logout}
+        handleShow={handleShow}
+      />
 
       <StudentAdd
-      show={show}
-      handleClose={handleClose}
-      handleShow={handleShow}
+        show={show}
+        handleClose={handleClose}
+        handleShow={handleShow}
         username={props.username}
         client={props.client}
         refreshList={() => {
@@ -133,12 +110,12 @@ return(
         currentProfile={current}
         cCurrentProfile={cCurrent}
       />
-      <br/>
-      <StudentCard
-        userProfile = {userProfile}
-      />    
-</Container>
-)
-      }
 
-export default StudentDashboard
+      <br />
+      <StudentCard userProfile={userProfile} username={props.username}
+        client={props.client} />
+    </Container>
+  );
+}
+
+export default StudentDashboard;

@@ -12,6 +12,7 @@
   display: flex;
   flex-direction: column;
   align-items: center; 
+  opacity: 0.90;
 }
 
 .profilePic{
@@ -40,30 +41,34 @@ img.card-img.pic{
     margin-top: 0;
   }
 
-  .linkedin {
+  .linkedinStudentDash {
     flex-direction: row;
-    width: 200px;
-    height: 30px;
+    /* width: 200px;
+    height: 30px; */
     font-size: 12px;
     font-weight: bold;
-    border: 1px solid #5093E2;
-    border-radius: 6px;
-    background-color: #5093E2; 
-    color: rgb(10, 9, 9);
+    /* border: 1px solid #5093E2; */
+    /* border-radius: 6px;
+    background-color: #5093E2;  */
+    color: hsl(213, 63%, 43%);
     justify-content: center;
     align-items: center;
   }
 
-  .github {
+  .linkedinStudentDash:hover {
+      color:#03405f
+  }
+
+  .githubStudentDash {
     
     flex-direction: row;
-    width: 200px;
-    height: 30px;
+    /* width: 200px;
+    height: 30px; */
     font-size: 12px;
     font-weight: bold;
-    border: 1px solid #212427;
-    border-radius: 6px;
-    background-color: rgb(75, 74, 74);
+    /* border: 1px solid #212427; */
+    /* border-radius: 6px;
+    background-color: rgb(75, 74, 74); */
     color: rgb(10, 9, 9);
     justify-content: center;
     align-items: center;
@@ -72,20 +77,21 @@ img.card-img.pic{
     background-color: aliceblue;
   } */
 
-  /* .Buttons.container > a:hover{
-    background-color:green;
-    border-color: green;
-  } */
+  .Buttons.container > a#github > i > svg:hover{
+    color:blueviolet;
+    
+ 
+  }
 
-  .email {
+  .emailStudentDash {
     flex-direction: row;
-    width: 200px;
-    height: 30px;
+    /* width: 200px;
+    height: 30px; */
     font-size: 12px;
     font-weight: bold;
-    border: 1px solid #212427;
-    border-radius: 6px;
-    background-color: whitesmoke;
+    /* border: 1px solid #212427; */
+    /* border-radius: 6px; */
+    /* background-color: whitesmoke; */
     color: #1A1B21;
     justify-content: center;
     align-items: center;

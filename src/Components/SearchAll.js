@@ -103,7 +103,6 @@ function SearchAll(props) {
             </Form.Select>
           </Form.Group>
      
-         
           <Form.Group className="findSelectForm">
             <Form.Label id="txtcolour">Skills</Form.Label>
             <Select
