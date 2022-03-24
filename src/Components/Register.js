@@ -26,8 +26,9 @@ function Register(props) {
     let sRole = roleForm(e);
     console.log(e.target.role.checked);
     props.client
-      .addNewUser(e.target.username.value, e.target.password.value, sRole)
+      .addNewUser(e.target.username.value, e.target.password.value, sRole, e.target.employerkey.value)
       .then((response) => {
+        console.log(response)
         cDisabled(false);
         toast.success("You have successfully registered");
       })
@@ -36,45 +37,53 @@ function Register(props) {
         console.log(err);
         cDisabled(false);
       });
-  };  
+  };
 
   return (
     <>
       <Form id="registerForm" onSubmit={(e) => submitHandler(e)}>
         <Form.Text>Create an Account</Form.Text>
         <Stack gap={2} className="col-md-50 mx-auto">
-        <Form.Group controlId="RegisterUserName">
-          <Form.Control
-            name="username"
-            type="text"
-            disabled={disabled}
-            placeholder="username"
-          />
-        </Form.Group>
+          <Form.Group controlId="RegisterUserName">
+            <Form.Control
+              name="username"
+              type="text"
+              disabled={disabled}
+              placeholder="username"
+            />
+          </Form.Group>
 
-        <Form.Group controlId="RegisterPassword">
-          <Form.Control
-            name="password"
-            type="password"
-            disabled={disabled}
-            placeholder="password"
-          />
-        </Form.Group>
-        {/* <Form.Text>Are you an employer?</Form.Text> */}
-        <Form.Group controlId="RegisterRole">
-          <FormCheck name="role" type="checkbox" label="I am an employer" />
-        </Form.Group>
+          <Form.Group controlId="RegisterPassword">
+            <Form.Control
+              name="password"
+              type="password"
+              disabled={disabled}
+              placeholder="password"
+            />
+          </Form.Group>
+          {/* <Form.Text>Are you an employer?</Form.Text> */}
+          <Form.Group controlId="RegisterRole">
+            <FormCheck name="role" type="checkbox" label="I am an employer" />
+          </Form.Group>
         </Stack>
         <div>
-        <Stack gap={2} className="col-md-50 mx-auto">
-          <Button variant="success" type="submit" disabled={disabled}>
-            {" "}
-            Register{" "}
-          </Button>
-          <ToastContainer />
+          <Stack gap={2} className="col-md-50 mx-auto">
+            <Form.Group controlId="EmployerKey">
+              <Form.Control
+                name="employerkey"
+                type="password"
+                disabled={disabled}
+                placeholder="Input the Employer Key"
+              />
+            </Form.Group>
+
+            <Button variant="success" type="submit" disabled={disabled}>
+              {" "}
+              Register{" "}
+            </Button>
+            <ToastContainer />
           </Stack>
         </div>
-       
       </Form>
 
       {/* <div className="Register-child">

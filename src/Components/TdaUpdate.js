@@ -13,10 +13,9 @@ import {
 } from "react-bootstrap/";
 import makeAnimated from "react-select/animated";
 import Select from "react-select";
+import UploadFiles from "./UploadFile";
 
-import UploadFiles from "./UploadFile.js";
-
-function StudentAdd(props) {
+function TdaUpdate(props) {
   const [disabled, cDisabled] = useState(false);
   const [skills, cSkills] = useState([]);
   const [course, cCourse] = useState([]);
@@ -60,8 +59,11 @@ function StudentAdd(props) {
     cDisabled(true);
 
     let result;
-    result = props.client.updateProfile(
-      props.username,
+    result = props.client.updateTdaProfile(
+      props.currentProfile._id,
+      ///// change 2
+      props.currentProfile.userName,
+      ////
       e.target.fname.value,
       e.target.lname.value,
       e.target.dob.value,
@@ -74,6 +76,7 @@ function StudentAdd(props) {
       e.target.github.value,
       cV,
       avatar,
+      //e.target.email.value,
       skills.map((item) => {
         return item.value;
       }),
@@ -208,6 +211,16 @@ function StudentAdd(props) {
                 <Select options={options} defaultValue={options} isMulti />
               </Form.Group> */}
 
+            {/* <Form.Group controlId="email">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="text"
+                name="email"
+                defaultValue={props.currentProfile?.email}
+                disabled={disabled}
+              />
+            </Form.Group> */}
+
             <Form.Group controlId="email">
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -238,6 +251,17 @@ function StudentAdd(props) {
               />
             </Form.Group>
             <Stack gap={2} className="col-md-50 mx-auto">
+              <Form.Group controlId="cV">
+                <Form.Label>cv</Form.Label>
+
+                <Form.Control
+                  type="text"
+                  defaultValue={props.currentProfile?.cv}
+                  name="cv"
+                  disabled={disabled}
+                />
+              </Form.Group>
+
               <Form.Group className="findSelectForm">
                 <Form.Label>Skills</Form.Label>
 
@@ -255,18 +279,14 @@ function StudentAdd(props) {
                 ></Select>
               </Form.Group>
               <UploadFiles
-                username={props.username}
+                username={props.currentProfile?.userName}
                 client={props.client}
                 avatar={avatar}
                 cAvatar={cAvatar}
                 cV={cV}
                 cCV={cCV}
               />
-              <Button
-                variant="primary"
-                type="submit"
-                onClick={props.handleClose}
-              >
+              <Button variant="primary" type="submit" onClick={props.handleClose}> 
                 Confirm Updates
               </Button>
             </Stack>
@@ -277,4 +297,4 @@ function StudentAdd(props) {
   );
 }
 
-export default StudentAdd;
+export default TdaUpdate;
