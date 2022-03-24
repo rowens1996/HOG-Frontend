@@ -9,7 +9,9 @@ import makeAnimated from "react-select/animated";
 import "./SearchAll.css";
 
 function SearchAll(props) {
-  const [open, setOpen] = useState(false);
+
+  // const [open, setOpen] = useState(false);
+
   const [disabled, cDisabled] = useState(false);
   const [skills, cSkills] = useState([]);
   const animatedComponents = makeAnimated();
@@ -42,14 +44,7 @@ function SearchAll(props) {
   return (
     <>
       <br />
-      <Button
-        onClick={() => setOpen(!open)}
-        aria-controls="example-collapse-text"
-        aria-expanded={open}
-      >
-        Search Profiles
-      </Button>
-      <Collapse in={open}>
+      <Collapse in={props.openSearch}>
         <Container className="mx-auto formContainer">
           <br />
 

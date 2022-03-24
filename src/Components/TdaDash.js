@@ -25,11 +25,10 @@ import { AiTwotoneMail } from "react-icons/ai";
 
 function TdaDash(props) {
   const [studentList, cStudentsList] = useState([]);
-  ///change 1
   const [current, cCurrent] = useState({});
-  //
   const [open, cOpen] = useState({});
   const [show, SetShow] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false);
 
   const handleShow = () => SetShow(true);
 
@@ -170,8 +169,25 @@ function TdaDash(props) {
 
   return (
     <>
-      <NavbarComp role={props.role} logout={props.logout} />
+      <NavbarComp role={props.role} logout={props.logout} openSearch={openSearch}
+        setOpenSearch={setOpenSearch}/>
       <Nav.Link id="navLinks" onClick={() => props.logout()}></Nav.Link>
+      <SearchAll
+        refreshList={() => {
+          refreshList();
+          cCurrent(undefined);
+        }}
+        //cFname={cFname}
+        //cLocation={cLocation}
+        //getByLocation={(loc) => getByLocation(loc)}
+        //getByFname={(fnam) => getByFname(fnam)}
+        // currentStudent = {current}
+        client={props.client}
+        querySearch={querySearch}
+        currentProfile={current}
+        openSearch={openSearch}
+        setOpenSearch={setOpenSearch}
+      />
       <Container>
         <Row xs={1} sm={2} md={3} lg={4} id="studentRows">
           {buildCards()}
@@ -189,23 +205,12 @@ function TdaDash(props) {
           }}
           currentProfile={current}
           cCurrentProfile={cCurrent}
+          openSearch={openSearch}
+          setOpenSearch={setOpenSearch}
         />
       </Container>
 
-      <SearchAll
-        refreshList={() => {
-          refreshList();
-          cCurrent(undefined);
-        }}
-        //cFname={cFname}
-        //cLocation={cLocation}
-        //getByLocation={(loc) => getByLocation(loc)}
-        //getByFname={(fnam) => getByFname(fnam)}
-        // currentStudent = {current}
-        client={props.client}
-        querySearch={querySearch}
-        currentProfile={current}
-      />
+      
     </>
   );
 }

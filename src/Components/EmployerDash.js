@@ -30,6 +30,7 @@ function EmployerDash(props) {
   const [studentList, cStudentsList] = useState([]);
   const [current, cCurrent] = useState(undefined);
   const [open, cOpen] = useState({});
+  const [openSearch, setOpenSearch] = useState(false);
   const [fname, cFname] = useState(undefined);
 
   const refreshList = () => {
@@ -45,6 +46,7 @@ function EmployerDash(props) {
   const collapse = (id) => {
     cOpen((prevState) => ({ ...prevState, [id]: !prevState[id] }));
   };
+  
 
   const icons = (skills, key) => {
     let skillIcons = [];
@@ -63,8 +65,6 @@ function EmployerDash(props) {
     if (skills.includes("JS")) {
       skillIcons.push(<SiJavascript size={40} color={"#F0DB4F"} />);
     }
-    console.log(skillIcons);
-
     let ico = skillIcons.map((item) => {
       return item;
     });
@@ -166,6 +166,10 @@ function EmployerDash(props) {
         role={props.role}
         logout={props.logout}
         handleShow={props.handleShow}
+        /////
+        openSearch={openSearch}
+        setOpenSearch={setOpenSearch}
+        ////
       />
       <SearchAll
         refreshList={() => {
@@ -180,6 +184,8 @@ function EmployerDash(props) {
         client={props.client}
         querySearch={querySearch}
         currentProfile={current}
+        openSearch={openSearch}
+        setOpenSearch={setOpenSearch}
       />
       <Container>
         <Row xs={1} sm={2} md={3} lg={4} id="studentRows">

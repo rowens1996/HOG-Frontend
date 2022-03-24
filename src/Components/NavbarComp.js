@@ -24,6 +24,16 @@ function NavbarComp(props) {
       );
     }
   };
+  const showSearch = () => {
+    //console.log(props.handleShow)
+    if (props.role !== "Student") {
+      return (
+        <Nav.Link id="navLinks" onClick={() => props.setOpenSearch(!props.openSearch)}>
+        Search Students
+      </Nav.Link>
+      );
+    } 
+  };
   return (
     <>
       <Navbar bg="dark" expand="lg">
@@ -35,6 +45,7 @@ function NavbarComp(props) {
             <Nav.Item>{props.role} Dashboard</Nav.Item>
           </Nav.Item>
           <NavItem id="flex-horizontal">
+            {showSearch()}
             <Nav.Link id="navLinks" onClick={() => props.logout()}>
               Logout
             </Nav.Link>
