@@ -1,10 +1,10 @@
 
 import React, { useState, useEffect } from "react";
-
 import "./TdaDash.css"
 import NavbarComp from "./NavbarComp.js";
 import SearchAll from "./SearchAll";
 import TdaUpdate from "./TdaUpdate";
+
 import {
   Button,
   Card,
@@ -23,8 +23,6 @@ import { FaUserGraduate } from "react-icons/fa";
 import { BsLinkedin } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import { AiTwotoneMail } from "react-icons/ai";
-
-
 
 function TdaDash(props) {
   const [studentList, cStudentsList] = useState([]);
@@ -71,6 +69,7 @@ function TdaDash(props) {
     cOpen((prevState => ({...prevState, [id]: !prevState[id]})))
   }
 
+
   useEffect(() => {
     refreshList();
     // eslint-disable-next-line
@@ -90,13 +89,12 @@ function TdaDash(props) {
                 {current.fname} {current.lname}
               </Card.Text>
               <Card.Text as="h6">{current.dob}</Card.Text>
+
               <Card.Title as="h6">{current.location}</Card.Title>
             </Card.Header>
             <br />
             <Card.Text>{current.course}</Card.Text>
             <Card.Text>{current.skills.join("   ")}</Card.Text>
-
-           
             <Stack>
               <Button
                 variant="secondary"
@@ -145,7 +143,7 @@ function TdaDash(props) {
               </div>
             </Collapse>
             <br/>
-           
+          
             <Container className = "update">
               
             <Button
@@ -159,6 +157,7 @@ function TdaDash(props) {
             &nbsp; &nbsp; &nbsp;
             
             <Button
+
             onClick={() =>{ 
               handleShow();
               updateTdaProfile(current) }}
@@ -221,5 +220,4 @@ function TdaDash(props) {
     </>
   );
 }
-
 export default TdaDash;

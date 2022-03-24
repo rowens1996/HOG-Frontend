@@ -22,6 +22,7 @@ function TdaUpdate(props) {
   const [avatar, cAvatar] = useState("avatar_placeholder_1.jpg");
   const [cV, cCV] = useState();
 
+
   const skillOptions = [
     { value: "JS", label: "Javascript" },
     { value: "HTML", label: "Html" },
@@ -61,9 +62,7 @@ function TdaUpdate(props) {
     let result;
     result = props.client.updateTdaProfile(
       props.currentProfile._id,
-      ///// change 2
       props.currentProfile.userName,
-      ////
       e.target.fname.value,
       e.target.lname.value,
       e.target.dob.value,
@@ -176,7 +175,6 @@ function TdaUpdate(props) {
                 name="skills"
               ></Select>
               {/* <Form.Select
-
          className="course"  defaultValue={props.currentProfile?.course}   disabled={disabled}>
         <option value="">Please select a course</option>
         <option value="Sheffield Council 12 week Bootcamp">Sheffield Council 12 week Bootcamp</option>
@@ -185,9 +183,7 @@ function TdaUpdate(props) {
         </Form.Select> */}
 
               {/* <Form.Control
-          
             id="textInput"
-
             type="text"
             defaultValue={props.currentProfile?.course}
             name="course"
@@ -278,6 +274,7 @@ function TdaUpdate(props) {
                   name="skills"
                 ></Select>
               </Form.Group>
+
               <UploadFiles
                 username={props.currentProfile?.userName}
                 client={props.client}
@@ -287,6 +284,7 @@ function TdaUpdate(props) {
                 cCV={cCV}
               />
               <Button variant="primary" type="submit" onClick={props.handleClose}> 
+
                 Confirm Updates
               </Button>
             </Stack>
@@ -296,5 +294,4 @@ function TdaUpdate(props) {
     </Modal>
   );
 }
-
 export default TdaUpdate;

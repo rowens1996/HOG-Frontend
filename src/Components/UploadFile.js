@@ -1,5 +1,6 @@
 import { Button, Container, Form } from "react-bootstrap/";
 import { useState } from "react";
+import "./StudentAdd.css";
 
 function UploadFiles(props) {
   const [selectedPic, cSelectedPic] = useState();

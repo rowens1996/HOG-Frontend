@@ -110,6 +110,7 @@ export default function StudentCard(props) {
           <Nav.Link href={pdfLink}>Preview CV</Nav.Link>
           <Card.Title className="bio"> Tech Skills </Card.Title>
 
+
           {/* <Card.Text className="BioText">
   
             Skills: {props.userProfile.skills.join("  ")}{" "}
@@ -118,6 +119,7 @@ export default function StudentCard(props) {
         </Card.Body>
         {/* skills array? */}
         {/* <ListGroup className="list-group-flush">
+
             <a href={props.userProfile.linkedin}><BsLinkedin/></a>
             {/* <Button>  {userProfile.linkedin} </Button> */}
         {/* <Button> href ={userProfile.linkedin} </Button> */}

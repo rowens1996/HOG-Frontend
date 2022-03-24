@@ -16,6 +16,8 @@ import Select from "react-select";
 
 import UploadFiles from "./UploadFile.js";
 
+import "./StudentAdd.css";
+
 function StudentAdd(props) {
   const [disabled, cDisabled] = useState(false);
   const [skills, cSkills] = useState([]);
@@ -99,15 +101,15 @@ function StudentAdd(props) {
   };
   return (
     <Modal size="xl" show={props.show} onHide={props.handleClose}>
-      <Modal.Header closeButton>
-        <ModalTitle>Edit Profile</ModalTitle>
+      <Modal.Header id = "modalHeader" closeButton>
+        <ModalTitle id= "txtcolour">Edit Profile</ModalTitle>
       </Modal.Header>
       <Form onSubmit={(e) => submitHandler(e)} id="addForm">
         {/* {consolelog()} */}
-        <Modal.Body>
+        <Modal.Body >
           <Container id="formContainer">
             <Form.Group controlId="fName">
-              <Form.Label>First Name</Form.Label>
+              <Form.Label id= "txtcolour">First Name</Form.Label>
               <Form.Control
                 type="text"
                 defaultValue={props.currentProfile?.fname}
@@ -117,7 +119,7 @@ function StudentAdd(props) {
             </Form.Group>
 
             <Form.Group controlId="lName">
-              <Form.Label>Last Name</Form.Label>
+              <Form.Label id= "txtcolour">Last Name</Form.Label>
               <Form.Control
                 type="text"
                 defaultValue={props.currentProfile?.lname}
@@ -127,7 +129,7 @@ function StudentAdd(props) {
             </Form.Group>
 
             <Form.Group controlId="dateOfBirth">
-              <Form.Label>Date of Birth</Form.Label>
+              <Form.Label id= "txtcolour">Date of Birth</Form.Label>
               <Form.Control
                 type="date"
                 defaultValue={props.currentProfile?.dob}
@@ -147,7 +149,7 @@ function StudentAdd(props) {
             </Form.Group>
 
             <Form.Group controlId="bio">
-              <Form.Label>Bio</Form.Label>
+              <Form.Label id= "txtcolour">Bio</Form.Label>
               <Form.Control
                 type="text"
                 as="textarea"
@@ -159,7 +161,7 @@ function StudentAdd(props) {
             </Form.Group>
 
             <Form.Group controlId="course">
-              <Form.Label>Developer Academy Courses</Form.Label>
+              <Form.Label id= "txtcolour">Developer Academy Courses</Form.Label>
               <Select
                 className="findSelect"
                 onChange={(e) => {
@@ -219,7 +221,7 @@ function StudentAdd(props) {
             </Form.Group>
 
             <Form.Group controlId="linkedIn">
-              <Form.Label>linkedin</Form.Label>
+              <Form.Label id= "txtcolour">LinkedIn</Form.Label>
               <Form.Control
                 type="url"
                 name="linkedin"
@@ -229,7 +231,7 @@ function StudentAdd(props) {
             </Form.Group>
 
             <Form.Group controlId="gitHub">
-              <Form.Label>github </Form.Label>
+              <Form.Label id= "txtcolour">Github </Form.Label>
               <Form.Control
                 type="url"
                 name="github"
@@ -239,7 +241,7 @@ function StudentAdd(props) {
             </Form.Group>
             <Stack gap={2} className="col-md-50 mx-auto">
               <Form.Group className="findSelectForm">
-                <Form.Label>Skills</Form.Label>
+                <Form.Label  id= "txtcolour">Skills</Form.Label>
 
                 <Select
                   className="findSelect"
