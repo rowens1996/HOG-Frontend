@@ -26,9 +26,14 @@ function Register(props) {
     let sRole = roleForm(e);
     console.log(e.target.role.checked);
     props.client
-      .addNewUser(e.target.username.value, e.target.password.value, sRole, e.target.employerkey.value)
+      .addNewUser(
+        e.target.username.value,
+        e.target.password.value,
+        sRole,
+        e.target.employerkey.value
+      )
       .then((response) => {
-        console.log(response)
+        console.log(response);
         cDisabled(false);
         toast.success("You have successfully registered");
       })

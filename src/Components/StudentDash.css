@@ -1,46 +1,44 @@
-
 /* need to add to other dash css */
 #navContainer {
-    justify-content:space-between;
-  }
+  justify-content: space-between;
+}
 
-input#textInput.form-control, textarea#textInput.form-control {
-    background-color: black;
-    color: green;
-    border-color: yellow;
+input#textInput.form-control,
+textarea#textInput.form-control {
+  background-color: black;
+  color: green;
+  border-color: yellow;
 }
 
 label.form-label {
-    color: brown;
-    font-size:x-large;
+  color: brown;
+  font-size: x-large;
 }
 
-small.form-text, label.form-check-label {
-    color: aqua;
+small.form-text,
+label.form-check-label {
+  color: aqua;
 }
 
-
-
-button.btn.btn-primary:hover{
-    background-color: orangered;
-    border-color: orangered;
+button.btn.btn-primary:hover {
+  background-color: orangered;
+  border-color: orangered;
 }
 
 .form-check-input {
-    width: 1em;
-    height: 1em;
-    margin-top: 0.25em;
-    vertical-align: top;
-    background-color: #fff;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    border: 1px solid rgba(0,0,0,.25);
+  width: 1em;
+  height: 1em;
+  margin-top: 0.25em;
+  vertical-align: top;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 1px solid rgba(0, 0, 0, 0.25);
 }
 
-div.nav-item{
-font-family: "Bubblegum Sans", cursive;
+div.nav-item {
+  font-family: "Bubblegum Sans", cursive;
   font-size: 25px;
   color: rgb(1, 174, 7);
 }
-

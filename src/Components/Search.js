@@ -1,29 +1,27 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Container from 'react-bootstrap/Container';
+import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-
 function Search(props) {
   const resetName = () => {
-    
     props.cFname(undefined);
     document.getElementById("addNameSearchForm").reset();
   };
 
-//   const resetLocation = () => {
-//     props.cLocation(undefined);
-//     document.getElementById("addLocationSearchForm").reset();
-//   };
+  //   const resetLocation = () => {
+  //     props.cLocation(undefined);
+  //     document.getElementById("addLocationSearchForm").reset();
+  //   };
 
-//   const locationSubmitHandler = (e) => {
-//     console.log(e.target.location.value);
-//     e.preventDefault();
-//     props.getByLocation(e.target.location.value);
-//     props.cLocation(e.target.location.value);
-//     resetName();
-//   };
+  //   const locationSubmitHandler = (e) => {
+  //     console.log(e.target.location.value);
+  //     e.preventDefault();
+  //     props.getByLocation(e.target.location.value);
+  //     props.cLocation(e.target.location.value);
+  //     resetName();
+  //   };
 
   const nameSubmitHandler = (e) => {
     e.preventDefault();
@@ -62,7 +60,7 @@ function Search(props) {
             </form>
           </Col> */}
           <Col xs={5}>
-          <form onSubmit={(e) => nameSubmitHandler(e)} id="addNameSearchForm">
+            <form onSubmit={(e) => nameSubmitHandler(e)} id="addNameSearchForm">
               <input
                 className="search-field"
                 type="text"

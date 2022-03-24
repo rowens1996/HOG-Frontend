@@ -31,38 +31,33 @@ function Login(props) {
   };
 
   return (
-    
     <Form id="loginForm" onSubmit={(e) => submitHandler(e)}>
       <Form.Text>Login</Form.Text>
       <Stack gap={2} className="col-md-50 mx-auto">
-      <Form.Group controlId="loginUserName">
-        <Form.Control
-          name="username"
-          type="text"
-          disabled={disabled}
-          placeholder="username"
-        />
-      </Form.Group>
-      
-      
-      <Form.Group controlId="loginPassword">
-        <Form.Control
-          name="password"
-          type="password"
-          disabled={disabled}
-          placeholder="password"
-        />
-      </Form.Group>
-     
-      <Button variant="success" type="submit" disabled={disabled}>
+        <Form.Group controlId="loginUserName">
+          <Form.Control
+            name="username"
+            type="text"
+            disabled={disabled}
+            placeholder="username"
+          />
+        </Form.Group>
 
-        {" "}
-        Login{" "}
-      </Button>
+        <Form.Group controlId="loginPassword">
+          <Form.Control
+            name="password"
+            type="password"
+            disabled={disabled}
+            placeholder="password"
+          />
+        </Form.Group>
+
+        <Button variant="success" type="submit" disabled={disabled}>
+          {" "}
+          Login{" "}
+        </Button>
       </Stack>
     </Form>
-
-  
   );
 }
 

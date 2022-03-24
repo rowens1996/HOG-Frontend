@@ -85,7 +85,7 @@ export class ApiClient {
     linkedin,
     github,
     cv,
-    skills,
+    skills
     //email
   ) {
     console.log("adding profile");
@@ -139,29 +139,26 @@ export class ApiClient {
       avatar: avatar,
       skills: skills,
       email: email,
-      location: location
+      location: location,
     });
   }
 
-
   getByFname(fname) {
-    return this.authenticatedCall("get", `${url}search/fname/${fname}`) ;
+    return this.authenticatedCall("get", `${url}search/fname/${fname}`);
   }
 
-   //Find functionality for Employers
-   queryResult(searchEmp){
-    return this.authenticatedCall("post", `${url}search/employer`, searchEmp)
+  //Find functionality for Employers
+  queryResult(searchEmp) {
+    return this.authenticatedCall("post", `${url}search/employer`, searchEmp);
   }
-
-
 
   postFile(filename, myfile) {
     const formData = new FormData();
     formData.append("name", filename);
     formData.append("myfile", myfile);
-    console.log(formData)
-    return this.authenticatedCall("post",`${url}file/new`, formData);
-  };
+    console.log(formData);
+    return this.authenticatedCall("post", `${url}file/new`, formData);
+  }
 
   //TDA functions
   removeProfile(id) {
@@ -169,7 +166,7 @@ export class ApiClient {
   }
 
   updateTdaProfile(
-    id, 
+    id,
     userName,
     fname,
     lname,
@@ -184,12 +181,26 @@ export class ApiClient {
     skills,
     email,
     location
-    ) {
-    return this.authenticatedCall("put", `${url}update/${id}`, { 
-      userName, fname, lname, dob, bio, course, employed, linkedin, github, cv, avatar, skills, email, location});
-    }
-  
+  ) {
+    return this.authenticatedCall("put", `${url}update/${id}`, {
+      userName,
+      fname,
+      lname,
+      dob,
+      bio,
+      course,
+      employed,
+      linkedin,
+      github,
+      cv,
+      avatar,
+      skills,
+      email,
+      location,
+    });
+  }
+
   getFile(filename) {
-    return this.authenticatedCall("get",`${url}file/get/${filename}`);
-  };
+    return this.authenticatedCall("get", `${url}file/get/${filename}`);
+  }
 }

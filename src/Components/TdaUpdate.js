@@ -22,8 +22,6 @@ function TdaUpdate(props) {
   const [avatar, cAvatar] = useState("avatar_placeholder_1.jpg");
   const [cV, cCV] = useState();
 
-
-
   const skillOptions = [
     { value: "JS", label: "Javascript" },
     { value: "HTML", label: "Html" },
@@ -284,8 +282,11 @@ function TdaUpdate(props) {
                 cV={cV}
                 cCV={cCV}
               />
-              <Button variant="primary" type="submit" onClick={props.handleClose}> 
-
+              <Button
+                variant="primary"
+                type="submit"
+                onClick={props.handleClose}
+              >
                 Confirm Updates
               </Button>
             </Stack>

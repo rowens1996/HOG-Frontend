@@ -4,8 +4,7 @@ import EmployerDash from "./Components/EmployerDash";
 import TdaDash from "./Components/TdaDash";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
-import { Routes, Route, useNavigate, BrowserRouter} from "react-router-dom";
-
+import { Routes, Route, useNavigate, BrowserRouter } from "react-router-dom";
 
 import { ApiClient } from "./apiClient";
 import { useState, useEffect } from "react";
@@ -54,27 +53,29 @@ function App() {
   const roleDash = () => {
     if (role === "Student") {
       return (
-
-        <StudentDashboard username={username} client={client} logout={logout} role={role} />
+        <StudentDashboard
+          username={username}
+          client={client}
+          logout={logout}
+          role={role}
+        />
       );
     } else if (role === "Employer") {
-      return <EmployerDash client={client} logout={logout} role={role}  />;
+      return <EmployerDash client={client} logout={logout} role={role} />;
     } else if (role === "TDA") {
-      return <TdaDash client={client} logout={logout} role={role}  />;
+      return <TdaDash client={client} logout={logout} role={role} />;
     } else {
       return <>error no such role</>;
     }
   };
 
   return (
-<>
+    <>
       <Container id="container">
         <div id="main">
           <div className="background"></div>
           {token ? (
-            <>
-              {roleDash()}
-            </>
+            <>{roleDash()}</>
           ) : (
             <>
               <Navbar bg="dark" expand="lg">
@@ -103,13 +104,12 @@ function App() {
       </Container>
       <footer className="container-fluid bg-5 text-center">
         <p>
-
-          This Website Was Made By Ryan Owens, Abdullah Adaoub, Barnabas Puskas <br />
-
+          This Website Was Made By Ryan Owens, Abdullah Adaoub, Barnabas Puskas{" "}
+          <br />
           Copyright &copy; 2022
         </p>
       </footer>
-      </>
+    </>
   );
 }
 

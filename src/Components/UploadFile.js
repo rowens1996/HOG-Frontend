@@ -22,7 +22,7 @@ function UploadFiles(props) {
 
   const submitPic = (e) => {
     let fileExtention = selectedPic.name.split(".");
-    console.log(e.target.parentElement.parentElement)
+    console.log(e.target.parentElement.parentElement);
     props.cAvatar(
       `${props.username}_${e.target.parentElement.parentElement.id}.${
         fileExtention[fileExtention.length - 1]
@@ -48,14 +48,12 @@ function UploadFiles(props) {
   };
 
   const deleteCV = () => {
-    props.cCV(
-      "CV_placeholder_1.pdf"
-    )
-  }
+    props.cCV("CV_placeholder_1.pdf");
+  };
 
-  const deletePic = () => {props.cAvatar(
-    "avatar_placeholder_1.jpg"
-  )}
+  const deletePic = () => {
+    props.cAvatar("avatar_placeholder_1.jpg");
+  };
 
   const id = [
     {
@@ -64,7 +62,7 @@ function UploadFiles(props) {
       formLabel: "Upload a Profile Picture",
       uploadFunction: submitPic,
       deleteFunction: deletePic,
-      changeHandler: cPicHandler
+      changeHandler: cPicHandler,
     },
     {
       key: "2",
@@ -72,32 +70,37 @@ function UploadFiles(props) {
       formLabel: "Upload your CV",
       uploadFunction: submitCV,
       deleteFunction: deleteCV,
-      changeHandler: cCVHandler
+      changeHandler: cCVHandler,
     },
   ];
 
   return id.map((id) => {
     return (
-        <Container key={id.key} id={id.formId} onSubmit={upload} style={{margin: "0", padding: "0"}}>
-          <Form.Group
-            action="/user/new"
-            method="POST"
-            encType="multipart/form-data"
-            controlId="formFile"
-            className="mb-3"
-          >
-            <Form.Label>{id.formLabel}</Form.Label>
-            <Form.Control type="file" name="myfile" onChange={id.changeHandler} />
-          </Form.Group>
-          <span>
-          <Button type="submit" onClick={((e)=>id.uploadFunction(e))}>
+      <Container
+        key={id.key}
+        id={id.formId}
+        onSubmit={upload}
+        style={{ margin: "0", padding: "0" }}
+      >
+        <Form.Group
+          action="/user/new"
+          method="POST"
+          encType="multipart/form-data"
+          controlId="formFile"
+          className="mb-3"
+        >
+          <Form.Label>{id.formLabel}</Form.Label>
+          <Form.Control type="file" name="myfile" onChange={id.changeHandler} />
+        </Form.Group>
+        <span>
+          <Button type="submit" onClick={(e) => id.uploadFunction(e)}>
             Upload
           </Button>
           <Button type="submit" onClick={id.deleteFunction}>
             Delete
           </Button>
-          </span>
-        </Container>
+        </span>
+      </Container>
     );
   });
 }

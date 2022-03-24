@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from "react";
-import "./TdaDash.css"
+import "./TdaDash.css";
 import NavbarComp from "./NavbarComp.js";
 import SearchAll from "./SearchAll";
 import TdaUpdate from "./TdaUpdate";
@@ -32,11 +31,9 @@ function TdaDash(props) {
   const [open, cOpen] = useState({});
   const [show, SetShow] = useState(false);
 
-  const handleShow = () =>  SetShow(true);
-
+  const handleShow = () => SetShow(true);
 
   const handleClose = () => SetShow(false);
-
 
   const removeProfile = (id) => {
     props.client.removeProfile(id).then(() => refreshList());
@@ -56,7 +53,6 @@ function TdaDash(props) {
       .then((response) => cStudentsList(response.data));
   };
 
-
   const employed = (employed) => {
     if (employed) {
       return "Employed";
@@ -66,9 +62,8 @@ function TdaDash(props) {
   };
 
   const collapse = (id) => {
-    cOpen((prevState => ({...prevState, [id]: !prevState[id]})))
-  }
-
+    cOpen((prevState) => ({ ...prevState, [id]: !prevState[id] }));
+  };
 
   useEffect(() => {
     refreshList();
@@ -98,7 +93,7 @@ function TdaDash(props) {
             <Stack>
               <Button
                 variant="secondary"
-                onClick={(() => collapse(current._id))}
+                onClick={() => collapse(current._id)}
                 aria-controls="example-collapse-text"
                 //aria-expanded={open}
               >
@@ -131,10 +126,15 @@ function TdaDash(props) {
                     </i>
                   </a>
                 </Card.Text>
-                <Card.Text>Employment Status: {employed(current.employed)} </Card.Text>
+                <Card.Text>
+                  Employment Status: {employed(current.employed)}{" "}
+                </Card.Text>
                 <Card.Text>"current.graduated"</Card.Text>
                 <Card.Text className="cardButton">
-                  <a href={`http://localhost:3001/file/get/${current.cv}`} target="_blank">
+                  <a
+                    href={`http://localhost:3001/file/get/${current.cv}`}
+                    target="_blank"
+                  >
                     <Button size="sm" variant="success">
                       Download CV
                     </Button>
@@ -142,37 +142,28 @@ function TdaDash(props) {
                 </Card.Text>
               </div>
             </Collapse>
-            <br/>
-          
-            <Container className = "update">
-              
-            <Button
-               variant = "danger"
+            <br />
+
+            <Container className="update">
+              <Button
+                variant="danger"
                 className="remove"
                 onClick={() => removeProfile(current._id)}
-                >
-              Delete
-            </Button>
-            
-            &nbsp; &nbsp; &nbsp;
-            
-            <Button
-
-            onClick={() =>{ 
-              handleShow();
-              updateTdaProfile(current) }}
-        
-            >
+              >
+                Delete
+              </Button>
+              &nbsp; &nbsp; &nbsp;
+              <Button
+                onClick={() => {
+                  handleShow();
+                  updateTdaProfile(current);
+                }}
+              >
                 Update
-            </Button>
-           
+              </Button>
             </Container>
-            
           </Card>
-         
-
         </Col>
-        
       );
     });
   };
@@ -182,25 +173,23 @@ function TdaDash(props) {
       <NavbarComp role={props.role} logout={props.logout} />
       <Nav.Link id="navLinks" onClick={() => props.logout()}></Nav.Link>
       <Container>
-        <Row xs={1} sm={2} md={3} lg={4}  id="studentRows">
+        <Row xs={1} sm={2} md={3} lg={4} id="studentRows">
           {buildCards()}
         </Row>
 
         <TdaUpdate
-      show={show}
-      handleClose={handleClose}
-      handleShow={handleShow}
-        username={props.username}
-        client={props.client}
-        refreshList={() => {
-          refreshList();
-          cCurrent(undefined);
-        }}
-        currentProfile={current}
-        cCurrentProfile={cCurrent}
-      />
-       
-        
+          show={show}
+          handleClose={handleClose}
+          handleShow={handleShow}
+          username={props.username}
+          client={props.client}
+          refreshList={() => {
+            refreshList();
+            cCurrent(undefined);
+          }}
+          currentProfile={current}
+          cCurrentProfile={cCurrent}
+        />
       </Container>
 
       <SearchAll

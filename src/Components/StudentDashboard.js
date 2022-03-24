@@ -47,7 +47,7 @@ function StudentDashboard(props) {
     cv: "",
     avatar: "avatar_placeholder_1.jpg",
     email: "",
-    location: ""
+    location: "",
   });
 
   const [current, cCurrent] = useState(undefined);
@@ -87,7 +87,6 @@ function StudentDashboard(props) {
     console.log("rendering the studentdash");
   };
 
-
   return (
     <Container id="Dash">
       {/* {consolelog()} */}
@@ -112,8 +111,11 @@ function StudentDashboard(props) {
       />
 
       <br />
-      <StudentCard userProfile={userProfile} username={props.username}
-        client={props.client} />
+      <StudentCard
+        userProfile={userProfile}
+        username={props.username}
+        client={props.client}
+      />
     </Container>
   );
 }

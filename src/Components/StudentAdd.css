@@ -1,29 +1,22 @@
 /* modal header colour */
-#modalHeader{
-    background-color: rgba(60, 60, 60, 1);
-    /* border-style: outset; */
+#modalHeader {
+  background-color: rgba(60, 60, 60, 1);
+  /* border-style: outset; */
 }
-
 
 /* green text colour */
-#txtcolour{   
-color: rgb(1, 174, 7);
-
+#txtcolour {
+  color: rgb(1, 174, 7);
 }
-
 
 /* upload form background colour */
-#formContainer{
-    background-color: rgba(39, 39, 39, 1);
-    /* border-style: outset; */
+#formContainer {
+  background-color: rgba(39, 39, 39, 1);
+  /* border-style: outset; */
 }
-
 
 /* form background colour */
-#addForm{
-    background-color: rgba(39, 39, 39, 1);
-    /* border-style: outset; */
+#addForm {
+  background-color: rgba(39, 39, 39, 1);
+  /* border-style: outset; */
 }
-
-
-

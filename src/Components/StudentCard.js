@@ -1,25 +1,25 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import {
-    Card,
-    Container,
-    ListGroup,
-    ListGroupItem,
-    Nav,
-    Navbar,
-    NavItem,
-    Button
-  } from "react-bootstrap";
-  import {BsLinkedin} from "react-icons/bs"
-  import {BsGithub} from "react-icons/bs"
-  import { AiTwotoneMail } from "react-icons/ai";
-  import {FaCss3Alt} from 'react-icons/fa'
-  import {FaReact} from 'react-icons/fa'
-  import {SiMongodb} from 'react-icons/si'
-  import {SiJavascript} from 'react-icons/si'
-  import {FaHtml5} from 'react-icons/fa'
+  Card,
+  Container,
+  ListGroup,
+  ListGroupItem,
+  Nav,
+  Navbar,
+  NavItem,
+  Button,
+} from "react-bootstrap";
+import { BsLinkedin } from "react-icons/bs";
+import { BsGithub } from "react-icons/bs";
+import { AiTwotoneMail } from "react-icons/ai";
+import { FaCss3Alt } from "react-icons/fa";
+import { FaReact } from "react-icons/fa";
+import { SiMongodb } from "react-icons/si";
+import { SiJavascript } from "react-icons/si";
+import { FaHtml5 } from "react-icons/fa";
 
-  import "./StudentCard.css";
+import "./StudentCard.css";
 
 export default function StudentCard(props) {
   const consolelog = () => {
@@ -35,25 +35,23 @@ export default function StudentCard(props) {
     }
   };
 
-
-const icons = ()=>{
-  
-let skillIcons =[];
-if (props.userProfile.skills.includes("CSS")){
-  skillIcons.push(<FaCss3Alt size={60} color={"#264de4"}/>);
-}; 
-if (props.userProfile.skills.includes("React")){
-  skillIcons.push(<FaReact size={60} color={"#61DBFB"}/>)
-}
-if (props.userProfile.skills.includes("HTML")){
-  skillIcons.push(<FaHtml5 size={60} color={" #E34C26"}/>)
-}
-if (props.userProfile.skills.includes("MongoDB")){
-  skillIcons.push(<SiMongodb size={60} color={"#3FA037"}/>)
-}
-if (props.userProfile.skills.includes("JS")){
-  skillIcons.push(<SiJavascript size={60} color={"#F0DB4F"} />)
-}
+  const icons = () => {
+    let skillIcons = [];
+    if (props.userProfile.skills.includes("CSS")) {
+      skillIcons.push(<FaCss3Alt size={60} color={"#264de4"} />);
+    }
+    if (props.userProfile.skills.includes("React")) {
+      skillIcons.push(<FaReact size={60} color={"#61DBFB"} />);
+    }
+    if (props.userProfile.skills.includes("HTML")) {
+      skillIcons.push(<FaHtml5 size={60} color={" #E34C26"} />);
+    }
+    if (props.userProfile.skills.includes("MongoDB")) {
+      skillIcons.push(<SiMongodb size={60} color={"#3FA037"} />);
+    }
+    if (props.userProfile.skills.includes("JS")) {
+      skillIcons.push(<SiJavascript size={60} color={"#F0DB4F"} />);
+    }
 
     let ico = skillIcons.map((item) => {
       return item;
@@ -123,16 +121,12 @@ if (props.userProfile.skills.includes("JS")){
           <Nav.Link href={pdfLink}>Preview CV</Nav.Link>
           <Card.Title className="bio"> Tech Skills </Card.Title>
 
-
           {/* <Card.Text className="BioText">
   
             Skills: {props.userProfile.skills.join("  ")}{" "}
           </Card.Text> */}
 
-          <Card.Text className="BioText">
-             {icons()}
-          </Card.Text>
-
+          <Card.Text className="BioText">{icons()}</Card.Text>
         </Card.Body>
         {/* skills array? */}
         {/* <ListGroup className="list-group-flush">

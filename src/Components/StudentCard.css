@@ -1,121 +1,114 @@
-.profileCard.card{
-    border-radius: 10px 10px 10px 10px;
-    margin: 0px 200px 100px 200px;
-    border-style: outset;
-    border-width: 10px;
-    border-radius: 10px;
-    background-color: rgba(39, 39, 39, 1);
+.profileCard.card {
+  border-radius: 10px 10px 10px 10px;
+  margin: 0px 200px 100px 200px;
+  border-style: outset;
+  border-width: 10px;
+  border-radius: 10px;
+  background-color: rgba(39, 39, 39, 1);
 }
 
-.profileCard{
+.profileCard {
   background-color: rgba(39, 39, 39, 1);
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  opacity: 0.90;
+  align-items: center;
+  opacity: 0.9;
 }
 
-.profilePic{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: center;
-    width:100px;
-    
-   
-
+.profilePic {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: center;
+  width: 100px;
 }
 
-img.card-img.pic{
-    width:1000px;
-    height:100px;
-    border-style: outset;
-    border-width: 10px;
-    border-radius: 10px;
+img.card-img.pic {
+  width: 1000px;
+  height: 100px;
+  border-style: outset;
+  border-width: 10px;
+  border-radius: 10px;
 }
 
-#title{
-    font-size: 80px;
-    text-align: center;
-    color: #404d2e;
-    margin-top: 0;
-  }
+#title {
+  font-size: 80px;
+  text-align: center;
+  color: #404d2e;
+  margin-top: 0;
+}
 
-  .linkedinStudentDash {
-    flex-direction: row;
-    /* width: 200px;
+.linkedinStudentDash {
+  flex-direction: row;
+  /* width: 200px;
     height: 30px; */
-    font-size: 12px;
-    font-weight: bold;
-    /* border: 1px solid #5093E2; */
-    /* border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  /* border: 1px solid #5093E2; */
+  /* border-radius: 6px;
     background-color: #5093E2;  */
-    color: hsl(213, 63%, 43%);
-    justify-content: center;
-    align-items: center;
-  }
+  color: hsl(213, 63%, 43%);
+  justify-content: center;
+  align-items: center;
+}
 
-  .linkedinStudentDash:hover {
-      color:#03405f
-  }
+.linkedinStudentDash:hover {
+  color: #03405f;
+}
 
-  .githubStudentDash {
-    
-    flex-direction: row;
-    /* width: 200px;
+.githubStudentDash {
+  flex-direction: row;
+  /* width: 200px;
     height: 30px; */
-    font-size: 12px;
-    font-weight: bold;
-    /* border: 1px solid #212427; */
-    /* border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  /* border: 1px solid #212427; */
+  /* border-radius: 6px;
     background-color: rgb(75, 74, 74); */
-    color: rgb(10, 9, 9);
-    justify-content: center;
-    align-items: center;
-  }
-  /* .github .email .linkedin:hover{
+  color: rgb(10, 9, 9);
+  justify-content: center;
+  align-items: center;
+}
+/* .github .email .linkedin:hover{
     background-color: aliceblue;
   } */
 
-  .Buttons.container > a#github > i > svg:hover{
-    color:blueviolet;
-    
- 
-  }
+.Buttons.container > a#github > i > svg:hover {
+  color: blueviolet;
+}
 
-  .emailStudentDash {
-    flex-direction: row;
-    /* width: 200px;
+.emailStudentDash {
+  flex-direction: row;
+  /* width: 200px;
     height: 30px; */
-    font-size: 12px;
-    font-weight: bold;
-    /* border: 1px solid #212427; */
-    /* border-radius: 6px; */
-    /* background-color: whitesmoke; */
-    color: #1A1B21;
-    justify-content: center;
-    align-items: center;
-  }
+  font-size: 12px;
+  font-weight: bold;
+  /* border: 1px solid #212427; */
+  /* border-radius: 6px; */
+  /* background-color: whitesmoke; */
+  color: #1a1b21;
+  justify-content: center;
+  align-items: center;
+}
 
+.Buttons {
+  display: flex;
+  position: center;
+}
 
-  .Buttons{
-      display:flex;
-      position:center;
-  }
-
-  .bio{
-     margin: 5px 0px 5px 0px;
-     padding: 0px; 
-    text-align: left;
-    padding-top: 10px;
-    padding-left: 10px;
-    font-size: 22px;
-    color: #86B049;
-    letter-spacing: -0.05em;
-  }
-  .BioText{
-    font-size: 20px;
-    color: white;
-    padding: 10px;
-    padding-top: 0;
-  }
+.bio {
+  margin: 5px 0px 5px 0px;
+  padding: 0px;
+  text-align: left;
+  padding-top: 10px;
+  padding-left: 10px;
+  font-size: 22px;
+  color: #86b049;
+  letter-spacing: -0.05em;
+}
+.BioText {
+  font-size: 20px;
+  color: white;
+  padding: 10px;
+  padding-top: 0;
+}
