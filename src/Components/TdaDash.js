@@ -108,7 +108,7 @@ function TdaDash(props) {
             <Card.Header className="details">
               <Card.Img
                 className="profilepic"
-                src={`http://localhost:3001/file/get/${current.avatar}`}
+                src={`https://hireourgraduates.herokuapp.com/${current.avatar}`}
               />
               <Card.Text as="h3">
                 {current.fname} {current.lname}
@@ -162,7 +162,7 @@ function TdaDash(props) {
                   {" "}
                  &nbsp;
                   <a
-                    href={`http://localhost:3001/file/get/${current.cv}`}
+                    href={`https://hireourgraduates.herokuapp.com/${current.cv}`}
                     target="_blank"
                   >
                     <i>

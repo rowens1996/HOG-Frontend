@@ -227,7 +227,7 @@ div.list-group-item {
   }
   #loginForm > small,
   #registerForm > small {
-  font-size: 3vw;
+  font-size: 30px;
 }
 div#div.container {
   margin-top: 3.5%;

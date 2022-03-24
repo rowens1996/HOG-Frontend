@@ -59,7 +59,7 @@ export default function StudentCard(props) {
     return ico;
   };
 
-  const pdfLink = `http://localhost:3001/file/get/${props.userProfile.cv}`;
+  const pdfLink = `https://hireourgraduates.herokuapp.com/${props.userProfile.cv}`;
 
   return (
     <Container id="studentProfile">
@@ -70,7 +70,7 @@ export default function StudentCard(props) {
             <Card.Img
               id="pic"
               className="pic"
-              src={`http://localhost:3001/file/get/${props.userProfile.avatar}`}
+              src={`https://hireourgraduates.herokuapp.com/${props.userProfile.avatar}`}
             />
           </Container>
           <Card.Title id="title">
