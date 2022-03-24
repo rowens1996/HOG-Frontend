@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import SearchAll from "./SearchAll";
 import {
   Button,
@@ -15,6 +16,12 @@ import {
 import { BsLinkedin } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import { AiTwotoneMail } from "react-icons/ai";
+import {FaCss3Alt} from 'react-icons/fa'
+import {FaReact} from 'react-icons/fa'
+import {SiMongodb} from 'react-icons/si'
+import {SiJavascript} from 'react-icons/si'
+import {FaHtml5} from 'react-icons/fa'
+import {FaFileDownload} from 'react-icons/fa'
 
 import "./EmployerDash.css";
 
@@ -44,6 +51,33 @@ function EmployerDash(props) {
     cOpen((prevState => ({...prevState, [id]: !prevState[id]})))
   }
 
+
+  const icons = (skills, key)=>{
+  
+    let skillIcons =[];
+    if (skills.includes("CSS")){
+      skillIcons.push(<FaCss3Alt size={40} color={"#264de4"}/>);
+    }; 
+    if (skills.includes("React")){
+      skillIcons.push(<FaReact size={40} color={"#61DBFB"}/>)
+    }
+    if (skills.includes("HTML")){
+      skillIcons.push(<FaHtml5 size={40} color={" #E34C26"}/>)
+    }
+    if (skills.includes("MongoDB")){
+      skillIcons.push(<SiMongodb size={40} color={"#3FA037"}/>)
+    }
+    if (skills.includes("JS")){
+      skillIcons.push(<SiJavascript size={40} color={"#F0DB4F"} />)
+    }
+    console.log(skillIcons)
+    
+    let ico = skillIcons.map((item)=>{ return item})
+    return ico
+    
+    }
+
+
   useEffect(() => {
     refreshList();
     // eslint-disable-next-line
@@ -68,7 +102,7 @@ function EmployerDash(props) {
             </Card.Header>
             <br />
             <Card.Text>{current.course}</Card.Text>
-            <Card.Text>{current.skills.join("   ")}</Card.Text>
+            <Card.Text>{icons(current.skills, current._id)}</Card.Text>
             <Stack>
              
             <Button onClick={(()=>collapse(current._id))} variant = "secondary">Expand</Button>
@@ -103,20 +137,28 @@ function EmployerDash(props) {
             &nbsp;
             &nbsp;
             <Card.Text className="cardButton">
-            <a href={current.email}><i ><AiTwotoneMail size={40} color={"white"}/></i></a>
+            <a href={"mailto:"+current.email}><i ><AiTwotoneMail size={40} color={"white"}/></i></a>
             </Card.Text>
-           <Container className = "Other">
-            <Card.Text>"current.cohort"</Card.Text>
-            <Card.Text>"current.graduated"</Card.Text>
-            <Card.Text className="cardButton">
+
+            &nbsp;
+            &nbsp;
+            &nbsp;
+           
+            {/* <Card.Text>"current.cohort"</Card.Text>
+            <Card.Text>"current.graduated"</Card.Text> */}
+            <Container className="CV">
+            <Card.Text className="cardButton"> Download CV 
+            &nbsp;
               <a href={`http://localhost:3001/file/get/${current.cv}`} target="_blank">
-                <Button size="sm" variant="success">
-                  Download CV
-                </Button>
+                <i><Button variant="secondary" size="sm"><FaFileDownload size={20} color={"white"}/></Button></i>
+                 
+               
+              
               </a>
 
             </Card.Text>
             </Container>
+            
               </div>
             </Collapse>
            
