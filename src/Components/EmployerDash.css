@@ -17,7 +17,7 @@
 
 img.card-img.profilepic{
   
-    width:180px;
+    width:250px;
     height:200px;
 }
 
@@ -170,3 +170,17 @@ img.card-img.pic{
   label.fname.form-label{
       color:black;
   }
+
+  .CV.container{
+  display: flex;
+    
+    width:10vw;
+    height: 10vh;
+
+    margin:0;
+    padding:0;
+  }
+
+  /* p.cardButton.card-text{
+    position: right;
+  } */

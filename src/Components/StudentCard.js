@@ -15,6 +15,11 @@ import {
   import { AiTwotoneMail } from "react-icons/ai";
   import {FaCss3Alt} from 'react-icons/fa'
   import {FaReact} from 'react-icons/fa'
+  import {SiMongodb} from 'react-icons/si'
+  import {SiJavascript} from 'react-icons/si'
+  import {FaHtml5} from 'react-icons/fa'
+
+
    
   import "./StudentCard.css";
 
@@ -37,12 +42,21 @@ const icons = ()=>{
   
 let skillIcons =[];
 if (props.userProfile.skills.includes("CSS")){
-  skillIcons.push(<FaCss3Alt/>);
+  skillIcons.push(<FaCss3Alt size={60} color={"#264de4"}/>);
 }; 
 if (props.userProfile.skills.includes("React")){
-  skillIcons.push(<FaReact/>)
+  skillIcons.push(<FaReact size={60} color={"#61DBFB"}/>)
 }
-console.log(skillIcons)
+if (props.userProfile.skills.includes("HTML")){
+  skillIcons.push(<FaHtml5 size={60} color={" #E34C26"}/>)
+}
+if (props.userProfile.skills.includes("MongoDB")){
+  skillIcons.push(<SiMongodb size={60} color={"#3FA037"}/>)
+}
+if (props.userProfile.skills.includes("JS")){
+  skillIcons.push(<SiJavascript size={60} color={"#F0DB4F"} />)
+}
+
 
 let ico = skillIcons.map((item)=>{ return item})
 return ico
@@ -113,7 +127,7 @@ return ico
           </Card.Text> */}
           <Card.Text className="BioText">
   
-            Skills: {icons()}
+             {icons()}
           </Card.Text>
         </Card.Body>
         {/* skills array? */}

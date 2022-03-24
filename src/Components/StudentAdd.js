@@ -251,7 +251,7 @@ function StudentAdd(props) {
                   }}
                   closeMenuOnSelect={false}
                   components={animatedComponents}
-                  defaultValue={props.currentProfile?.skills}
+                  // defaultValue={props.currentProfile?.skills}
                   isMulti
                   options={skillOptions}
                   name="skills"

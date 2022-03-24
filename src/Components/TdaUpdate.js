@@ -18,7 +18,7 @@ function TdaUpdate(props) {
   const [disabled, cDisabled] = useState(false);
   const [skills, cSkills] = useState([]);
   const [course, cCourse] = useState([]);
-  
+
 
   const skillOptions = [
     { value: "JS", label: "Javascript" },
@@ -59,7 +59,7 @@ function TdaUpdate(props) {
     let result;
     result = props.client.updateTdaProfile(
       props.currentProfile._id,
-      props.username,
+      props.currentProfile.userName,
       e.target.fname.value,
       e.target.lname.value,
       e.target.dob.value,
