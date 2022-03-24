@@ -77,8 +77,7 @@ function UploadFiles(props) {
 
   return id.map((id) => {
     return (
-      <Container key={id.key}>
-        <Form id={id.formId} onSubmit={upload}>
+        <Container key={id.key} id={id.formId} onSubmit={upload} style={{margin: "0", padding: "0"}}>
           <Form.Group
             action="/user/new"
             method="POST"
@@ -97,8 +96,7 @@ function UploadFiles(props) {
             Delete
           </Button>
           </span>
-        </Form>
-      </Container>
+        </Container>
     );
   });
 }

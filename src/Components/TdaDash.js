@@ -28,7 +28,9 @@ import { AiTwotoneMail } from "react-icons/ai";
 
 function TdaDash(props) {
   const [studentList, cStudentsList] = useState([]);
-  const [current, cCurrent] = useState(undefined);
+  ///change 1
+  const [current, cCurrent] = useState({});
+  //
   const [open, cOpen] = useState({});
   const [show, SetShow] = useState(false);
 

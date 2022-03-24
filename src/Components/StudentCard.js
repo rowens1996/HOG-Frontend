@@ -1,23 +1,22 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import {
-    Card,
-    Container,
-    ListGroup,
-    ListGroupItem,
-    Nav,
-    Navbar,
-    NavItem,
-    Button
-  } from "react-bootstrap";
-  import {BsLinkedin} from "react-icons/bs"
-  import {BsGithub} from "react-icons/bs"
-  import { AiTwotoneMail } from "react-icons/ai";
-  import {FaCss3Alt} from 'react-icons/fa'
-  import {FaReact} from 'react-icons/fa'
-   
-  import "./StudentCard.css";
+  Card,
+  Container,
+  ListGroup,
+  ListGroupItem,
+  Nav,
+  Navbar,
+  NavItem,
+  Button,
+} from "react-bootstrap";
+import { BsLinkedin } from "react-icons/bs";
+import { BsGithub } from "react-icons/bs";
+import { AiTwotoneMail } from "react-icons/ai";
+import { FaCss3Alt } from "react-icons/fa";
+import { FaReact } from "react-icons/fa";
 
+import "./StudentCard.css";
 
 export default function StudentCard(props) {
   const consolelog = () => {
@@ -33,21 +32,21 @@ export default function StudentCard(props) {
     }
   };
 
-const icons = ()=>{
-  
-let skillIcons =[];
-if (props.userProfile.skills.includes("CSS")){
-  skillIcons.push(<FaCss3Alt/>);
-}; 
-if (props.userProfile.skills.includes("React")){
-  skillIcons.push(<FaReact/>)
-}
-console.log(skillIcons)
+  const icons = () => {
+    let skillIcons = [];
+    if (props.userProfile.skills.includes("CSS")) {
+      skillIcons.push(<FaCss3Alt />);
+    }
+    if (props.userProfile.skills.includes("React")) {
+      skillIcons.push(<FaReact />);
+    }
+    console.log(skillIcons);
 
-let ico = skillIcons.map((item)=>{ return item})
-return ico
-
-}
+    let ico = skillIcons.map((item) => {
+      return item;
+    });
+    return ico;
+  };
 
   const pdfLink = `http://localhost:3001/file/get/${props.userProfile.cv}`;
 
@@ -72,15 +71,15 @@ return ico
               <Button className ="github" href={props.userProfile.github}><BsGithub/> Github</Button>
               &nbsp;
               <Button className ="email" href={props.userProfile.github}><AiTwotoneMail/> Email</Button> */}
-             
-            <a href={(props.userProfile.github)}>
+            <a href={props.userProfile.github}>
               <i>
-                <BsGithub className={"githubStudentDash"} size={60} 
-                color={"var(--githubgray)"} 
+                <BsGithub
+                  className={"githubStudentDash"}
+                  size={60}
+                  color={"var(--githubgray)"}
                 />
               </i>
             </a>
-            
             &nbsp; &nbsp; &nbsp;
             <a href={props.userProfile.linkedin}>
               <i>
@@ -88,9 +87,13 @@ return ico
               </i>
             </a>
             &nbsp; &nbsp; &nbsp;
-            <a href={"mailto:"+props.userProfile.email}>
+            <a href={"mailto:" + props.userProfile.email}>
               <i>
-                <AiTwotoneMail className={"emailStudentDash"} size={75} color={"white"} />
+                <AiTwotoneMail
+                  className={"emailStudentDash"}
+                  size={75}
+                  color={"white"}
+                />
               </i>
             </a>
           </Container>
@@ -101,20 +104,17 @@ return ico
           <Card.Text className="BioText">
             dob: {props.userProfile.dob} <br /> Courses Completed:{" "}
             {props.userProfile.course.join(", ")}
-            <br /> Employment Status: {employed()} 
-            <br/> Location: {props.userProfile.location}
+            <br /> Employment Status: {employed()}
+            <br /> Location: {props.userProfile.location}
           </Card.Text>
-            <Nav.Link href={pdfLink} >Preview CV</Nav.Link>
+          <Nav.Link href={pdfLink}>Preview CV</Nav.Link>
           <Card.Title className="bio"> Tech Skills </Card.Title>
 
           {/* <Card.Text className="BioText">
   
             Skills: {props.userProfile.skills.join("  ")}{" "}
           </Card.Text> */}
-          <Card.Text className="BioText">
-  
-            Skills: {icons()}
-          </Card.Text>
+          <Card.Text className="BioText">Skills: {icons()}</Card.Text>
         </Card.Body>
         {/* skills array? */}
         {/* <ListGroup className="list-group-flush">
@@ -129,4 +129,3 @@ return ico
     </Container>
   );
 }
-

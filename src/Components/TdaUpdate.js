@@ -13,12 +13,14 @@ import {
 } from "react-bootstrap/";
 import makeAnimated from "react-select/animated";
 import Select from "react-select";
+import UploadFiles from "./UploadFile";
 
 function TdaUpdate(props) {
   const [disabled, cDisabled] = useState(false);
   const [skills, cSkills] = useState([]);
   const [course, cCourse] = useState([]);
-  
+  const [avatar, cAvatar] = useState("avatar_placeholder_1.jpg");
+  const [cV, cCV] = useState();
 
   const skillOptions = [
     { value: "JS", label: "Javascript" },
@@ -59,7 +61,9 @@ function TdaUpdate(props) {
     let result;
     result = props.client.updateTdaProfile(
       props.currentProfile._id,
-      props.username,
+      ///// change 2
+      props.currentProfile.userName,
+      ////
       e.target.fname.value,
       e.target.lname.value,
       e.target.dob.value,
@@ -70,8 +74,8 @@ function TdaUpdate(props) {
       e.target.employed.checked,
       e.target.linkedin.value,
       e.target.github.value,
-      // cV,
-      // avatar,
+      cV,
+      avatar,
       //e.target.email.value,
       skills.map((item) => {
         return item.value;
@@ -274,8 +278,15 @@ function TdaUpdate(props) {
                   name="skills"
                 ></Select>
               </Form.Group>
-
-              <Button variant="primary" type="submit">
+              <UploadFiles
+                username={props.currentProfile?.userName}
+                client={props.client}
+                avatar={avatar}
+                cAvatar={cAvatar}
+                cV={cV}
+                cCV={cCV}
+              />
+              <Button variant="primary" type="submit" onClick={props.handleClose}> 
                 Confirm Updates
               </Button>
             </Stack>

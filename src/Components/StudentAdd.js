@@ -16,14 +16,11 @@ import Select from "react-select";
 
 import UploadFiles from "./UploadFile.js";
 
-
-
-
 function StudentAdd(props) {
   const [disabled, cDisabled] = useState(false);
   const [skills, cSkills] = useState([]);
   const [course, cCourse] = useState([]);
-  const [avatar, cAvatar] = useState("avatar_placeholder_1");
+  const [avatar, cAvatar] = useState("avatar_placeholder_1.jpg");
   const [cV, cCV] = useState();
 
   const skillOptions = [
@@ -257,22 +254,25 @@ function StudentAdd(props) {
                   name="skills"
                 ></Select>
               </Form.Group>
-
-              <Button variant="primary" type="submit">
+              <UploadFiles
+                username={props.username}
+                client={props.client}
+                avatar={avatar}
+                cAvatar={cAvatar}
+                cV={cV}
+                cCV={cCV}
+              />
+              <Button
+                variant="primary"
+                type="submit"
+                onClick={props.handleClose}
+              >
                 Confirm Updates
               </Button>
             </Stack>
           </Container>
         </Modal.Body>
       </Form>
-      <UploadFiles
-        username={props.username}
-        client={props.client}
-        avatar={avatar}
-        cAvatar={cAvatar}
-        cV={cV}
-        cCV={cCV}
-      />
     </Modal>
   );
 }
