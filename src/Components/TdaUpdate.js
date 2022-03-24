@@ -13,11 +13,15 @@ import {
 } from "react-bootstrap/";
 import makeAnimated from "react-select/animated";
 import Select from "react-select";
+import UploadFiles from "./UploadFile";
 
 function TdaUpdate(props) {
   const [disabled, cDisabled] = useState(false);
   const [skills, cSkills] = useState([]);
   const [course, cCourse] = useState([]);
+  const [avatar, cAvatar] = useState("avatar_placeholder_1.jpg");
+  const [cV, cCV] = useState();
+
 
 
   const skillOptions = [
@@ -70,8 +74,8 @@ function TdaUpdate(props) {
       e.target.employed.checked,
       e.target.linkedin.value,
       e.target.github.value,
-      // cV,
-      // avatar,
+      cV,
+      avatar,
       //e.target.email.value,
       skills.map((item) => {
         return item.value;
@@ -172,7 +176,6 @@ function TdaUpdate(props) {
                 name="skills"
               ></Select>
               {/* <Form.Select
-
          className="course"  defaultValue={props.currentProfile?.course}   disabled={disabled}>
         <option value="">Please select a course</option>
         <option value="Sheffield Council 12 week Bootcamp">Sheffield Council 12 week Bootcamp</option>
@@ -181,9 +184,7 @@ function TdaUpdate(props) {
         </Form.Select> */}
 
               {/* <Form.Control
-          
             id="textInput"
-
             type="text"
             defaultValue={props.currentProfile?.course}
             name="course"
@@ -275,7 +276,16 @@ function TdaUpdate(props) {
                 ></Select>
               </Form.Group>
 
-              <Button variant="primary" type="submit">
+              <UploadFiles
+                username={props.currentProfile?.userName}
+                client={props.client}
+                avatar={avatar}
+                cAvatar={cAvatar}
+                cV={cV}
+                cCV={cCV}
+              />
+              <Button variant="primary" type="submit" onClick={props.handleClose}> 
+
                 Confirm Updates
               </Button>
             </Stack>
@@ -285,5 +295,4 @@ function TdaUpdate(props) {
     </Modal>
   );
 }
-
 export default TdaUpdate;

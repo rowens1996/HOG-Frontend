@@ -61,7 +61,7 @@ function SearchAll(props) {
           id="findForm"
         >
           <Form.Group>
-            <Form.Label className="fname">First name:</Form.Label>
+            <Form.Label id="txtcolour" className="fname">First name:</Form.Label>
             <Form.Control
               type="text"
               defaultValue={props.currentProfile?.Firstname}
@@ -71,7 +71,7 @@ function SearchAll(props) {
             ></Form.Control>
           </Form.Group>
           <Form.Group>
-            <Form.Label className="fname">Last name:</Form.Label>
+            <Form.Label id="txtcolour" className="fname">Last name:</Form.Label>
             <Form.Control
               type="text"
               defaultValue={props.currentProfile?.Lastname}
@@ -82,7 +82,7 @@ function SearchAll(props) {
           </Form.Group>
          
           <Form.Group>
-            <Form.Label>Course:</Form.Label>
+            <Form.Label id="txtcolour">Course:</Form.Label>
             <Form.Select id="sCourse" name="sCourse">
               <option value="">Please select a course</option>
               <option value="Web Development 12 week Bootcamp">
@@ -103,9 +103,8 @@ function SearchAll(props) {
             </Form.Select>
           </Form.Group>
      
-         
           <Form.Group className="findSelectForm">
-            <Form.Label>Skills</Form.Label>
+            <Form.Label id="txtcolour">Skills</Form.Label>
             <Select
               className="findSelect"
               onChange={(e) => {

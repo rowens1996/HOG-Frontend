@@ -171,7 +171,6 @@ function EmployerDash(props) {
   return (
     <>
       <NavbarComp role={props.role} logout={props.logout} handleShow={props.handleShow}/>
-
       <Container>
         <Row xs={1} sm={2} md={3} lg={4} id="studentRows">
           {buildCards()}

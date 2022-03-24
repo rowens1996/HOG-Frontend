@@ -1,14 +1,23 @@
-/* div.mx-auto.formContainer.collapse.show.container{
-
-    
-} */
+/* div.mx-auto.formContainer.collapse.show.container{} */
 
 label.form-label{
-color:black;
+    color:black;
+    }
+
+    .Buttons.Container{
+    display:flex;
+    justify-content: center;
+    }
+
+#findForm{
+    background-color: rgba(39, 39, 39, 1);
+    margin-bottom: 50px;
+    padding: 20px 20px 20px 20px;
+    border-style: outset;
+    border-width: 10px;
+    border-radius: 10px;
 }
 
-.Buttons.Container{
-
-display:flex;
-justify-content: center;
+#txtcolour{   
+    color: rgb(1, 174, 7);
 }

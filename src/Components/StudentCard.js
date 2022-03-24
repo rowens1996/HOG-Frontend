@@ -19,10 +19,7 @@ import {
   import {SiJavascript} from 'react-icons/si'
   import {FaHtml5} from 'react-icons/fa'
 
-
-   
   import "./StudentCard.css";
-
 
 export default function StudentCard(props) {
   const consolelog = () => {
@@ -37,6 +34,7 @@ export default function StudentCard(props) {
       return "Looking for Work";
     }
   };
+
 
 const icons = ()=>{
   
@@ -57,11 +55,11 @@ if (props.userProfile.skills.includes("JS")){
   skillIcons.push(<SiJavascript size={60} color={"#F0DB4F"} />)
 }
 
-
-let ico = skillIcons.map((item)=>{ return item})
-return ico
-
-}
+    let ico = skillIcons.map((item) => {
+      return item;
+    });
+    return ico;
+  };
 
   const pdfLink = `http://localhost:3001/file/get/${props.userProfile.cv}`;
 
@@ -86,15 +84,15 @@ return ico
               <Button className ="github" href={props.userProfile.github}><BsGithub/> Github</Button>
               &nbsp;
               <Button className ="email" href={props.userProfile.github}><AiTwotoneMail/> Email</Button> */}
-             
-            <a href={(props.userProfile.github)}>
+            <a href={props.userProfile.github}>
               <i>
-                <BsGithub className={"githubStudentDash"} size={60} 
-                color={"var(--githubgray)"} 
+                <BsGithub
+                  className={"githubStudentDash"}
+                  size={60}
+                  color={"var(--githubgray)"}
                 />
               </i>
             </a>
-            
             &nbsp; &nbsp; &nbsp;
             <a href={props.userProfile.linkedin}>
               <i>
@@ -102,9 +100,13 @@ return ico
               </i>
             </a>
             &nbsp; &nbsp; &nbsp;
-            <a href={"mailto:"+props.userProfile.email}>
+            <a href={"mailto:" + props.userProfile.email}>
               <i>
-                <AiTwotoneMail className={"emailStudentDash"} size={75} color={"white"} />
+                <AiTwotoneMail
+                  className={"emailStudentDash"}
+                  size={75}
+                  color={"white"}
+                />
               </i>
             </a>
           </Container>
@@ -115,23 +117,26 @@ return ico
           <Card.Text className="BioText">
             dob: {props.userProfile.dob} <br /> Courses Completed:{" "}
             {props.userProfile.course.join(", ")}
-            <br /> Employment Status: {employed()} 
-            <br/> Location: {props.userProfile.location}
+            <br /> Employment Status: {employed()}
+            <br /> Location: {props.userProfile.location}
           </Card.Text>
-            <Nav.Link href={pdfLink} >Preview CV</Nav.Link>
+          <Nav.Link href={pdfLink}>Preview CV</Nav.Link>
           <Card.Title className="bio"> Tech Skills </Card.Title>
+
 
           {/* <Card.Text className="BioText">
   
             Skills: {props.userProfile.skills.join("  ")}{" "}
           </Card.Text> */}
+
           <Card.Text className="BioText">
-  
              {icons()}
           </Card.Text>
+
         </Card.Body>
         {/* skills array? */}
         {/* <ListGroup className="list-group-flush">
+
             <a href={props.userProfile.linkedin}><BsLinkedin/></a>
             {/* <Button>  {userProfile.linkedin} </Button> */}
         {/* <Button> href ={userProfile.linkedin} </Button> */}
@@ -143,4 +148,3 @@ return ico
     </Container>
   );
 }
-

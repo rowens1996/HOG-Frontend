@@ -103,7 +103,9 @@ function App() {
       </Container>
       <footer className="container-fluid bg-5 text-center">
         <p>
-          This Website Was Made By Ryan Owens/Abdullah Daoub/ Barni <br />
+
+          This Website Was Made By Ryan Owens, Abdullah Adaoub, Barnabas Puskas <br />
+
           Copyright &copy; 2022
         </p>
       </footer>

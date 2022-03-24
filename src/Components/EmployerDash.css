@@ -4,6 +4,16 @@
     height: 100%;
     align-items: center;
     margin: auto;
+    
+}
+
+#navLinks{
+
+  font-family: "Bubblegum Sans", cursive;
+  border-width: 3px;
+    min-width: 16%;
+    font-size: 25px;
+   
 }
 
 .mappedCards.card{
@@ -11,6 +21,17 @@
     display:flex;
     align-items: flex-start;
     justify-content: flex-start;
+
+    background-color: rgba(39, 39, 39, 1);
+    border-style: outset;
+    border-width: 5px;
+    border-radius: 10px;
+}
+
+/* nhguhgsijdhfo
+img.card-img.profilepi{
+    width:100px;
+    height:100px;
     background-color: #1A1B21;
     padding: 2%;
 }
@@ -19,7 +40,7 @@ img.card-img.profilepic{
   
     width:250px;
     height:200px;
-}
+} */
 
 
 .details.card-header{
