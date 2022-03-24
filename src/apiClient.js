@@ -47,11 +47,12 @@ export class ApiClient {
     });
   }
 
-  addNewUser(username, password, role) {
+  addNewUser(username, password, role, employerkey) {
     return this.authenticatedCall("post", `${url}register`, {
       username: username,
       password: password,
       role: role,
+      employerkey: employerkey,
     });
   }
 
