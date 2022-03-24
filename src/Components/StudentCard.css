@@ -112,3 +112,43 @@ img.card-img.pic {
   padding: 10px;
   padding-top: 0;
 }
+
+@media (max-width: 990px) {
+  .profileCard.card {
+    margin: 0px 7vw 5vw 7vw;
+  }
+}
+
+@media (max-width: 768px) {
+  div.nav-item{
+    font-size: 5vw;
+  }
+  nav.navbar {
+    
+  }
+  #navContainer.container {
+    margin: 0;
+    flex-direction: column;
+  }
+  #navLinks.nav-link {
+    font-size: 3vw;
+  }
+  .profileCard.card {
+    margin: 0px 5vw 3vw 5vw;
+  }
+  #title.card-title {
+    font-size: 6vw;
+  }
+  .BioText.card-text {
+    font-size: 2.5vw;
+  }
+  .bio.card-title {
+    font-size: 3.5vw;
+  }
+  .card-body > .nav-link {
+    font-size: 3vw;
+  }
+}
+
+@media (max-width: 576px) {
+}

@@ -113,10 +113,10 @@ export default function StudentCard(props) {
 
           <Card.Title className="bio"> Deatils </Card.Title>
           <Card.Text className="BioText">
-            dob: {props.userProfile.dob} <br /> Courses Completed:{" "}
+            DOB : {props.userProfile.dob} <br /> <br /> Courses Completed :{" "}
             {props.userProfile.course.join(", ")}
-            <br /> Employment Status: {employed()}
-            <br /> Location: {props.userProfile.location}
+            <br /> <br /> Employment Status : {employed()}
+            <br /> <br /> Location : {props.userProfile.location}
           </Card.Text>
           <Nav.Link href={pdfLink}>Preview CV</Nav.Link>
           <Card.Title className="bio"> Tech Skills </Card.Title>

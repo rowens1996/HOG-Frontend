@@ -17,13 +17,13 @@ label.form-label {
 
 small.form-text,
 label.form-check-label {
-  color: aqua;
+  color: #0275d8 
 }
 
-button.btn.btn-primary:hover {
+/* button.btn.btn-primary:hover {
   background-color: orangered;
   border-color: orangered;
-}
+} */
 
 .form-check-input {
   width: 1em;
@@ -41,4 +41,22 @@ div.nav-item {
   font-family: "Bubblegum Sans", cursive;
   font-size: 25px;
   color: rgb(1, 174, 7);
+}
+
+/* Responsive Design*/
+@media (min-width: 1200px) {
+ 
+}
+@media (max-width: 1080px) {
+
+}
+@media (max-width: 768px) {
+  div.nav-item{
+    font-size: 3.5vw;
+  }
+}
+
+@media (max-width: 576px) {
+
+  
 }

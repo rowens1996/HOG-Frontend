@@ -2,6 +2,7 @@ import { Button, Container, Form } from "react-bootstrap/";
 import { useState } from "react";
 import "./StudentAdd.css";
 
+
 function UploadFiles(props) {
   const [selectedPic, cSelectedPic] = useState();
   const [selectedCV, cSelectedCV] = useState();
@@ -89,13 +90,14 @@ function UploadFiles(props) {
           controlId="formFile"
           className="mb-3"
         >
-          <Form.Label>{id.formLabel}</Form.Label>
+          <Form.Label className="upload">{id.formLabel}</Form.Label>
           <Form.Control type="file" name="myfile" onChange={id.changeHandler} />
         </Form.Group>
         <span>
           <Button type="submit" onClick={(e) => id.uploadFunction(e)}>
             Upload
           </Button>
+          &nbsp;&nbsp;
           <Button type="submit" onClick={id.deleteFunction}>
             Delete
           </Button>

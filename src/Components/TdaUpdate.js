@@ -108,7 +108,7 @@ function TdaUpdate(props) {
         <Modal.Body>
           <Container id="formContainer">
             <Form.Group controlId="fName">
-              <Form.Label>First Name</Form.Label>
+              <Form.Label id="txtcolour">First Name</Form.Label>
               <Form.Control
                 type="text"
                 defaultValue={props.currentProfile?.fname}
@@ -118,7 +118,7 @@ function TdaUpdate(props) {
             </Form.Group>
 
             <Form.Group controlId="lName">
-              <Form.Label>Last Name</Form.Label>
+              <Form.Label id="txtcolour">Last Name</Form.Label>
               <Form.Control
                 type="text"
                 defaultValue={props.currentProfile?.lname}
@@ -128,7 +128,7 @@ function TdaUpdate(props) {
             </Form.Group>
 
             <Form.Group controlId="dateOfBirth">
-              <Form.Label>Date of Birth</Form.Label>
+              <Form.Label id="txtcolour">Date of Birth</Form.Label>
               <Form.Control
                 type="date"
                 defaultValue={props.currentProfile?.dob}
@@ -138,7 +138,7 @@ function TdaUpdate(props) {
             </Form.Group>
 
             <Form.Group controlId="location">
-              <Form.Label>Location</Form.Label>
+              <Form.Label id="txtcolour">Location</Form.Label>
               <Form.Control
                 type="text"
                 defaultValue={props.currentProfile?.location}
@@ -148,7 +148,7 @@ function TdaUpdate(props) {
             </Form.Group>
 
             <Form.Group controlId="bio">
-              <Form.Label>Bio</Form.Label>
+              <Form.Label id="txtcolour">Bio</Form.Label>
               <Form.Control
                 type="text"
                 as="textarea"
@@ -160,7 +160,7 @@ function TdaUpdate(props) {
             </Form.Group>
 
             <Form.Group controlId="course">
-              <Form.Label>Developer Academy Courses</Form.Label>
+              <Form.Label id="txtcolour">Developer Academy Courses</Form.Label>
               <Select
                 className="findSelect"
                 onChange={(e) => {
@@ -190,7 +190,7 @@ function TdaUpdate(props) {
           /> */}
             </Form.Group>
 
-            <Form.Text>Are you employed?</Form.Text>
+            <Form.Text id="txtcolour">Are you employed?</Form.Text>
             <Form.Group controlId="registerRole">
               <FormCheck
                 name="employed"
@@ -217,7 +217,7 @@ function TdaUpdate(props) {
             </Form.Group> */}
 
             <Form.Group controlId="email">
-              <Form.Label>Email</Form.Label>
+              <Form.Label id="txtcolour"> Email</Form.Label>
               <Form.Control
                 type="text"
                 name="email"
@@ -227,7 +227,7 @@ function TdaUpdate(props) {
             </Form.Group>
 
             <Form.Group controlId="linkedIn">
-              <Form.Label>linkedin</Form.Label>
+              <Form.Label id="txtcolour">linkedin</Form.Label>
               <Form.Control
                 type="url"
                 name="linkedin"
@@ -237,7 +237,7 @@ function TdaUpdate(props) {
             </Form.Group>
 
             <Form.Group controlId="gitHub">
-              <Form.Label>github </Form.Label>
+              <Form.Label id="txtcolour">github </Form.Label>
               <Form.Control
                 type="url"
                 name="github"
@@ -247,7 +247,7 @@ function TdaUpdate(props) {
             </Form.Group>
             <Stack gap={2} className="col-md-50 mx-auto">
               <Form.Group controlId="cV">
-                <Form.Label>cv</Form.Label>
+                <Form.Label id="txtcolour">cv</Form.Label>
 
                 <Form.Control
                   type="text"
@@ -258,7 +258,7 @@ function TdaUpdate(props) {
               </Form.Group>
 
               <Form.Group className="findSelectForm">
-                <Form.Label>Skills</Form.Label>
+                <Form.Label id="txtcolour">Skills</Form.Label>
 
                 <Select
                   className="findSelect"

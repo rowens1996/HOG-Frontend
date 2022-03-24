@@ -12,6 +12,8 @@
   justify-content: flex-start;
   background-color: #1a1b21;
   padding: 2%;
+  opacity:0.94;
+
 }
 
 img.card-img.profilepic {
@@ -73,8 +75,8 @@ p.card-text {
 }
 
 img.card-img.pic {
-  width: 1000px;
-  height: 100px;
+  /* width: 1000px; */
+  height: 100%;
 }
 
 #title {
@@ -158,4 +160,22 @@ img.card-img.pic {
 
 label.fname.form-label {
   color: black;
+}
+
+.updateDelete.btn{
+  display: flex;
+  height: auto;
+}
+
+.mappedSkills{
+display: flex;
+justify-items: center;
+justify-content: space-evenly;
+width: 100%;
+
+}
+
+
+p.cardButton.card-text{
+  margin: 5px, 0px, 5px, 0px
 }

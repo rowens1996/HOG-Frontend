@@ -22,6 +22,14 @@ import { FaUserGraduate } from "react-icons/fa";
 import { BsLinkedin } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import { AiTwotoneMail } from "react-icons/ai";
+import { FaCss3Alt } from "react-icons/fa";
+import { FaReact } from "react-icons/fa";
+import { SiMongodb } from "react-icons/si";
+import { SiJavascript } from "react-icons/si";
+import { FaHtml5 } from "react-icons/fa";
+import { FaFileDownload } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
+import { FaPenAlt} from "react-icons/fa";
 
 function TdaDash(props) {
   const [studentList, cStudentsList] = useState([]);
@@ -64,6 +72,29 @@ function TdaDash(props) {
     cOpen((prevState) => ({ ...prevState, [id]: !prevState[id] }));
   };
 
+  const icons = (skills) => {
+    let skillIcons = [];
+    if (skills.includes("CSS")) {
+      skillIcons.push(<FaCss3Alt size={40} color={"#264de4"} />);
+    }
+    if (skills.includes("React")) {
+      skillIcons.push(<FaReact size={40} color={"#61DBFB"} />);
+    }
+    if (skills.includes("HTML")) {
+      skillIcons.push(<FaHtml5 size={40} color={" #E34C26"} />);
+    }
+    if (skills.includes("MongoDB")) {
+      skillIcons.push(<SiMongodb size={40} color={"#3FA037"} />);
+    }
+    if (skills.includes("JS")) {
+      skillIcons.push(<SiJavascript size={40} color={"#F0DB4F"} />);
+    }
+    let ico = skillIcons.map((item) => {
+      return item;
+    });
+    return ico;
+  };
+
   useEffect(() => {
     refreshList();
     // eslint-disable-next-line
@@ -88,7 +119,7 @@ function TdaDash(props) {
             </Card.Header>
             <br />
             <Card.Text>{current.course}</Card.Text>
-            <Card.Text>{current.skills.join("   ")}</Card.Text>
+            <Card.Text className="mappedSkills">{icons(current.skills, current._id)}</Card.Text>
             <Stack>
               <Button
                 variant="secondary"
@@ -99,9 +130,9 @@ function TdaDash(props) {
                 Expand Profile
               </Button>
             </Stack>
+            <br/>
             <Collapse className="extra" in={open[current._id]}>
-              <div className="extra">
-                &nbsp; &nbsp; &nbsp;
+              <Container className="expand collapse container">
                 <Card.Text className="cardButton">
                   <a href={current.linkedin}>
                     <i>
@@ -109,7 +140,6 @@ function TdaDash(props) {
                     </i>
                   </a>
                 </Card.Text>
-                &nbsp; &nbsp; &nbsp;
                 <Card.Text className="cardButton">
                   <a href={current.github}>
                     <i>
@@ -117,33 +147,61 @@ function TdaDash(props) {
                     </i>
                   </a>
                 </Card.Text>
-                &nbsp; &nbsp; &nbsp;
                 <Card.Text className="cardButton">
-                  <a href={current.github}>
+                  <a href={"mailto:" + current.email}>
                     <i>
-                      <AiTwotoneMail size={40} color={"white"} />
+                      <AiTwotoneMail size={47} color={"white"} />
                     </i>
                   </a>
                 </Card.Text>
                 <Card.Text>
                   Employment Status: {employed(current.employed)}{" "}
                 </Card.Text>
-                <Card.Text>"current.graduated"</Card.Text>
+
                 <Card.Text className="cardButton">
+                  {" "}
+                 &nbsp;
                   <a
                     href={`http://localhost:3001/file/get/${current.cv}`}
                     target="_blank"
                   >
-                    <Button size="sm" variant="success">
-                      Download CV
-                    </Button>
+                    <i>
+                      <Button variant="secondary" size="sm">
+                      Download CV <FaFileDownload size={30} color={"white"} />
+                      </Button>
+                    </i>
                   </a>
                 </Card.Text>
-              </div>
+                <Container className="updateDelete btn">
+                  
+                
+                  <Button
+                    
+                    variant="danger"
+                    className="remove"
+                    onClick={() => removeProfile(current._id)}
+                  >
+                    Delete<FaTrashAlt size={25}/>
+                  </Button>
+                 
+                  &nbsp; &nbsp; &nbsp;
+                  <Button
+                    
+                    variant="primary"
+                    onClick={() => {
+                      handleShow();
+                      updateTdaProfile(current);
+                    }}
+                  >
+                    Update<FaPenAlt size={25}/>
+                  </Button>
+                 
+                </Container>
+              </Container>
             </Collapse>
             <br />
 
-            <Container className="update">
+            {/* <Container className="update">
               <Button
                 variant="danger"
                 className="remove"
@@ -160,7 +218,7 @@ function TdaDash(props) {
               >
                 Update
               </Button>
-            </Container>
+            </Container> */}
           </Card>
         </Col>
       );
@@ -169,8 +227,12 @@ function TdaDash(props) {
 
   return (
     <>
-      <NavbarComp role={props.role} logout={props.logout} openSearch={openSearch}
-        setOpenSearch={setOpenSearch}/>
+      <NavbarComp
+        role={props.role}
+        logout={props.logout}
+        openSearch={openSearch}
+        setOpenSearch={setOpenSearch}
+      />
       <Nav.Link id="navLinks" onClick={() => props.logout()}></Nav.Link>
       <SearchAll
         refreshList={() => {
@@ -209,8 +271,6 @@ function TdaDash(props) {
           setOpenSearch={setOpenSearch}
         />
       </Container>
-
-      
     </>
   );
 }

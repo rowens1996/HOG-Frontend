@@ -95,7 +95,7 @@ function EmployerDash(props) {
               </Card.Header>
               <br />
               <Card.Text>{current.course}</Card.Text>
-              <Card.Text>{icons(current.skills, current._id)}</Card.Text>
+              <Card.Text className="mappedSkills">{icons(current.skills, current._id)}</Card.Text>
               <Stack>
                 <Button
                   onClick={() => collapse(current._id)}
@@ -138,14 +138,14 @@ function EmployerDash(props) {
                   <Container className="CV">
                     <Card.Text className="cardButton">
                       {" "}
-                      Download CV &nbsp;
+                      &nbsp;
                       <a
                         href={`http://localhost:3001/file/get/${current.cv}`}
                         target="_blank"
                       >
                         <i>
                           <Button variant="secondary" size="sm">
-                            <FaFileDownload size={20} color={"white"} />
+                          Download CV<FaFileDownload size={30} color={"white"} />
                           </Button>
                         </i>
                       </a>

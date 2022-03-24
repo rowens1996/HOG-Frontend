@@ -57,6 +57,7 @@ body {
   font-family: "Bubblegum Sans", cursive;
   font-size: 40px;
   color: rgb(1, 174, 7);
+  margin: 0;
 }
 
 #navLoginContainer {
@@ -81,12 +82,12 @@ body {
 #gradlogo {
   padding-right: 10px;
   padding-bottom: 5px;
-  color: rgb(1, 174, 7);
+  color: #6c757d;
 }
 
 div#div.container {
-  margin-top: 10%;
-  margin-bottom: 10%;
+  margin-top: 3.5%;
+  margin-bottom: 3.5%;
 }
 
 div.nav-item {
@@ -101,15 +102,22 @@ div.nav-item {
   border-width: 10px;
   padding-top: 75px;
   padding-bottom: 75px;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  /* padding-top: 75px;
+  padding-bottom: 75px;
   padding-left: 150px;
   padding-right: 150px;
+} */
 }
+  
 
 /* defines login text font, colour */
 #loginForm {
+  width: 100%;
   font-family: "Bubblegum Sans", cursive;
   color: rgb(1, 174, 7);
-  padding-right: 100px;
+  /* padding-right: 100px; */
 }
 #loginForm > small,
 #registerForm > small {
@@ -121,10 +129,11 @@ div.nav-item {
 
 /* defines signup form position, potential other position */
 #registerForm {
+  width: 100%;
   /* margin-left: 960px;
   margin: bottom 400px;  */
   /* padding-top: 100px; */
-  padding-left: 100px;
+  /* padding-left: 100px; */
   font-family: "Bubblegum Sans", cursive;
 }
 
@@ -200,4 +209,67 @@ div.list-group-item {
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0);
   border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+/* Responsive Design*/
+@media (min-width: 1200px) {
+  #header{
+    font-size: 3vw;
+  }
+  form#loginForm{
+    width: 25vw;
+  }
+  form#registerForm{
+    width: 25vw;
+  }
+  #formBackground > div.row{
+    flex-direction: row;
+  }
+  #loginForm > small,
+  #registerForm > small {
+  font-size: 3vw;
+}
+div#div.container {
+  margin-top: 3.5%;
+  margin-bottom: 3.5%;
+}
+form#loginForm{
+  width: 95%
+}
+.form-control{
+  font-size: 3vw;
+}
+form#registerForm{
+  width: 95%
+}
+#formBackground{
+  padding: 5vw;
+}
+/* div.container{
+  margin-right: 10vw;
+  margin-left: 10vw;
+  align-items: center;
+} */
+}
+@media (max-width: 990px) {
+ form#loginForm{
+    width: 100%
+  }
+  form#registerForm{
+    width: 100%
+  }
+}
+@media (max-width: 768px) {
+ 
+}
+/*Responsive Design*/
+/* Mobile */
+@media (max-width: 576px) {
+ #formBackground > div.row{
+    flex-direction: column;
+  }
+  #header{
+    font-size: 5vw;
+  }
+  
 }

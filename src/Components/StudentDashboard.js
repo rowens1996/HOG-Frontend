@@ -41,7 +41,6 @@ function StudentDashboard(props) {
     course: [],
     employed: null,
     skills: [],
-    //date since employment/graduation: String,
     linkedin: "",
     github: "",
     cv: "",

@@ -31,6 +31,7 @@ function SearchAll(props) {
       //sCourse: e.target.sCourse.value,
       sCourse: e.target.sCourse.value,
       sSkills: skills.map((item) => item.value),
+      Location: e.target.Location.value
     };
     props.querySearch(search);
   };
@@ -78,6 +79,17 @@ function SearchAll(props) {
                 placeholder="Participant's last name"
               ></Form.Control>
             </Form.Group>
+
+            <Form.Group>
+            <Form.Label id="txtcolour" className="fname">Location:</Form.Label>
+            <Form.Control
+              type="text"
+              defaultValue={props.currentProfile?.Location}
+              name="Location"
+              disabled={disabled}
+              placeholder="Participant's Location"
+            ></Form.Control>
+          </Form.Group>
 
             <Form.Group>
               <Form.Label id="txtcolour">Course:</Form.Label>

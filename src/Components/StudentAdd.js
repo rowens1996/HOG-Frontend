@@ -139,7 +139,7 @@ function StudentAdd(props) {
             </Form.Group>
 
             <Form.Group controlId="location">
-              <Form.Label>Location</Form.Label>
+              <Form.Label id="txtcolour">Location</Form.Label>
               <Form.Control
                 type="text"
                 defaultValue={props.currentProfile?.location}
@@ -198,7 +198,7 @@ function StudentAdd(props) {
             <Form.Group controlId="registerRole">
               <FormCheck
                 name="employed"
-                type="checkbox"
+                type="switch"
                 label="I am employed"
                 defaultValue={props.currentProfile?.employed}
                 disabled={disabled}
@@ -211,7 +211,7 @@ function StudentAdd(props) {
               </Form.Group> */}
 
             <Form.Group controlId="email">
-              <Form.Label>Email</Form.Label>
+              <Form.Label id="txtcolour">Email</Form.Label>
               <Form.Control
                 type="text"
                 name="email"
@@ -243,7 +243,7 @@ function StudentAdd(props) {
               <Form.Group className="findSelectForm">
                 <Form.Label id="txtcolour">Skills</Form.Label>
 
-                <Select
+                <Select 
                   className="findSelect"
                   onChange={(e) => {
                     cSkills(e);
@@ -256,7 +256,7 @@ function StudentAdd(props) {
                   name="skills"
                 ></Select>
               </Form.Group>
-              <UploadFiles
+              <UploadFiles 
                 username={props.username}
                 client={props.client}
                 avatar={avatar}
